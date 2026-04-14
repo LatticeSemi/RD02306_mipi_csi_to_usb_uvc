@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice">
+    <ipxact:vendor>latticesemi.com</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>gpio</ipxact:name>
+    <ipxact:version>1.0.0.02</ipxact:version>
+    <ipxact:model>
+        <ipxact:moduleParameters>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="param" resolve="generated" type="string">
+                <ipxact:name>param</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="FAMILY" resolve="generated" type="string">
+                <ipxact:name>FAMILY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DATA_WIDTH" resolve="generated" type="int">
+                <ipxact:name>DATA_WIDTH</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="ADDR_WIDTH" resolve="generated" type="int">
+                <ipxact:name>ADDR_WIDTH</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="CFG1_INIT_MODE" resolve="generated" type="bool">
+                <ipxact:name>CFG1_INIT_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="CFG1_INIT_FILE" resolve="generated" type="path">
+                <ipxact:name>CFG1_INIT_FILE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="UFM2_INIT_MODE" resolve="generated" type="bool">
+                <ipxact:name>UFM2_INIT_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="UFM2_INIT_FILE" resolve="generated" type="path">
+                <ipxact:name>UFM2_INIT_FILE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="param" resolve="generated" type="string">
+                <ipxact:name>param</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="FAMILY" resolve="generated" type="string">
+                <ipxact:name>FAMILY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="IO_LINES_COUNT" resolve="generated" type="int">
+                <ipxact:name>IO_LINES_COUNT</ipxact:name>
+                <ipxact:matchname sequence_id="1">LINES_NUM</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="OUT_RESET_VAL_INPUT" resolve="generated" type="string">
+                <ipxact:name>OUT_RESET_VAL_INPUT</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="OUT_RESET_VAL" resolve="generated" type="string">
+                <ipxact:name>OUT_RESET_VAL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="IO_OUT_DEF_VAL" resolve="generated" type="string">
+                <ipxact:name>IO_OUT_DEF_VAL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DIRECTION_DEF_VAL_INPUT" resolve="generated" type="string">
+                <ipxact:name>DIRECTION_DEF_VAL_INPUT</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DIRECTION_DEF_VAL" resolve="generated" type="string">
+                <ipxact:name>DIRECTION_DEF_VAL</ipxact:name>
+                <ipxact:matchname sequence_id="2">GPIO_DIRS</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DIRECTION_DEF_ENCODING" resolve="generated" type="string">
+                <ipxact:name>DIRECTION_DEF_ENCODING</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="IF_USER_INTF" resolve="generated" type="string">
+                <ipxact:name>IF_USER_INTF</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+        </ipxact:moduleParameters>
+    </ipxact:model>
+    <ipxact:vendorExtensions>
+        <lattice:structName>gpio_instance</lattice:structName>
+        <lattice:initName>gpio_init</lattice:initName>
+        <lattice:headerFile>gpio.h</lattice:headerFile>
+    </ipxact:vendorExtensions>
+</ipxact:component>

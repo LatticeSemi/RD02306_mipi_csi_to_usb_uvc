@@ -1,0 +1,1137 @@
+<?xml version="1.0" ?>
+<ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi.com</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>cpu0</ipxact:name>
+    <ipxact:version>2.8.1</ipxact:version>
+    <ipxact:busInterfaces>
+        <ipxact:busInterface>
+            <ipxact:name>IRQ_S3</ipxact:name>
+            <ipxact:displayName>IRQ_S3</ipxact:displayName>
+            <ipxact:description>Interrupt Requests</ipxact:description>
+            <ipxact:busType library="busdef.interrupt" name="interrupt" vendor="spiritconsortium.org" version="1.0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="busdef.interrupt" name="interrupt_rtl" vendor="spiritconsortium.org" version="1.0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>IRQ</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>irq3_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:slave/>
+        </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>IRQ_S2</ipxact:name>
+            <ipxact:displayName>IRQ_S2</ipxact:displayName>
+            <ipxact:description>Interrupt Requests</ipxact:description>
+            <ipxact:busType library="busdef.interrupt" name="interrupt" vendor="spiritconsortium.org" version="1.0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="busdef.interrupt" name="interrupt_rtl" vendor="spiritconsortium.org" version="1.0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>IRQ</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>irq2_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:slave/>
+        </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>IRQ_S1</ipxact:name>
+            <ipxact:displayName>IRQ_S1</ipxact:displayName>
+            <ipxact:description>Interrupt Requests</ipxact:description>
+            <ipxact:busType library="busdef.interrupt" name="interrupt" vendor="spiritconsortium.org" version="1.0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="busdef.interrupt" name="interrupt_rtl" vendor="spiritconsortium.org" version="1.0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>IRQ</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>irq1_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:slave/>
+        </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>IRQ_S0</ipxact:name>
+            <ipxact:displayName>IRQ_S0</ipxact:displayName>
+            <ipxact:description>Interrupt Requests</ipxact:description>
+            <ipxact:busType library="busdef.interrupt" name="interrupt" vendor="spiritconsortium.org" version="1.0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="busdef.interrupt" name="interrupt_rtl" vendor="spiritconsortium.org" version="1.0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>IRQ</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>irq0_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:slave/>
+        </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>TIMER_IRQ_M0</ipxact:name>
+            <ipxact:displayName>TIMER_IRQ_M0</ipxact:displayName>
+            <ipxact:description>Timer IRQ Output</ipxact:description>
+            <ipxact:busType library="busdef.interrupt" name="interrupt" vendor="spiritconsortium.org" version="1.0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="busdef.interrupt" name="interrupt_rtl" vendor="spiritconsortium.org" version="1.0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>IRQ</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>timer_irq_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:master/>
+        </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>AHBL_M0_INSTR</ipxact:name>
+            <ipxact:displayName>AHBL_M0_INSTR</ipxact:displayName>
+            <ipxact:description>AHB-Lite Master Inteface for Instruction (Read-Only)</ipxact:description>
+            <ipxact:busType library="AMBA3" name="AHBLite" vendor="amba.com" version="r1p0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="AMBA3" name="AHBLite_rtl" vendor="amba.com" version="r1p0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HADDR</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_haddr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HBURST</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hburst_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HMASTLOCK</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hmastlock_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HPROT</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hprot_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HRDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hrdata_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HREADY</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hready_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HRESP</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hresp_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HSIZE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hsize_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HTRANS</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_htrans_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HWDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hwdata_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HWRITE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_instr_hwrite_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:master>
+                <ipxact:addressSpaceRef addressSpaceRef="riscv_ahbl_m_instr_Address_Space"/>
+            </ipxact:master>
+        </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>AHBL_M1_DATA</ipxact:name>
+            <ipxact:displayName>AHBL_M1_DATA</ipxact:displayName>
+            <ipxact:description>AHB-Lite Master Inteface for Data</ipxact:description>
+            <ipxact:busType library="AMBA3" name="AHBLite" vendor="amba.com" version="r1p0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="AMBA3" name="AHBLite_rtl" vendor="amba.com" version="r1p0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HADDR</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_haddr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HBURST</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hburst_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HMASTLOCK</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hmastlock_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HPROT</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hprot_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HRDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hrdata_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HREADY</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hready_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HRESP</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hresp_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HSIZE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hsize_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HTRANS</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_htrans_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HWDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hwdata_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>HWRITE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>ahbl_m_data_hwrite_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:master>
+                <ipxact:addressSpaceRef addressSpaceRef="riscv_ahbl_m_data_Address_Space"/>
+            </ipxact:master>
+        </ipxact:busInterface>
+    </ipxact:busInterfaces>
+    <ipxact:addressSpaces>
+        <ipxact:addressSpace>
+            <ipxact:name>riscv_ahbl_m_instr_Address_Space</ipxact:name>
+            <ipxact:range>4294967296</ipxact:range>
+            <ipxact:width>32</ipxact:width>
+            <ipxact:parameters>
+                <ipxact:parameter>
+                    <ipxact:name>ICACHE_ENABLE</ipxact:name>
+                    <ipxact:value>ICACHE_ENABLE</ipxact:value>
+                </ipxact:parameter>
+                <ipxact:parameter>
+                    <ipxact:name>ICACHE_RANGE_LOW</ipxact:name>
+                    <ipxact:value>ICACHE_RANGE_LOW</ipxact:value>
+                </ipxact:parameter>
+                <ipxact:parameter>
+                    <ipxact:name>ICACHE_RANGE_HIGH</ipxact:name>
+                    <ipxact:value>ICACHE_RANGE_HIGH</ipxact:value>
+                </ipxact:parameter>
+            </ipxact:parameters>
+        </ipxact:addressSpace>
+        <ipxact:addressSpace>
+            <ipxact:name>riscv_ahbl_m_data_Address_Space</ipxact:name>
+            <ipxact:range>4294967296</ipxact:range>
+            <ipxact:width>32</ipxact:width>
+            <ipxact:localMemoryMap>
+                <ipxact:name>pic_timer_mem_map</ipxact:name>
+                <ipxact:description>AHB-Lite PIC and Timer memory map</ipxact:description>
+                <ipxact:addressBlock>
+                    <ipxact:name>pic_timer_registers</ipxact:name>
+                    <ipxact:displayName>PIC_Timer_Registers</ipxact:displayName>
+                    <ipxact:description>PIC Timer Registers</ipxact:description>
+                    <ipxact:baseAddress>32'hFFFF0000</ipxact:baseAddress>
+                    <ipxact:range>2048</ipxact:range>
+                    <ipxact:width>32</ipxact:width>
+                    <ipxact:usage>register</ipxact:usage>
+                    <ipxact:register>
+                        <ipxact:name>PIC_STATUS</ipxact:name>
+                        <ipxact:displayName>Interrupt_Status_Register</ipxact:displayName>
+                        <ipxact:description>Interrupt Status Register</ipxact:description>
+                        <ipxact:addressOffset>0</ipxact:addressOffset>
+                        <ipxact:size>4</ipxact:size>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>status</ipxact:name>
+                            <ipxact:displayName>status</ipxact:displayName>
+                            <ipxact:description>Interrupt Status</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>4</ipxact:bitWidth>
+                            <ipxact:volatile>true</ipxact:volatile>
+                            <ipxact:access>read-write</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                    <ipxact:register>
+                        <ipxact:name>PIC_ENABLE</ipxact:name>
+                        <ipxact:displayName>Interrupt_Enable_Register</ipxact:displayName>
+                        <ipxact:description>Interrupt Enable Register</ipxact:description>
+                        <ipxact:addressOffset>4</ipxact:addressOffset>
+                        <ipxact:size>4</ipxact:size>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>enable</ipxact:name>
+                            <ipxact:displayName>enable</ipxact:displayName>
+                            <ipxact:description>Interrupt Enable</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>4</ipxact:bitWidth>
+                            <ipxact:volatile>false</ipxact:volatile>
+                            <ipxact:access>read-write</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                    <ipxact:register>
+                        <ipxact:name>PIC_SET</ipxact:name>
+                        <ipxact:displayName>Interrupt_Set_Register</ipxact:displayName>
+                        <ipxact:description>Interrupt Set Register</ipxact:description>
+                        <ipxact:addressOffset>8</ipxact:addressOffset>
+                        <ipxact:size>4</ipxact:size>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>set</ipxact:name>
+                            <ipxact:displayName>set</ipxact:displayName>
+                            <ipxact:description>Interrupt Set</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>4</ipxact:bitWidth>
+                            <ipxact:volatile>false</ipxact:volatile>
+                            <ipxact:access>write-only</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                    <ipxact:register>
+                        <ipxact:name>PIC_POL</ipxact:name>
+                        <ipxact:displayName>Interrupt_Polarity_Register</ipxact:displayName>
+                        <ipxact:description>Interrupt Polarity Register</ipxact:description>
+                        <ipxact:addressOffset>12</ipxact:addressOffset>
+                        <ipxact:size>4</ipxact:size>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>pol</ipxact:name>
+                            <ipxact:displayName>pol</ipxact:displayName>
+                            <ipxact:description>Interrupt Polarity</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>4</ipxact:bitWidth>
+                            <ipxact:volatile>false</ipxact:volatile>
+                            <ipxact:access>read-write</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                    <ipxact:register>
+                        <ipxact:name>TIMER_CNT_L</ipxact:name>
+                        <ipxact:displayName>Timer_Counter_Lower_Register</ipxact:displayName>
+                        <ipxact:description>Timer Counter Lower Register</ipxact:description>
+                        <ipxact:addressOffset>1024</ipxact:addressOffset>
+                        <ipxact:size>32</ipxact:size>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>cnt_l</ipxact:name>
+                            <ipxact:displayName>cnt_l</ipxact:displayName>
+                            <ipxact:description>Lower 32 bits of 64-bit timer counter register</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>32</ipxact:bitWidth>
+                            <ipxact:volatile>true</ipxact:volatile>
+                            <ipxact:access>read-write</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                    <ipxact:register>
+                        <ipxact:name>TIMER_CNT_H</ipxact:name>
+                        <ipxact:displayName>Timer_Counter_Higher_Register</ipxact:displayName>
+                        <ipxact:description>Timer Counter Higher Register</ipxact:description>
+                        <ipxact:addressOffset>1028</ipxact:addressOffset>
+                        <ipxact:size>32</ipxact:size>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>cnt_h</ipxact:name>
+                            <ipxact:displayName>cnt_h</ipxact:displayName>
+                            <ipxact:description>Higher 32 bits of 64-bit timer counter register</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>32</ipxact:bitWidth>
+                            <ipxact:volatile>true</ipxact:volatile>
+                            <ipxact:access>read-write</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                    <ipxact:register>
+                        <ipxact:name>TIMER_CMP_L</ipxact:name>
+                        <ipxact:displayName>Timer_Compare_Lower_Register</ipxact:displayName>
+                        <ipxact:description>Timer Compare Lower Register</ipxact:description>
+                        <ipxact:addressOffset>1040</ipxact:addressOffset>
+                        <ipxact:size>32</ipxact:size>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>cmp_l</ipxact:name>
+                            <ipxact:displayName>cmp_l</ipxact:displayName>
+                            <ipxact:description>Lower 32 bits of 64-bit timer compare register</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>32</ipxact:bitWidth>
+                            <ipxact:volatile>false</ipxact:volatile>
+                            <ipxact:access>read-write</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                    <ipxact:register>
+                        <ipxact:name>TIMER_CMP_H</ipxact:name>
+                        <ipxact:displayName>Timer_Compare_Higher_Register</ipxact:displayName>
+                        <ipxact:description>Timer Compare Higher Register</ipxact:description>
+                        <ipxact:addressOffset>1044</ipxact:addressOffset>
+                        <ipxact:size>32</ipxact:size>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:field>
+                            <ipxact:name>cmp_h</ipxact:name>
+                            <ipxact:displayName>cmp_h</ipxact:displayName>
+                            <ipxact:description>Higher 32 bits of 64-bit timer compare register</ipxact:description>
+                            <ipxact:bitOffset>0</ipxact:bitOffset>
+                            <ipxact:bitWidth>32</ipxact:bitWidth>
+                            <ipxact:volatile>false</ipxact:volatile>
+                            <ipxact:access>read-write</ipxact:access>
+                            <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                        </ipxact:field>
+                    </ipxact:register>
+                </ipxact:addressBlock>
+            </ipxact:localMemoryMap>
+            <ipxact:parameters>
+                <ipxact:parameter>
+                    <ipxact:name>SB_BASE_ADDR</ipxact:name>
+                    <ipxact:value>PICTIMER_START_ADDR</ipxact:value>
+                </ipxact:parameter>
+                <ipxact:parameter>
+                    <ipxact:name>DCACHE_ENABLE</ipxact:name>
+                    <ipxact:value>DCACHE_ENABLE</ipxact:value>
+                </ipxact:parameter>
+                <ipxact:parameter>
+                    <ipxact:name>DCACHE_RANGE_LOW</ipxact:name>
+                    <ipxact:value>DCACHE_RANGE_LOW</ipxact:value>
+                </ipxact:parameter>
+                <ipxact:parameter>
+                    <ipxact:name>DCACHE_RANGE_HIGH</ipxact:name>
+                    <ipxact:value>DCACHE_RANGE_HIGH</ipxact:value>
+                </ipxact:parameter>
+            </ipxact:parameters>
+        </ipxact:addressSpace>
+    </ipxact:addressSpaces>
+    <ipxact:model>
+        <ipxact:instantiations>
+            <ipxact:componentInstantiation>
+                <ipxact:name>cpu0</ipxact:name>
+                <ipxact:moduleParameters>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="False" parameterId="ICACHE_ENABLE" resolve="generated" type="bit">
+                        <ipxact:name>ICACHE_ENABLE</ipxact:name>
+                        <ipxact:displayName>Instruction Cache Enable</ipxact:displayName>
+                        <ipxact:value>0</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="False" parameterId="DCACHE_ENABLE" resolve="generated" type="bit">
+                        <ipxact:name>DCACHE_ENABLE</ipxact:name>
+                        <ipxact:displayName>Data Cache Enable</ipxact:displayName>
+                        <ipxact:value>0</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="32'h00000000" parameterId="ICACHE_RANGE_LOW" resolve="generated" type="string">
+                        <ipxact:name>ICACHE_RANGE_LOW</ipxact:name>
+                        <ipxact:displayName>Instruction Cache Cacheable Range Low Limit (32'h00000000 ~ 32'hFFFFFFFF)</ipxact:displayName>
+                        <ipxact:value>32'hFFFFFFFF</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="32'hF0000000" parameterId="ICACHE_RANGE_HIGH" resolve="generated" type="string">
+                        <ipxact:name>ICACHE_RANGE_HIGH</ipxact:name>
+                        <ipxact:displayName>Instruction Cache Cacheable Range High Limit (32'h00000000 ~ 32'hFFFFFFFF)</ipxact:displayName>
+                        <ipxact:value>32'h00000000</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="32'h00000000" parameterId="DCACHE_RANGE_LOW" resolve="generated" type="string">
+                        <ipxact:name>DCACHE_RANGE_LOW</ipxact:name>
+                        <ipxact:displayName>Data Cache Cacheable Range Low Limit (32'h00000000 ~ 32'hFFFFFFFF)</ipxact:displayName>
+                        <ipxact:value>32'hFFFFFFFF</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="32'hF0000000" parameterId="DCACHE_RANGE_HIGH" resolve="generated" type="string">
+                        <ipxact:name>DCACHE_RANGE_HIGH</ipxact:name>
+                        <ipxact:displayName>Data Cache Cacheable Range High Limit (32'h00000000 ~ 32'hFFFFFFFF)</ipxact:displayName>
+                        <ipxact:value>32'h00000000</ipxact:value>
+                    </ipxact:moduleParameter>
+                    <ipxact:moduleParameter configGroups="SystemBuilder" latticeDefaultValue="32'hFFFF0000" parameterId="PICTIMER_START_ADDR" resolve="generated" type="string">
+                        <ipxact:name>PICTIMER_START_ADDR</ipxact:name>
+                        <ipxact:displayName>PIC and Timer Base Address (32'h00000000 ~ 32'hFFFFF800)</ipxact:displayName>
+                        <ipxact:value>32'hFFFF0000</ipxact:value>
+                    </ipxact:moduleParameter>
+                </ipxact:moduleParameters>
+            </ipxact:componentInstantiation>
+            <ipxact:designInstantiation>
+                <ipxact:name>cpu0_design</ipxact:name>
+                <ipxact:designRef library="ip" name="cpu0" vendor="latticesemi.com" version="2.8.1"/>
+            </ipxact:designInstantiation>
+        </ipxact:instantiations>
+        <ipxact:ports>
+            <ipxact:port>
+                <ipxact:name>clk_i</ipxact:name>
+                <ipxact:displayName>clk_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+                <ipxact:vendorExtensions>
+                    <lsccip:isClk>true</lsccip:isClk>
+                </ipxact:vendorExtensions>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>rst_n_i</ipxact:name>
+                <ipxact:displayName>rst_n_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+                <ipxact:vendorExtensions>
+                    <lsccip:isRst>true</lsccip:isRst>
+                </ipxact:vendorExtensions>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>system_resetn_o</ipxact:name>
+                <ipxact:displayName>system_resetn_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+                <ipxact:vendorExtensions>
+                    <lsccip:isRst>true</lsccip:isRst>
+                </ipxact:vendorExtensions>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>irq3_i</ipxact:name>
+                <ipxact:displayName>irq3_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>irq2_i</ipxact:name>
+                <ipxact:displayName>irq2_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>irq1_i</ipxact:name>
+                <ipxact:displayName>irq1_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>irq0_i</ipxact:name>
+                <ipxact:displayName>irq0_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>0</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>timer_irq_o</ipxact:name>
+                <ipxact:displayName>timer_irq_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_haddr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_haddr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hwrite_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hwrite_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hsize_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hsize_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hburst_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hburst_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hprot_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hprot_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_htrans_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_htrans_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hmastlock_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hmastlock_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hwdata_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hwdata_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hrdata_i</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hrdata_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hready_i</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hready_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_instr_hresp_i</ipxact:name>
+                <ipxact:displayName>ahbl_m_instr_hresp_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_haddr_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_haddr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hwrite_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hwrite_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hsize_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hsize_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hburst_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hburst_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hprot_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hprot_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_htrans_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_htrans_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hmastlock_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hmastlock_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hwdata_o</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hwdata_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hrdata_i</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hrdata_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hready_i</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hready_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>ahbl_m_data_hresp_i</ipxact:name>
+                <ipxact:displayName>ahbl_m_data_hresp_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+        </ipxact:ports>
+    </ipxact:model>
+    <ipxact:fileSets>
+        <ipxact:fileSet>
+            <ipxact:name>ipx_file_list</ipxact:name>
+            <ipxact:file>
+                <ipxact:name>rtl/cpu0_bb.sv</ipxact:name>
+                <ipxact:fileType user="black_box_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>cpu0.cfg</ipxact:name>
+                <ipxact:fileType user="cfg">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>misc/cpu0_tmpl.sv</ipxact:name>
+                <ipxact:fileType user="template_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>misc/cpu0_tmpl.vhd</ipxact:name>
+                <ipxact:fileType user="template_vhdl">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>rtl/cpu0.sv</ipxact:name>
+                <ipxact:fileType user="top_level_system_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/dut_params.v</ipxact:name>
+                <ipxact:fileType user="dependency_file">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/dut_inst.v</ipxact:name>
+                <ipxact:fileType user="dependency_file">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>design.xml</ipxact:name>
+                <ipxact:fileType user="IP-XACT_design">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/bht_ini.bin</ipxact:name>
+                <ipxact:fileType user="testbench">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/bht_ini_53.bin</ipxact:name>
+                <ipxact:fileType user="testbench">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/cache_update.py</ipxact:name>
+                <ipxact:fileType user="testbench">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/cpu0.yaml</ipxact:name>
+                <ipxact:fileType user="testbench">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/reginit.bin</ipxact:name>
+                <ipxact:fileType user="testbench">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/cache.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/cache.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/crt0.S</ipxact:name>
+                <ipxact:fileType user="driver">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/exit.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/hal.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/interrupt.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/interrupt.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/iob.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/iob.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/pic.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/pic.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/reg_access.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/reg_access.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/stack.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/timer.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/timer.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/util.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/util.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+        </ipxact:fileSet>
+        <ipxact:fileSet>
+            <ipxact:name>driver_file_list</ipxact:name>
+            <ipxact:file>
+                <ipxact:name>driver/cache.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/cache.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/crt0.S</ipxact:name>
+                <ipxact:fileType user="driver">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/exit.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/hal.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/interrupt.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/interrupt.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/iob.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/iob.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/pic.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/pic.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/reg_access.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/reg_access.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/stack.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/timer.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/timer.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/util.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/util.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+        </ipxact:fileSet>
+    </ipxact:fileSets>
+    <ipxact:vendorExtensions>
+        <lsccip:moduleRef lsccip:display_name="RISC-V MC" lsccip:display_vendor="latticesemi.com" lsccip:library="ip" lsccip:name="riscv_mc" lsccip:type="cpu" lsccip:vendor="latticesemi.com" lsccip:version="2.8.1"/>
+        <lsccip:deviceInfo>
+            <lsccip:device>LIFCL-33U</lsccip:device>
+            <lsccip:device_int>jd5u27a</lsccip:device_int>
+            <lsccip:package>FCCSP104</lsccip:package>
+            <lsccip:package_int>FCCSP104</lsccip:package_int>
+            <lsccip:performanceGrade>7_High-Performance_1.0V</lsccip:performanceGrade>
+            <lsccip:speed_int>10</lsccip:speed_int>
+            <lsccip:operation>Commercial</lsccip:operation>
+            <lsccip:family>LIFCL</lsccip:family>
+            <lsccip:architecture>je5d00</lsccip:architecture>
+            <lsccip:partnumber>LIFCL-33U-7CTG104C</lsccip:partnumber>
+        </lsccip:deviceInfo>
+        <lsccip:generationInfo>
+            <lsccip:fileVersion>20180929</lsccip:fileVersion>
+            <lsccip:createdTimestamp>2026 02 28 19:29:39</lsccip:createdTimestamp>
+            <lsccip:radiantBuild>&quot;Lattice Propel&quot; (64-bit) 2025.2.0.2512111315</lsccip:radiantBuild>
+        </lsccip:generationInfo>
+    </ipxact:vendorExtensions>
+</ipxact:component>

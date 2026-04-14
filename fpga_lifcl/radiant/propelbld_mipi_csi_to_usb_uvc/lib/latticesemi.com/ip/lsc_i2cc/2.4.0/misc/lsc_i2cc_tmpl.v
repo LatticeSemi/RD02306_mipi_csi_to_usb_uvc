@@ -1,0 +1,13 @@
+    lsc_i2cc __(.scl_io( ),
+        .sda_io( ),
+        .clk_i( ),
+        .rst_n_i( ),
+        .int_o( ),
+        .apb_penable_i( ),
+        .apb_psel_i( ),
+        .apb_pwrite_i( ),
+        .apb_paddr_i( ),
+        .apb_pwdata_i( ),
+        .apb_pready_o( ),
+        .apb_pslverr_o( ),
+        .apb_prdata_o( ));

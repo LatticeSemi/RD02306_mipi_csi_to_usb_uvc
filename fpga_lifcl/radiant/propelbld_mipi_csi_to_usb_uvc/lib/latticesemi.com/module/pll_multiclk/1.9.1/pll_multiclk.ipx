@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 03 18 10:29:29" device="LIFCL-33U" device_int="jd5u27a" display_module="PLL" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Propel" gen_platform_version="2025.2.0.2512111315" generator="ipgen" library="module" module="pll" name="pll_multiclk" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi.com" version="1.9.1">
+ <Package>
+  <File modified="2026 03 18 10:29:28" name="rtl/pll_multiclk_bb.v" type="black_box_verilog"/>
+  <File modified="2026 03 18 10:29:28" name="pll_multiclk.cfg" type="cfg"/>
+  <File modified="2026 03 18 10:29:28" name="misc/pll_multiclk_tmpl.v" type="template_verilog"/>
+  <File modified="2026 03 18 10:29:28" name="misc/pll_multiclk_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 03 18 10:29:29" name="rtl/pll_multiclk.v" type="top_level_verilog"/>
+  <File modified="2026 03 18 10:29:29" name="constraints/pll_multiclk.ldc" type="timing_constraints"/>
+  <File modified="2026 03 18 10:29:29" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2026 03 18 10:29:29" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 03 18 10:29:29" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 03 18 10:29:29" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2024 04 16 04:53:01" name="testbench/tb_top.v" type="testbench_verilog"/>
+ </Package>
+</RadiantModule>

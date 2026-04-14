@@ -1,0 +1,330 @@
+<?xml version="1.0" ?>
+<ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi.com</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>ahbl_to_lmmi_inst</ipxact:name>
+    <ipxact:version>1.4.0.0</ipxact:version>
+    <ipxact:componentInstances>
+        <ipxact:componentInstance>
+            <ipxact:instanceName>ahbl_to_lmmi_bridge_inst</ipxact:instanceName>
+            <ipxact:componentRef library="ip" name="ahbl_to_lmmi_bridge" vendor="latticesemi.com" version="1.4.0.0">
+                <ipxact:configurableElementValues>
+                    <ipxact:configurableElementValue referenceId="UD">1</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="ADDR_WIDTH_I">17</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="DATA_WIDTH_I">32</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BYTE_EN_WIDTH">4</ipxact:configurableElementValue>
+                </ipxact:configurableElementValues>
+            </ipxact:componentRef>
+        </ipxact:componentInstance>
+    </ipxact:componentInstances>
+    <ipxact:adHocConnections>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbl_clk</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbl_clk"/>
+                <ipxact:externalPortReference portRef="ahbl_clk"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbl_reset_n</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbl_reset_n"/>
+                <ipxact:externalPortReference portRef="ahbl_reset_n"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hburst_i.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hburst_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbls_c_hburst_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hmastlock_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hmastlock_i"/>
+                <ipxact:externalPortReference portRef="ahbls_c_hmastlock_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hprot_i.3:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hprot_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbls_c_hprot_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hready_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hready_i"/>
+                <ipxact:externalPortReference portRef="ahbls_c_hready_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hsel_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hsel_i"/>
+                <ipxact:externalPortReference portRef="ahbls_c_hsel_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_haddr_i.16:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_haddr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>16</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbls_c_haddr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>16</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hwrite_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hwrite_i"/>
+                <ipxact:externalPortReference portRef="ahbls_c_hwrite_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hwdata_i.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hwdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbls_c_hwdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hsize_i.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hsize_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbls_c_hsize_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_htrans_i.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_htrans_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbls_c_htrans_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hrdata_o.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hrdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbls_c_hrdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hready_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hready_o"/>
+                <ipxact:externalPortReference portRef="ahbls_c_hready_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.ahbls_c_hresp_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="ahbls_c_hresp_o"/>
+                <ipxact:externalPortReference portRef="ahbls_c_hresp_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lm_clk_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lm_clk_i"/>
+                <ipxact:externalPortReference portRef="lm_clk_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lm_reset_n_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lm_reset_n_i"/>
+                <ipxact:externalPortReference portRef="lm_reset_n_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lmmi_rdata_i.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lmmi_rdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="lmmi_rdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lmmi_rdata_valid_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lmmi_rdata_valid_i"/>
+                <ipxact:externalPortReference portRef="lmmi_rdata_valid_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lmmi_ready_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lmmi_ready_i"/>
+                <ipxact:externalPortReference portRef="lmmi_ready_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lmmi_request_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lmmi_request_o"/>
+                <ipxact:externalPortReference portRef="lmmi_request_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lmmi_wr_rdn_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lmmi_wr_rdn_o"/>
+                <ipxact:externalPortReference portRef="lmmi_wr_rdn_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lmmi_offset_o.14:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lmmi_offset_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>14</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="lmmi_offset_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>14</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>ahbl_to_lmmi_inst.lmmi_wdata_o.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="ahbl_to_lmmi_inst" portRef="lmmi_wdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="lmmi_wdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+    </ipxact:adHocConnections>
+</ipxact:design>

@@ -1,0 +1,929 @@
+<?xml version="1.0" ?>
+<ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi_custom</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>unified_video_to_usb</ipxact:name>
+    <ipxact:version>1.0.0</ipxact:version>
+    <ipxact:componentInstances>
+        <ipxact:componentInstance>
+            <ipxact:instanceName>uvsi_to_usb_inst</ipxact:instanceName>
+            <ipxact:componentRef library="ip" name="uvsi_to_usb" vendor="latticesemi_custom" version="1.0.0">
+                <ipxact:configurableElementValues>
+                    <ipxact:configurableElementValue referenceId="AXI_ADDR_WIDTH_8">32</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="AXI_MEM_DEPTH">512</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="AXI_MEM_DATA_WIDTH">64</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="AHBL_MEM_DEPTH">1024</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MEM0_ADDR_WIDTH_8">18</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MEM1_ADDR_WIDTH_8">18</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MEM2_ADDR_WIDTH_8">18</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="AHBL_MEM_ADDR_WIDTH">10</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="AXI_MEM_ADDR_WIDTH">9</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BASE_ADDRESS_S0">32'h00040000</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="END_ADDRESS_S0">32'h0007FFFF</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BASE_ADDRESS_S1">32'h00140000</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="END_ADDRESS_S1">32'h0017FFFF</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BASE_ADDRESS_S2">32'h00180000</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="END_ADDRESS_S2">32'h001BFFFF</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MEM0_READ_LATENCY">2'h1</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MEM1_READ_LATENCY">2'h2</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MEM2_READ_LATENCY">2'h1</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="COLOR_FORMAT">YUV422</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BPC">8</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="PIXEL_PER_CLK">2</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="AXI_RD_ADDR_WIDTH">17</ipxact:configurableElementValue>
+                </ipxact:configurableElementValues>
+            </ipxact:componentRef>
+        </ipxact:componentInstance>
+    </ipxact:componentInstances>
+    <ipxact:adHocConnections>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.clk_pll_72m</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="clk_pll_72m"/>
+                <ipxact:externalPortReference portRef="clk_pll_72m"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.mipi_byte_clk</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="mipi_byte_clk"/>
+                <ipxact:externalPortReference portRef="mipi_byte_clk"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.mipi_byte_clk_resetn</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="mipi_byte_clk_resetn"/>
+                <ipxact:externalPortReference portRef="mipi_byte_clk_resetn"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.pixel_clk</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="pixel_clk"/>
+                <ipxact:externalPortReference portRef="pixel_clk"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.pixel_clk_reset_n</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="pixel_clk_reset_n"/>
+                <ipxact:externalPortReference portRef="pixel_clk_reset_n"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.system_reset_n</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="system_reset_n"/>
+                <ipxact:externalPortReference portRef="system_reset_n"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.tdata.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="tdata">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="tdata">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.tuser.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="tuser">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="tuser">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.tlast</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="tlast"/>
+                <ipxact:externalPortReference portRef="tlast"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.tready</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="tready"/>
+                <ipxact:externalPortReference portRef="tready"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.tvalid</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="tvalid"/>
+                <ipxact:externalPortReference portRef="tvalid"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.yuy2_tp_en</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="yuy2_tp_en"/>
+                <ipxact:externalPortReference portRef="yuy2_tp_en"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.risc_v_system_reset_n_72m</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="risc_v_system_reset_n_72m"/>
+                <ipxact:externalPortReference portRef="risc_v_system_reset_n_72m"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.mem_to_ahbl_32_wr_en_b</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="mem_to_ahbl_32_wr_en_b"/>
+                <ipxact:externalPortReference portRef="mem_to_ahbl_32_wr_en_b"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.mem_to_ahbl_32_wr_data_b.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="mem_to_ahbl_32_wr_data_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="mem_to_ahbl_32_wr_data_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.mem_to_ahbl_32_addr_b.9:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="mem_to_ahbl_32_addr_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>9</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="mem_to_ahbl_32_addr_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>9</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.mem_to_ahbl_32_ben_b.3:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="mem_to_ahbl_32_ben_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="mem_to_ahbl_32_ben_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.mem_to_ahbl_32_rd_data_b.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="mem_to_ahbl_32_rd_data_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="mem_to_ahbl_32_rd_data_b">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWADDR.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWADDR">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWADDR">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWBURST.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWBURST">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWBURST">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWID.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWLEN.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWLEN">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWLEN">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWPROT.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWPROT">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWPROT">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWSIZE.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWSIZE">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWSIZE">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWREADY</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWREADY"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWREADY"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMAWVALID</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMAWVALID"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMAWVALID"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMWDATA.63:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMWDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>63</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMWDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>63</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMWSTRB.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMWSTRB">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMWSTRB">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMWLAST</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMWLAST"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMWLAST"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMWREADY</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMWREADY"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMWREADY"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMWVALID</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMWVALID"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMWVALID"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARADDR.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARADDR">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMARADDR">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARBURST.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARBURST">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMARBURST">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARID.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMARID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARLEN.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARLEN">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMARLEN">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARPROT.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARPROT">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMARPROT">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARSIZE.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARSIZE">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMARSIZE">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARREADY</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARREADY"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMARREADY"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMARVALID</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMARVALID"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMARVALID"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMRDATA.63:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMRDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>63</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMRDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>63</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMRID.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMRID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMRID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMRRESP.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMRRESP">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMRRESP">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMRLAST</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMRLAST"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMRLAST"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMRREADY</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMRREADY"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMRREADY"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMRVALID</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMRVALID"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMRVALID"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMBID.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMBID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMBID">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMBRESP.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMBRESP">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="u23_axim_XMBRESP">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMBREADY</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMBREADY"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMBREADY"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.u23_axim_XMBVALID</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="u23_axim_XMBVALID"/>
+                <ipxact:externalPortReference portRef="u23_axim_XMBVALID"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_haddr_i.7:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_haddr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_haddr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>7</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hburst_i.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hburst_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_hburst_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hmastlock_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hmastlock_i"/>
+                <ipxact:externalPortReference portRef="ahbl_hmastlock_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hprot_i.3:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hprot_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_hprot_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>3</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hready_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hready_i"/>
+                <ipxact:externalPortReference portRef="ahbl_hready_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hsel_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hsel_i"/>
+                <ipxact:externalPortReference portRef="ahbl_hsel_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hsize_i.2:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hsize_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_hsize_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>2</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_htrans_i.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_htrans_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_htrans_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hwdata_i.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hwdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_hwdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hwrite_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hwrite_i"/>
+                <ipxact:externalPortReference portRef="ahbl_hwrite_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hrdata_o.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hrdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="ahbl_hrdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hreadyout_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hreadyout_o"/>
+                <ipxact:externalPortReference portRef="ahbl_hreadyout_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.ahbl_hresp_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="ahbl_hresp_o"/>
+                <ipxact:externalPortReference portRef="ahbl_hresp_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>unified_video_to_usb.iebm_ri_irq_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="unified_video_to_usb" portRef="iebm_ri_irq_o"/>
+                <ipxact:externalPortReference portRef="iebm_ri_irq_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+    </ipxact:adHocConnections>
+</ipxact:design>

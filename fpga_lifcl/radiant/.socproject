@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<propelProject>
+    <builder-resource>
+        <socProject sbxfile="./mipi_csi_to_usb_uvc/mipi_csi_to_usb_uvc.sbx" />
+        <verifyProject sbxfile="./verification/mipi_csi_to_usb_uvc_v.sbx" />
+    </builder-resource>
+    <builderInfo version="2025.2.0.2512111315" />
+</propelProject>

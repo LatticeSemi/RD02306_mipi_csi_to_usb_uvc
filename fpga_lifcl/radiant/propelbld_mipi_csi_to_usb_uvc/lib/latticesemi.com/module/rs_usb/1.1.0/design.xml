@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi.com</ipxact:vendor>
+    <ipxact:library>module</ipxact:library>
+    <ipxact:name>rs_usb</ipxact:name>
+    <ipxact:version>1.1.0</ipxact:version>
+    <ipxact:componentInstances>
+        <ipxact:componentInstance>
+            <ipxact:instanceName>lscc_reset_inst</ipxact:instanceName>
+            <ipxact:componentRef library="module" name="lscc_reset" vendor="latticesemi.com" version="1.1.0">
+                <ipxact:configurableElementValues>
+                    <ipxact:configurableElementValue referenceId="RESET_MODE">ASYNC</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="SYNC_STAGE">2</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="SIM_ASSERT_EN">False</ipxact:configurableElementValue>
+                </ipxact:configurableElementValues>
+            </ipxact:componentRef>
+        </ipxact:componentInstance>
+    </ipxact:componentInstances>
+    <ipxact:adHocConnections>
+        <ipxact:adHocConnection>
+            <ipxact:name>rs_usb.src_rst_n</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="rs_usb" portRef="src_rst_n"/>
+                <ipxact:externalPortReference portRef="src_rst_n"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>rs_usb.dest_clk</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="rs_usb" portRef="dest_clk"/>
+                <ipxact:externalPortReference portRef="dest_clk"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>rs_usb.dest_rst</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="rs_usb" portRef="dest_rst"/>
+                <ipxact:externalPortReference portRef="dest_rst"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>rs_usb.dest_rst_n</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="rs_usb" portRef="dest_rst_n"/>
+                <ipxact:externalPortReference portRef="dest_rst_n"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+    </ipxact:adHocConnections>
+</ipxact:design>

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 03 14 15:35:22" device="LIFCL-33U" device_int="jd5u27a" display_module="USB23" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Propel" gen_platform_version="2025.2.0.2512111315" generator="ipgen" library="USB23" module="USB23" name="usb23_ip" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi.com" version="3.1.1">
+ <Package>
+  <File modified="2026 03 14 15:35:22" name="rtl/usb23_ip_bb.v" type="black_box_verilog"/>
+  <File modified="2026 03 14 15:35:22" name="usb23_ip.cfg" type="cfg"/>
+  <File modified="2026 03 14 15:35:22" name="misc/usb23_ip_tmpl.v" type="template_verilog"/>
+  <File modified="2026 03 14 15:35:22" name="misc/usb23_ip_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 03 14 15:35:22" name="rtl/usb23_ip.v" type="top_level_verilog"/>
+  <File modified="2026 03 14 15:35:22" name="eval/dut_params.v" type="dependency_file"/>
+  <File modified="2026 03 14 15:35:22" name="eval/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 03 14 15:35:22" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 03 14 15:35:22" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2025 06 03 15:35:41" name="eval/application/winusb_async_app_rel_v_1_6.zip" type="eval"/>
+  <File modified="2025 06 03 15:35:41" name="eval/nx33u_cmp_revb_evn_bd_rd_des.zip" type="eval"/>
+  <File modified="2025 06 03 15:35:41" name="eval/software/usb23hal_6eps_v2_2.zip" type="eval"/>
+ </Package>
+</RadiantModule>

@@ -1,0 +1,216 @@
+<?xml version="1.0" ?>
+<ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi_custom</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>usb_bus_interface_bridge</ipxact:name>
+    <ipxact:version>1.0.0</ipxact:version>
+    <ipxact:componentInstances>
+        <ipxact:componentInstance>
+            <ipxact:instanceName>usb23_bus_intf_bridge_inst</ipxact:instanceName>
+            <ipxact:componentRef library="ip" name="usb23_bus_intf_bridge" vendor="latticesemi_custom" version="1.0.0">
+                <ipxact:configurableElementValues>
+                    <ipxact:configurableElementValue referenceId="ADDR_WIDTH_I">17</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="DATA_WIDTH_I">32</ipxact:configurableElementValue>
+                </ipxact:configurableElementValues>
+            </ipxact:componentRef>
+        </ipxact:componentInstance>
+    </ipxact:componentInstances>
+    <ipxact:adHocConnections>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.lmmi_rdata_o.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="lmmi_rdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="lmmi_rdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.lmmi_rdata_valid_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="lmmi_rdata_valid_o"/>
+                <ipxact:externalPortReference portRef="lmmi_rdata_valid_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.lmmi_ready_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="lmmi_ready_o"/>
+                <ipxact:externalPortReference portRef="lmmi_ready_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.lmmi_request_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="lmmi_request_i"/>
+                <ipxact:externalPortReference portRef="lmmi_request_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.lmmi_wr_rdn_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="lmmi_wr_rdn_i"/>
+                <ipxact:externalPortReference portRef="lmmi_wr_rdn_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.lmmi_offset_i.14:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="lmmi_offset_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>14</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="lmmi_offset_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>14</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.lmmi_wdata_i.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="lmmi_wdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="lmmi_wdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.LMMIRDATA.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="LMMIRDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="LMMIRDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.LMMIRDATAVALID</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="LMMIRDATAVALID"/>
+                <ipxact:externalPortReference portRef="LMMIRDATAVALID"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.LMMIREADY</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="LMMIREADY"/>
+                <ipxact:externalPortReference portRef="LMMIREADY"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.LMMIREQUEST</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="LMMIREQUEST"/>
+                <ipxact:externalPortReference portRef="LMMIREQUEST"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.LMMIWRRD_N</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="LMMIWRRD_N"/>
+                <ipxact:externalPortReference portRef="LMMIWRRD_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.LMMIOFFSET.14:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="LMMIOFFSET">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>14</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="LMMIOFFSET">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>14</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.LMMIWDATA.31:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="LMMIWDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="LMMIWDATA">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.INTERRUPT</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="INTERRUPT"/>
+                <ipxact:externalPortReference portRef="INTERRUPT"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>usb_bus_interface_bridge.RISCV_USB_INTERRUPT</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="usb_bus_interface_bridge" portRef="RISCV_USB_INTERRUPT"/>
+                <ipxact:externalPortReference portRef="RISCV_USB_INTERRUPT"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+    </ipxact:adHocConnections>
+</ipxact:design>

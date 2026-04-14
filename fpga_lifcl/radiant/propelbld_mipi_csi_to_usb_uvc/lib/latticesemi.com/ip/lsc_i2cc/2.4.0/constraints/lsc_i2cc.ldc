@@ -1,0 +1,26 @@
+set device "LIFCL-33U"
+set device_int "jd5u27a"
+set package "FCCSP104"
+set package_int "FCCSP104"
+set speed "7_High-Performance_1.0V"
+set speed_int "10"
+set operation "Commercial"
+set family "LIFCL"
+set architecture "je5d00"
+set partnumber "LIFCL-33U-7CTG104C"
+set WRAPPER_INST "lscc_i2c_master_inst"
+set APB_ENABLE 1
+set REMOVE_TRISTATE 0
+set FAMILY "LIFCL"
+set FIFO_DEPTH 256
+set FIFO_IMPL "LUT"
+set TX_FIFO_AE_FLAG 2
+set RX_FIFO_AF_FLAG 254
+set SYS_CLOCK_FREQ 72
+set PRESCALER 357
+
+
+ldc_set_port -iobuf {PULLMODE=UP} [get_ports {scl_io}]
+ldc_set_port -iobuf {PULLMODE=UP} [get_ports {sda_io}]
+
+create_clock -name {clk_i} -period 20 [get_ports clk_i]

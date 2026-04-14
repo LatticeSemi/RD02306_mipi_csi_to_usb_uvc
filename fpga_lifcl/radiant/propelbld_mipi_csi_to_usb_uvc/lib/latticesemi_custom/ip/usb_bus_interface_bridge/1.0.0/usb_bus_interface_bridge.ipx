@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 03 21 22:32:19" device="LIFCL-33U" device_int="jd5u27a" display_module="USB23 Bus Interface Bridge" display_vendor="latticesemi_custom" family="LIFCL" gen_platform="Propel" gen_platform_version="2025.2.0.2512111315" generator="ipgen" library="ip" module="usb23_bus_intf_bridge" name="usb_bus_interface_bridge" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi_custom" version="1.0.0">
+ <Package>
+  <File modified="2026 03 21 22:32:19" name="rtl/usb_bus_interface_bridge_bb.sv" type="black_box_verilog"/>
+  <File modified="2026 03 21 22:32:19" name="usb_bus_interface_bridge.cfg" type="cfg"/>
+  <File modified="2026 03 21 22:32:19" name="misc/usb_bus_interface_bridge_tmpl.sv" type="template_verilog"/>
+  <File modified="2026 03 21 22:32:19" name="misc/usb_bus_interface_bridge_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 03 21 22:32:19" name="rtl/usb_bus_interface_bridge.sv" type="top_level_verilog"/>
+  <File modified="2026 03 21 22:32:19" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 03 21 22:32:19" name="design.xml" type="IP-XACT_design"/>
+ </Package>
+</RadiantModule>

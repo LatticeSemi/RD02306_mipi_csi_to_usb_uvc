@@ -1,0 +1,91 @@
+# Standardized .gitignore across repository
+## Top level files to be excluded
+### Exclude all files on the top level
+/*
+### Except these necessary files
+!/_INTERNAL_ONLY
+!/docs
+!/fpga_*
+!/misc
+!/.gitignore
+!/.gitmodules
+!/.gitattributes
+!/LICENSE
+
+## Files inside [fpga_*/] to be included / excluded
+/fpga_*/*
+### Exclude all files inside fpga_*/
+### Except these necessary files
+### For precompiled_file, allow any files to be put in. Users have to manually manage them
+!/fpga_*/radiant
+!/fpga_*/precompiled_file
+!/fpga_*/propelsdk
+/fpga_*/propelsdk/**/Debug/
+
+## Files inside [fpga_*/radiant] to be included / excluded
+### Exclude all files inside fpga_*/radiant
+/fpga_*/radiant/*
+### Except these necessary files
+!/fpga_*/radiant/*.rdf
+!/fpga_*/radiant/*.sty
+!/fpga_*/radiant/.socproject
+### Unignore the following folders from Propel inside radiant.
+!/fpga_*/radiant/propelbld_*
+!/fpga_*/radiant/verification
+!/fpga_*/radiant/sge
+### Unignore folders inside radiant
+!/fpga_*/radiant/src
+### Ignore files that would be generated on this radiant folder
+/fpga_*/radiant/*.log
+/fpga_*/radiant/*.html
+/fpga_*/radiant/*.dump
+/fpga_*/radiant/*.xml
+/fpga_*/radiant/*.tcl
+/fpga_*/radiant/.recovery
+/fpga_*/radiant/*.ini
+
+### ignore .lib and sim in the verification folder too
+/fpga_*/radiant/verification/.lib
+/fpga_*/radiant/verification/sim
+
+### Ignore all impl_1 files
+/fpga_*/radiant/**/impl_1/
+
+## Files inside fpga_*/radiant/src to be included / excluded
+### Exclude all files inside fpga_*/radiant/src
+/fpga_*/radiant/src/*
+### Except these necessary files
+!/fpga_*/radiant/src/constraints
+!/fpga_*/radiant/src/edid
+
+## Files inside [fpga_*/radiant/propelbld_*] to be included / excluded
+### Exclude all files inside fpga_*/radiant/propelbld_*
+/fpga_*/radiant/propelbld_*/*
+### Except these necessary files
+!/fpga_*/radiant/propelbld_*/lib
+!/fpga_*/radiant/propelbld_*/*.sbx
+!/fpga_*/radiant/propelbld_*/*.v
+!/fpga_*/radiant/propelbld_*/*.sv
+!/fpga_*/radiant/propelbld_*/*.vhd
+
+## Files inside [misc/] to be included / excluded
+/misc/*
+!/misc/custom_ip
+!/misc/software
+/misc/software/**/*.o
+/misc/software/**/*.ko
+/misc/software/**/*.ko.*
+/misc/software/**/*.mod
+/misc/software/**/*.mod.c
+/misc/software/**/*.d
+/misc/software/**/*.cmd
+/misc/software/**/.*.cmd
+/misc/software/**/modules.order
+/misc/software/**/Module.symvers
+
+## Global unignore files
+!README.md
+!.gitignore
+!.gitkeep
+## Allow *.xcf files anywhere in /fpga_*/radiant
+!/fpga_*/radiant/**/*.xcf

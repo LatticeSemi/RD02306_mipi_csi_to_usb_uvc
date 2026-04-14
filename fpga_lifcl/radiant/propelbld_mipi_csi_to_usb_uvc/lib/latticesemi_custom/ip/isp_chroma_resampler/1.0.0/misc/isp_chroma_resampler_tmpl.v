@@ -1,0 +1,12 @@
+    isp_chroma_resampler __(.clk_i( ),
+        .rstn_i( ),
+        .rx_tdata_i( ),
+        .rx_tuser_i( ),
+        .rx_tlast_i( ),
+        .rx_tvalid_i( ),
+        .rx_tready_o( ),
+        .tx_tready_i( ),
+        .tx_tdata_o( ),
+        .tx_tvalid_o( ),
+        .tx_tlast_o( ),
+        .tx_tuser_o( ));

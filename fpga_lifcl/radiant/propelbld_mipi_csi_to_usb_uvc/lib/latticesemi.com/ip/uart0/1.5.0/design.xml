@@ -1,0 +1,206 @@
+<?xml version="1.0" ?>
+<ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi.com</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>uart0</ipxact:name>
+    <ipxact:version>1.5.0</ipxact:version>
+    <ipxact:componentInstances>
+        <ipxact:componentInstance>
+            <ipxact:instanceName>lscc_uart_inst</ipxact:instanceName>
+            <ipxact:componentRef library="ip" name="uart" vendor="latticesemi.com" version="1.5.0">
+                <ipxact:configurableElementValues>
+                    <ipxact:configurableElementValue referenceId="APB_ENABLE">True</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="SYS_CLOCK_FREQ">72.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_DATA_BITS">8</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_STOP_BITS">1</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="FAMILY">LIFCL</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_PARITY_ENABLE_IN">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_PARITY_ENABLE">0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_PARITY_ODD_IN">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_PARITY_ODD">0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_PARITY_STICK_IN">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LCR_PARITY_STICK">0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BAUD_RATE_TYPE">Standard</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="STANDARD_BAUD_RATE">115200</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CUSTOM_BAUD_RATE">115200</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="BAUD_RATE">115200</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CLK_DIVISOR">625</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="FIFO">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MODEM_ENA">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="RXRDY_ENA">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="TXRDY_ENA">False</ipxact:configurableElementValue>
+                </ipxact:configurableElementValues>
+            </ipxact:componentRef>
+        </ipxact:componentInstance>
+    </ipxact:componentInstances>
+    <ipxact:adHocConnections>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.RTS_N</ipxact:name>
+            <ipxact:tiedValue>open</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="RTS_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.DTR_N</ipxact:name>
+            <ipxact:tiedValue>open</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="DTR_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.DSR_N</ipxact:name>
+            <ipxact:tiedValue>1'b0</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="DSR_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.DCD_N</ipxact:name>
+            <ipxact:tiedValue>1'b1</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="DCD_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.CTS_N</ipxact:name>
+            <ipxact:tiedValue>1'b0</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="CTS_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.RI_N</ipxact:name>
+            <ipxact:tiedValue>1'b1</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="RI_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.SIN</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="SIN"/>
+                <ipxact:externalPortReference portRef="rxd_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.SOUT</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="SOUT"/>
+                <ipxact:externalPortReference portRef="txd_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.pclk</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="pclk"/>
+                <ipxact:externalPortReference portRef="clk_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.presetn</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="presetn"/>
+                <ipxact:externalPortReference portRef="rst_n_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.INTR</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="INTR"/>
+                <ipxact:externalPortReference portRef="int_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_penable_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_penable_i"/>
+                <ipxact:externalPortReference portRef="apb_penable_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_psel_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_psel_i"/>
+                <ipxact:externalPortReference portRef="apb_psel_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_pwrite_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_pwrite_i"/>
+                <ipxact:externalPortReference portRef="apb_pwrite_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_paddr_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_paddr_i"/>
+                <ipxact:externalPortReference portRef="apb_paddr_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>5</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_pwdata_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_pwdata_i"/>
+                <ipxact:externalPortReference portRef="apb_pwdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_pready_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_pready_o"/>
+                <ipxact:externalPortReference portRef="apb_pready_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_pslverr_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_pslverr_o"/>
+                <ipxact:externalPortReference portRef="apb_pslverr_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.apb_prdata_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="apb_prdata_o"/>
+                <ipxact:externalPortReference portRef="apb_prdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.RXRDY_N</ipxact:name>
+            <ipxact:tiedValue>open</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="RXRDY_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>uart0.TXRDY_N</ipxact:name>
+            <ipxact:tiedValue>open</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="uart0" portRef="TXRDY_N"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+    </ipxact:adHocConnections>
+</ipxact:design>

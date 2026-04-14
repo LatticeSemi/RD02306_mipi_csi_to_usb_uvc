@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<lattice:system usage="verification" top_vlnv="lattice:systembuilder:mipi_csi_to_usb_uvc_v:1.0" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
+        <ipxact:vendor>lattice</ipxact:vendor>
+        <ipxact:library>systembuilder</ipxact:library>
+        <ipxact:name>mipi_csi_to_usb_uvc_v</ipxact:name>
+        <ipxact:version>1.0</ipxact:version>
+        <ipxact:model>
+            <ipxact:views>
+                <ipxact:view>
+                    <ipxact:name>top_view</ipxact:name>
+                    <ipxact:componentInstantiationRef>top_component</ipxact:componentInstantiationRef>
+                    <ipxact:designInstantiationRef>top_design</ipxact:designInstantiationRef>
+                </ipxact:view>
+            </ipxact:views>
+            <ipxact:instantiations>
+                <ipxact:componentInstantiation>
+                    <ipxact:name>top_component</ipxact:name>
+                    <ipxact:language>verilog</ipxact:language>
+                    <ipxact:libraryName>mipi_csi_to_usb_uvc_vlib</ipxact:libraryName>
+                    <ipxact:moduleName>mipi_csi_to_usb_uvc_v</ipxact:moduleName>
+                </ipxact:componentInstantiation>
+                <ipxact:designInstantiation>
+                    <ipxact:name>top_design</ipxact:name>
+                    <ipxact:designRef vendor="lattice" library="systembuilder" name="mipi_csi_to_usb_uvc_v_design" version="1.0" />
+                </ipxact:designInstantiation>
+            </ipxact:instantiations>
+        </ipxact:model>
+        <ipxact:fileSets>
+            <ipxact:fileSet>
+                <ipxact:name>Simulation_Project</ipxact:name>
+                <ipxact:group>simulation</ipxact:group>
+                <ipxact:file>
+                    <ipxact:name>./mipi_csi_to_usb_uvc_v.json</ipxact:name>
+                    <ipxact:fileType user="sim_prj">user</ipxact:fileType>
+                </ipxact:file>
+            </ipxact:fileSet>
+        </ipxact:fileSets>
+        <ipxact:vendorExtensions>
+            <lsccip:moduleRef />
+            <lsccip:deviceInfo>
+                <lsccip:device>LIFCL-33U</lsccip:device>
+                <lsccip:architecture>je5d00</lsccip:architecture>
+                <lsccip:speed>7_High-Performance_1.0V</lsccip:speed>
+                <lsccip:package>FCCSP104</lsccip:package>
+                <lsccip:partname>LIFCL-33U-7CTG104C</lsccip:partname>
+                <lsccip:family>LIFCL</lsccip:family>
+                <lsccip:deviceInt>jd5u27a</lsccip:deviceInt>
+                <lsccip:speedInt>10</lsccip:speedInt>
+                <lsccip:operation>Commercial</lsccip:operation>
+            </lsccip:deviceInfo>
+            <lsccip:projectInfo>
+                <lsccip:boardInfo>
+                    <lsccip:name>NA</lsccip:name>
+                </lsccip:boardInfo>
+                <lsccip:templateInfo>
+                    <lsccip:name>*</lsccip:name>
+                    <lsccip:family>*</lsccip:family>
+                    <lsccip:processor>*</lsccip:processor>
+                </lsccip:templateInfo>
+            </lsccip:projectInfo>
+            <lattice:radiant>2025.2.0.45.0</lattice:radiant>
+            <lattice:sbxVersion>2.0</lattice:sbxVersion>
+            <lattice:minRadiantVersion>2026.1</lattice:minRadiantVersion>
+            <lattice:language>verilog</lattice:language>
+            <lattice:addressMerge>False</lattice:addressMerge>
+        </ipxact:vendorExtensions>
+    </ipxact:component>
+    <ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
+        <ipxact:vendor>lattice</ipxact:vendor>
+        <ipxact:library>systembuilder</ipxact:library>
+        <ipxact:name>mipi_csi_to_usb_uvc_v_design</ipxact:name>
+        <ipxact:version>1.0</ipxact:version>
+        <ipxact:componentInstances>
+            <ipxact:componentInstance>
+                <ipxact:instanceName>dut_inst</ipxact:instanceName>
+                <ipxact:componentRef vendor="lattice" library="systembuilder" name="dut" version="1.0" />
+            </ipxact:componentInstance>
+        </ipxact:componentInstances>
+        <ipxact:adHocConnections />
+    </ipxact:design>
+    <ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
+        <ipxact:vendor>lattice</ipxact:vendor>
+        <ipxact:library>systembuilder</ipxact:library>
+        <ipxact:name>dut</ipxact:name>
+        <ipxact:version>1.0</ipxact:version>
+        <ipxact:model>
+            <ipxact:views>
+                <ipxact:view>
+                    <ipxact:name>top_view</ipxact:name>
+                    <ipxact:componentInstantiationRef>top_component</ipxact:componentInstantiationRef>
+                    <ipxact:designInstantiationRef>top_design</ipxact:designInstantiationRef>
+                </ipxact:view>
+            </ipxact:views>
+            <ipxact:instantiations>
+                <ipxact:componentInstantiation>
+                    <ipxact:name>top_component</ipxact:name>
+                    <ipxact:language>verilog</ipxact:language>
+                    <ipxact:libraryName>mipi_csi_to_usb_uvclib</ipxact:libraryName>
+                    <ipxact:moduleName>mipi_csi_to_usb_uvc</ipxact:moduleName>
+                </ipxact:componentInstantiation>
+                <ipxact:designInstantiation>
+                    <ipxact:name>top_design</ipxact:name>
+                    <ipxact:designRef vendor="lattice" library="systembuilder" name="mipi_csi_to_usb_uvc_design" version="1.0" />
+                </ipxact:designInstantiation>
+            </ipxact:instantiations>
+            <ipxact:ports>
+                <ipxact:port>
+                    <ipxact:name>clk_i</ipxact:name>
+                    <ipxact:displayName>clk_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+                <ipxact:port>
+                    <ipxact:name>rstn_i</ipxact:name>
+                    <ipxact:displayName>rstn_i</ipxact:displayName>
+                    <ipxact:wire>
+                        <ipxact:direction>in</ipxact:direction>
+                    </ipxact:wire>
+                </ipxact:port>
+            </ipxact:ports>
+        </ipxact:model>
+        <ipxact:parameters>
+            <ipxact:parameter>
+                <ipxact:name>SBX_PATH</ipxact:name>
+                <ipxact:value>../propelbld_mipi_csi_to_usb_uvc/mipi_csi_to_usb_uvc.sbx</ipxact:value>
+            </ipxact:parameter>
+            <ipxact:parameter>
+                <ipxact:name>SBX_TIME_STAMP</ipxact:name>
+                <ipxact:value>2026 03 28 14:35:36</ipxact:value>
+            </ipxact:parameter>
+        </ipxact:parameters>
+        <ipxact:vendorExtensions>
+            <lsccip:moduleRef />
+            <lsccip:deviceInfo>
+                <lsccip:device>LIFCL-33U</lsccip:device>
+                <lsccip:architecture>je5d00</lsccip:architecture>
+                <lsccip:speed>7_High-Performance_1.0V</lsccip:speed>
+                <lsccip:package>FCCSP104</lsccip:package>
+                <lsccip:partname>LIFCL-33U-7CTG104C</lsccip:partname>
+                <lsccip:family>LIFCL</lsccip:family>
+                <lsccip:deviceInt>jd5u27a</lsccip:deviceInt>
+                <lsccip:speedInt>10</lsccip:speedInt>
+                <lsccip:operation>Commercial</lsccip:operation>
+            </lsccip:deviceInfo>
+            <lattice:radiant>2025.2.0.45.0</lattice:radiant>
+            <lattice:language>verilog</lattice:language>
+            <lattice:addressMerge>False</lattice:addressMerge>
+        </ipxact:vendorExtensions>
+    </ipxact:component>
+    <ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
+        <ipxact:vendor>lattice</ipxact:vendor>
+        <ipxact:library>systembuilder</ipxact:library>
+        <ipxact:name>mipi_csi_to_usb_uvc_design</ipxact:name>
+        <ipxact:version>1.0</ipxact:version>
+        <ipxact:componentInstances />
+        <ipxact:adHocConnections />
+    </ipxact:design>
+</lattice:system>

@@ -1,0 +1,45 @@
+set device "LIFCL-33U"
+set device_int "jd5u27a"
+set package "FCCSP104"
+set package_int "FCCSP104"
+set speed "7_High-Performance_1.0V"
+set speed_int "10"
+set operation "Commercial"
+set family "LIFCL"
+set architecture "je5d00"
+set partnumber "LIFCL-33U-7CTG104C"
+set WRAPPER_INST "lscc_csc_inst"
+set FAMILY "LIFCL"
+set OPTIMIZE 0
+set CORETYPE 1
+set CPOINTS 8
+set CV_MH 66
+set CV_MI 129
+set CV_MJ 25
+set CV_MK 4096
+set CV_NH -38
+set CV_NI -74
+set CV_NJ 112
+set CV_NK 32768
+set CV_PH 112
+set CV_PI -94
+set CV_PJ -18
+set CV_PK 32768
+set INSERIAL "Parallel"
+set DINSIGN "Unsigned"
+set DINWIDTH 8
+set PIXELS_PER_CLK 2
+set AXI_STREAM_DATA_WIDTH "48"
+set CWIDTH 9
+set TAGSWIDTH 9
+set DSPBLKMULT "Enable"
+set INREG "Enable"
+set LATENCY 8
+set DOUTSIGN "Unsigned"
+set TX_BUFFER_DEPTH "128"
+set DOUTPOINTS 0
+set MSBMETHOD "Saturation"
+set LSBMETHOD "Rounding_up"
+
+
+create_clock -name {clk_i}     -period 4.545 [get_ports clk_i] 

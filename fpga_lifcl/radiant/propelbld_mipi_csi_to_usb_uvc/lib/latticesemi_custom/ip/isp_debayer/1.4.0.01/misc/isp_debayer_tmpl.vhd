@@ -1,0 +1,35 @@
+component isp_debayer is
+    port(
+        axis_rx_clk_i: in std_logic;
+        axis_rx_arstn_i: in std_logic;
+        axis_tx_clk_i: in std_logic;
+        axis_tx_arstn_i: in std_logic;
+        rx_tdata_i: in std_logic_vector(31 downto 0);
+        rx_tuser_i: in std_logic_vector(1 downto 0);
+        rx_tlast_i: in std_logic;
+        rx_tvalid_i: in std_logic;
+        rx_tready_o: out std_logic;
+        tx_tready_i: in std_logic;
+        tx_tdata_o: out std_logic_vector(47 downto 0);
+        tx_tvalid_o: out std_logic;
+        tx_tlast_o: out std_logic;
+        tx_tuser_o: out std_logic_vector(1 downto 0)
+    );
+end component;
+
+__: isp_debayer port map(
+    axis_rx_clk_i=>,
+    axis_rx_arstn_i=>,
+    axis_tx_clk_i=>,
+    axis_tx_arstn_i=>,
+    rx_tdata_i=>,
+    rx_tuser_i=>,
+    rx_tlast_i=>,
+    rx_tvalid_i=>,
+    rx_tready_o=>,
+    tx_tready_i=>,
+    tx_tdata_o=>,
+    tx_tvalid_o=>,
+    tx_tlast_o=>,
+    tx_tuser_o=>
+);

@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 03 26 13:41:45" device="LIFCL-33U" device_int="jd5u27a" display_module="MIPI CSI/DSI" display_vendor="latticesemi_custom" family="LIFCL" gen_platform="Propel" gen_platform_version="2025.2.0.2512111315" generator="ipgen" library="ip" module="mipi_csi_dsi" name="mipi_csi_rx" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi_custom" version="1.0.0.02">
+ <Package>
+  <File modified="2026 03 26 13:41:44" name="rtl/mipi_csi_rx_bb.sv" type="black_box_verilog"/>
+  <File modified="2026 03 26 13:41:44" name="mipi_csi_rx.cfg" type="cfg"/>
+  <File modified="2026 03 26 13:41:44" name="misc/mipi_csi_rx_tmpl.sv" type="template_verilog"/>
+  <File modified="2026 03 26 13:41:44" name="misc/mipi_csi_rx_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 03 26 13:41:45" name="rtl/mipi_csi_rx.sv" type="top_level_system_verilog"/>
+  <File modified="2026 03 26 13:41:45" name="constraints/constraint.sdc" stage="lse:presyn,synplify:presyn" type="tcl_constraints"/>
+  <File modified="2026 03 26 13:41:45" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2026 03 26 13:41:45" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 03 26 13:41:45" name="eval/dut_params.v" type="dependency_file"/>
+  <File modified="2026 03 26 13:41:45" name="eval/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 03 26 13:41:45" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 03 26 13:41:45" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2026 03 24 02:26:57" name="testbench/bus_driver.sv" type="testbench_system_verilog"/>
+  <File modified="2026 03 24 02:26:57" name="testbench/clk_driver.sv" type="testbench_system_verilog"/>
+  <File modified="2026 03 24 02:26:57" name="testbench/cphy_csi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 03 24 02:26:57" name="testbench/cphy_dsi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 03 24 02:26:57" name="testbench/dphy_csi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 03 24 02:26:57" name="testbench/dphy_dsi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 03 24 02:26:57" name="testbench/tb_top.sv" type="testbench_system_verilog"/>
+  <File modified="2026 03 24 02:26:57" name="eval/constraint.pdc" type="eval"/>
+  <File modified="2026 03 24 02:26:57" name="eval/constraint.sdc" type="eval"/>
+ </Package>
+</RadiantModule>

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 02 28 19:29:34" device="LIFCL-33U" device_int="jd5u27a" display_module="GPIO" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Propel" gen_platform_version="2025.2.0.2512111315" generator="ipgen" library="ip" module="gpio" name="HW_ver_gpio" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi.com" version="1.8.0">
+ <Package>
+  <File modified="2026 02 28 19:29:34" name="rtl/HW_ver_gpio_bb.v" type="black_box_verilog"/>
+  <File modified="2026 02 28 19:29:34" name="HW_ver_gpio.cfg" type="cfg"/>
+  <File modified="2026 02 28 19:29:34" name="misc/HW_ver_gpio_tmpl.v" type="template_verilog"/>
+  <File modified="2026 02 28 19:29:34" name="misc/HW_ver_gpio_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 02 28 19:29:34" name="rtl/HW_ver_gpio.v" type="top_level_verilog"/>
+  <File modified="2026 02 28 19:29:34" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2026 02 28 19:29:34" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 02 28 19:29:34" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 02 28 19:29:34" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2025 05 28 03:27:47" name="testbench/lscc_lmmi2apb.v" type="testbench_verilog"/>
+  <File modified="2025 05 28 03:27:47" name="testbench/tb_top.v" type="testbench_verilog"/>
+  <File modified="2025 05 28 03:27:47" name="driver/gpio.c" type="driver_source"/>
+  <File modified="2025 05 28 03:27:47" name="driver/gpio.h" type="driver_header"/>
+  <File modified="2025 05 28 03:27:47" name="driver/gpio.xml" type="driver_metadata"/>
+  <File modified="2025 05 28 03:27:47" name="driver/gpio_regs.h" type="driver_header"/>
+ </Package>
+</RadiantModule>

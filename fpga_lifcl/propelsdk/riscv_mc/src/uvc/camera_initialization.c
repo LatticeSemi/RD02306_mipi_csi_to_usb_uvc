@@ -58,6 +58,129 @@
 uint8_t tx_config_buf[3];
 extern struct i2cm_instance i2c_master_core;
 
+
+// Gain ladder, linear in dB over 0 .. 44.64 dB; analogue ramps first and owns 0..46. The eight calibrated pairs are pinned to their nearest slots.
+static const unsigned char cam_gain_slider[CAM_GAIN_SLIDER_MAX + 1][3] = {
+  {0x00,0x01,0x00}, {0x0D,0x01,0x00}, {0x19,0x01,0x00}, {0x25,0x01,0x00}, {0x30,0x01,0x00},
+  {0x3A,0x01,0x00}, {0x44,0x01,0x00}, {0x4D,0x01,0x00}, {0x56,0x01,0x00}, {0x5F,0x01,0x00},
+  {0x67,0x01,0x00}, {0x6F,0x01,0x00}, {0x76,0x01,0x00}, {0x7D,0x01,0x00}, {0x83,0x01,0x00},
+  {0x40,0x01,0xA0}, {0x90,0x01,0x00}, {0x95,0x01,0x00}, {0x9A,0x01,0x00}, {0xA0,0x01,0x00},
+  {0xA4,0x01,0x00}, {0xA9,0x01,0x00}, {0xAD,0x01,0x00}, {0xB1,0x01,0x00}, {0xB5,0x01,0x00},
+  {0xB9,0x01,0x00}, {0xBD,0x01,0x00}, {0xC0,0x01,0x00}, {0xC3,0x01,0x00}, {0xA0,0x01,0xA0},
+  {0xA3,0x01,0xA0}, {0xCC,0x01,0x00}, {0xCF,0x01,0x00}, {0xD1,0x01,0x00}, {0xD3,0x01,0x00},
+  {0xD6,0x01,0x00}, {0xD8,0x01,0x00}, {0xC2,0x01,0xA0}, {0xDC,0x01,0x00}, {0xDE,0x01,0x00},
+  {0xDF,0x01,0x00}, {0xE1,0x01,0x00}, {0xE2,0x01,0x00}, {0xE4,0x01,0x00}, {0xE5,0x01,0x00},
+  {0xD6,0x01,0xA0}, {0xE8,0x01,0x00}, {0xE8,0x01,0x0D}, {0xE8,0x01,0x1B}, {0xE8,0x01,0x2A},
+  {0xE8,0x01,0x3C}, {0xE8,0x01,0x4A}, {0xE3,0x01,0xA0}, {0xE8,0x01,0x6E}, {0xE8,0x01,0x81},
+  {0xE8,0x01,0x95}, {0xE8,0x01,0xAB}, {0xE8,0x01,0xC1}, {0xE8,0x01,0xD9}, {0xE8,0x01,0xF2},
+  {0xE8,0x02,0x0C}, {0xE8,0x02,0x28}, {0xE8,0x02,0x45}, {0xE8,0x02,0x64}, {0xE8,0x02,0x84},
+  {0xE8,0x02,0xA6}, {0xE8,0x02,0xC9}, {0xE8,0x02,0xEF}, {0xE8,0x03,0x17}, {0xE8,0x03,0x40},
+  {0xE8,0x03,0x6C}, {0xE8,0x03,0x9A}, {0xE8,0x03,0xCB}, {0xE8,0x03,0xFE}, {0xE8,0x04,0x34},
+  {0xE8,0x04,0x6D}, {0xE8,0x04,0xA9}, {0xE8,0x04,0xE8}, {0xE8,0x05,0x2A}, {0xE8,0x05,0x70},
+  {0xE8,0x05,0xB9}, {0xE8,0x06,0x06}, {0xE8,0x06,0x58}, {0xE8,0x06,0xAD}, {0xE8,0x07,0x07},
+  {0xE8,0x07,0x66}, {0xE8,0x07,0xCA}, {0xE8,0x08,0x33}, {0xE8,0x08,0xA2}, {0xE8,0x09,0x17},
+  {0xE8,0x09,0x91}, {0xE8,0x0A,0x13}, {0xE8,0x0A,0x9B}, {0xE8,0x0B,0x2A}, {0xE8,0x0B,0xC0},
+  {0xE8,0x0C,0x5F}, {0xE8,0x0D,0x06}, {0xE8,0x0D,0xB6}, {0xE8,0x0E,0x6F}, {0xE8,0x0F,0x32},
+  {0xE8,0x0F,0xFF},
+};
+
+// DirectShow drives exposure in log2(seconds), so the host can only send 10000 * 2^k; the displayed number is then the compensation in stops.
+// Centre 10000 (1 s) is display 0; the host caps the top at +3, so the range is a symmetric -3 .. +3.
+#define CAM_EXP_STEPS       7
+#define CAM_EXP_CENTRE      3
+
+static const uint32_t cam_exp_step[CAM_EXP_STEPS] = {
+     1250, 2500, 5000, 10000, 20000, 40000, 80000
+};
+
+// Offset in gain-table entries: one stop is 6.0206 dB / 0.4464 dB = 13.489.
+static const signed char cam_exp_offset[CAM_EXP_STEPS] = {
+    -40, -27, -13, 0, 13, 27, 40
+};
+
+uint32_t camera_exposure_min(void)     { return cam_exp_step[0]; }
+uint32_t camera_exposure_max(void)     { return cam_exp_step[CAM_EXP_STEPS - 1]; }
+uint32_t camera_exposure_default(void) { return cam_exp_step[CAM_EXP_CENTRE]; }
+
+// Host exposure value -> gain slider, relative to the mode's calibrated default.
+uint8_t camera_gain_from_exposure(uint32_t exposure, uint8_t base_slider)
+{
+    int best = CAM_EXP_CENTRE, slider;
+    long diff, best_diff = -1;
+
+    for (int i = 0; i < CAM_EXP_STEPS; i++)
+    {
+        diff = (long)exposure - (long)cam_exp_step[i];
+
+        if (diff < 0)
+            diff = -diff;
+
+        if ((best_diff < 0) || (diff < best_diff))
+        {
+            best_diff = diff;
+            best = i;
+        }
+    }
+
+    slider = (int)base_slider + cam_exp_offset[best];
+
+    if (slider < 0)
+        slider = 0;
+
+    if (slider > CAM_GAIN_SLIDER_MAX)
+        slider = CAM_GAIN_SLIDER_MAX;
+
+    return (uint8_t)slider;
+}
+
+// Slider position whose table entry equals each mode's calibrated gain.
+uint8_t camera_gain_default(camera_resolution_t resolution, int is_usb3)
+{
+    if (is_usb3)
+    {
+        switch (resolution)
+        {
+            case RESOLUTION_640x480:   return 52;
+            case RESOLUTION_1280x720:  return 45;
+            case RESOLUTION_3280x2160: return 29;
+            default:                   return 37;
+        }
+    }
+
+    switch (resolution)
+    {
+        case RESOLUTION_640x480:   return 50;
+        case RESOLUTION_1280x720:  return 30;
+        default:                   return 15;
+    }
+}
+
+// Neither gain register affects frame timing, so this is safe mid-stream.
+void camera_set_gain(uint8_t slider)
+{
+    static const unsigned short reg[3] = { REG_ANA_GAIN_GLOBAL,
+                                           REG_DIG_GAIN_GLOBAL_MSB,
+                                           REG_DIG_GAIN_GLOBAL_LSB };
+
+    if (slider > CAM_GAIN_SLIDER_MAX)
+        slider = CAM_GAIN_SLIDER_MAX;
+
+    for (int i = 0; i < 3; i++)
+    {
+        tx_config_buf[0] = (reg[i] >> 8) & 0xFF;
+        tx_config_buf[1] = reg[i] & 0xFF;
+        tx_config_buf[2] = cam_gain_slider[slider][i];
+
+        i2c_master_write (&i2c_master_core,
+                          TRGT_SLV_ADDR,
+                          0x3,  // Every time fix 2 byte of offset address
+                          tx_config_buf // Tx length
+                          );
+
+        delayMS(5);
+    }
+}
+
 void mode_default_register_init()
 {
 	    for ( int i = 0; i < sizeof(mode_table_common); i = i + 3)
@@ -78,19 +201,14 @@ void mode_default_register_init()
         }
 }
 
-void usb2_cam_pll_setting(camera_resolution_t resolution)
+// Writes the shared sensor clock tree, identical for both USB speeds.
+static void cam_pll_setting_apply(void)
 {
-    unsigned char *pll_array;
-    uint32_t pll_array_size;
-
-    pll_array = cam_pll_setting_u2;
-    pll_array_size = sizeof(cam_pll_setting_u2);
-    for ( int i = 0; i < pll_array_size; i = i + 3)
+    for ( int i = 0; i < sizeof(cam_pll_setting); i = i + 3)
     {
-        tx_config_buf[0]=pll_array[i];
-        tx_config_buf[1]=pll_array[i+1];
-        tx_config_buf[2]=pll_array[i+2];
-
+        tx_config_buf[0]=cam_pll_setting[i];
+        tx_config_buf[1]=cam_pll_setting[i+1];
+        tx_config_buf[2]=cam_pll_setting[i+2];
 
         i2c_master_write (&i2c_master_core,
                             TRGT_SLV_ADDR,
@@ -103,19 +221,28 @@ void usb2_cam_pll_setting(camera_resolution_t resolution)
     }
 }
 
+// USB 2.0 PLL: same clock tree as USB 3.0, bandwidth is reduced with LINE_LEN.
+void usb2_cam_pll_setting(camera_resolution_t resolution)
+{
+    (void)resolution;
+    cam_pll_setting_apply();
+}
+
+// USB 3.0 PLL: same clock tree as USB 2.0.
 void usb3_cam_pll_setting(camera_resolution_t resolution)
 {
-    unsigned char *pll_array;
-    uint32_t pll_array_size;
+    (void)resolution;
+    cam_pll_setting_apply();
+}
 
-    pll_array = cam_pll_setting_u3;
-    pll_array_size = sizeof(cam_pll_setting_u3);
-    for ( int i = 0; i < pll_array_size; i = i + 3)
+// Shared writer for the per-speed blanking/exposure tables.
+static void cam_blanking_setting_apply(unsigned char *tbl, uint32_t len)
+{
+    for ( int i = 0; i < len; i = i + 3)
     {
-        tx_config_buf[0]=pll_array[i];
-        tx_config_buf[1]=pll_array[i+1];
-        tx_config_buf[2]=pll_array[i+2];
-
+        tx_config_buf[0]=tbl[i];
+        tx_config_buf[1]=tbl[i+1];
+        tx_config_buf[2]=tbl[i+2];
 
         i2c_master_write (&i2c_master_core,
                             TRGT_SLV_ADDR,
@@ -126,16 +253,97 @@ void usb3_cam_pll_setting(camera_resolution_t resolution)
         delayMS(5);
 
     }
+}
+
+// USB 2.0 blanking + exposure. Must follow set_resolution().
+void usb2_cam_blanking_setting(camera_resolution_t resolution)
+{
+    if (resolution == RESOLUTION_1280x720) {
+        cam_blanking_setting_apply(cam_blanking_setting_u2_1280x720,
+                sizeof(cam_blanking_setting_u2_1280x720));
+    }
+    else if (resolution == RESOLUTION_640x480) {
+        cam_blanking_setting_apply(cam_blanking_setting_u2_640x480,
+                sizeof(cam_blanking_setting_u2_640x480));
+    }
+    else {
+        cam_blanking_setting_apply(cam_blanking_setting_u2_1920x1080,
+                sizeof(cam_blanking_setting_u2_1920x1080));
+    }
+}
+
+// USB 3.0 blanking + exposure. Exposure only; LINE_LEN stays at the mode
+// table's 3448. Must follow set_resolution().
+void usb3_cam_blanking_setting(camera_resolution_t resolution)
+{
+    if (resolution == RESOLUTION_1280x720) {
+        cam_blanking_setting_apply(cam_blanking_setting_u3_1280x720,
+                sizeof(cam_blanking_setting_u3_1280x720));
+    }
+    else if (resolution == RESOLUTION_640x480) {
+        cam_blanking_setting_apply(cam_blanking_setting_u3_640x480,
+                sizeof(cam_blanking_setting_u3_640x480));
+    }
+    else if (resolution == RESOLUTION_3280x2160) {
+        cam_blanking_setting_apply(cam_blanking_setting_u3_3280x2160,
+                sizeof(cam_blanking_setting_u3_3280x2160));
+    }
+    else {
+        cam_blanking_setting_apply(cam_blanking_setting_u3_1920x1080,
+                sizeof(cam_blanking_setting_u3_1920x1080));
+    }
+}
+
+// Drops the exposure to a value legal against any FRAME_LEN in use.
+static void cam_apply_safe_integration_time(void)
+{
+    cam_blanking_setting_apply(cam_safe_integration_time,
+            sizeof(cam_safe_integration_time));
 }
 
 void set_resolution(camera_resolution_t resolution)
 {
+    // Must come first: the mode tables write FRAME_LEN before integration time.
+    cam_apply_safe_integration_time();
+
     if (resolution == RESOLUTION_1280x720) {
         for ( int i = 0; i < sizeof(mode_1280x720); i = i + 3)
         {
             tx_config_buf[0]=mode_1280x720[i];
             tx_config_buf[1]=mode_1280x720[i+1];
             tx_config_buf[2]=mode_1280x720[i+2];
+
+            i2c_master_write (&i2c_master_core,
+                            TRGT_SLV_ADDR,
+                                0x3,  // Every time fix 2 byte of offset address
+                                tx_config_buf // Tx length
+                                );
+
+            delayMS(5);
+        }
+    }
+    else if (resolution == RESOLUTION_640x480) {
+        for ( int i = 0; i < sizeof(mode_640x480); i = i + 3)
+        {
+            tx_config_buf[0]=mode_640x480[i];
+            tx_config_buf[1]=mode_640x480[i+1];
+            tx_config_buf[2]=mode_640x480[i+2];
+
+            i2c_master_write (&i2c_master_core,
+                            TRGT_SLV_ADDR,
+                                0x3,  // Every time fix 2 byte of offset address
+                                tx_config_buf // Tx length
+                                );
+
+            delayMS(5);
+        }
+    }
+    else if (resolution == RESOLUTION_3280x2160) {
+        for ( int i = 0; i < sizeof(mode_3280x2160); i = i + 3)
+        {
+            tx_config_buf[0]=mode_3280x2160[i];
+            tx_config_buf[1]=mode_3280x2160[i+1];
+            tx_config_buf[2]=mode_3280x2160[i+2];
 
             i2c_master_write (&i2c_master_core,
                             TRGT_SLV_ADDR,

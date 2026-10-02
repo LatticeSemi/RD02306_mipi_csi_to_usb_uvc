@@ -22,7 +22,7 @@
 --UNINTERRUPTED OR ERROR FREE, OR THAT DEFECTS HEREIN WILL BE CORRECTED.
 --LICENSEE ASSUMES RESPONSIBILITY FOR SELECTION OF MATERIALS TO ACHIEVE ITS
 --INTENDED RESULTS, AND FOR THE PROPER INSTALLATION, USE, AND RESULTS 
---OBTAINED THEREFROM.LICENSEE ASSUMES THE ENTIRE RISK OF THE FILE AND ITS 
+--OBTAINED THERE FROM.LICENSEE ASSUMES THE ENTIRE RISK OF THE FILE AND ITS 
 --CONTENTS PROVING DEFECTIVE OR FAILING TO PERFORM PROPERLY AND IN SUCH 
 --EVENT, LICENSEE SHALL ASSUME THE ENTIRE COST AND RISK OF ANY REPAIR, 
 --SERVICE, CORRECTION, OR ANY OTHER LIABILITIES OR DAMAGES CAUSED BY OR 
@@ -67,7 +67,14 @@ component mipi_csi_to_usb_uvc is
     );
     
 end component mipi_csi_to_usb_uvc;
-_inst: mipi_csi_to_usb_uvc port map (REFINCLKEXTM_i => __,
+_inst: mipi_csi_to_usb_uvc port map (cam_scl_z => __,
+                                     cam_sda_z => __,
+                                     uart_rxd_i => __,
+                                     uart_txd_o => __,
+                                     rx_clk_n_i => __,
+                                     rx_clk_p_i => __,
+                                     clk_60m_i => __,
+                                     REFINCLKEXTM_i => __,
                                      REFINCLKEXTP_i => __,
                                      dm_z => __,
                                      dp_z => __,
@@ -76,12 +83,5 @@ _inst: mipi_csi_to_usb_uvc port map (REFINCLKEXTM_i => __,
                                      u3_rxp_i => __,
                                      u3_txm_o => __,
                                      u3_txp_o => __,
-                                     vbus_z => __,
-                                     uart_rxd_i => __,
-                                     uart_txd_o => __,
-                                     cam_scl_z => __,
-                                     cam_sda_z => __,
-                                     clk_60m_i => __,
-                                     rx_clk_n_i => __,
-                                     rx_clk_p_i => __);
+                                     vbus_z => __);
                                      

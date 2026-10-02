@@ -68,13 +68,16 @@ volatile uint8_t straming_en, i2c_stat = 0;
 volatile uint32_t bmCtrlsSupported[NO_OF_TERMINALS];
 uint32_t temp, selectProcUnitCtrlsArrayCol = 0, selectProcUnitCtrlsArrayRow = 0, selectExtenUnitCtrlsArrayCol = 0, selectExtenUnitCtrlsArrayRow = 0;
 volatile uint16_t procUnitCtrlsVal[NO_PROC_UNIT_CONTROLS_SUPPORTED][6], ExtenUnitCtrlsVal[NO_OF_EXTENSION_UNIT_CONTROLS_SUPPORTED][6];
+volatile uint32_t camTermCtrlsVal[NO_CAM_TERM_CONTROLS_SUPPORTED][6];
+static uint8_t camGainBaseSlider = 15;   // calibrated gain of the mode in use
 
 VIDEO_PROBE_AND_COMMIT_CONTROL vdoProbeCommit, TempVdoProbeCommit;
 VIDEO_STILL_IMG_PROBECOMMIT_CONTROL vdoStillImgProbeComit, TempStillImgVdoProbeCommit;
 FORMAT_OF_PAYLOAD_HEADER vdoFormatPayloadHeader;
 
 volatile uint8_t resolution_change_pending = 0;
-volatile camera_resolution_t current_resolution = RESOLUTION_1280x720;
+// Must match the resolution main() programs at startup.
+volatile camera_resolution_t current_resolution = RESOLUTION_1920x1080;
 
 //uint8_t i2c_rx_bufr[256] __attribute__((aligned(4))) = { 0 };
 uint16_t i2c_tx_len = 0;
@@ -510,11 +513,113 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
 
             } else if (((setup_pkt->wIndex >> 8) & 0xFF) == RECEPIENT_IS_CAMERA_TERMINAL)
             {
-                printf("\n Camera_Term Req");
+                uint8_t  ct_cs = (setup_pkt->wValue >> 8) & 0xFF;
+                uint32_t ct_val;
+                uint8_t  ct_len;
 
-                terminalErrorCode[VC_ERR_CODE_INDEX] = ERR_CODE_INVALID_CTRL;
+                // Unlike the PU and XU checks above, this masks a real bit position.
+                if ((ct_cs >= NO_CAM_TERM_CONTROLS_SUPPORTED) ||
+                    !((bmCtrlsSupported[CAM_BMCONTROLS_INDEX] >> ct_cs) & 1u))
+                {
+                    terminalErrorCode[VC_ERR_CODE_INDEX] = ERR_CODE_INVALID_CTRL;
 
-                lsc_usb_ep0_stall_restart(usb_dev);
+                    lsc_usb_ep0_stall_restart(usb_dev);
+
+                    return;
+                }
+
+                // dwExposureTimeAbsolute is 4 bytes; bAutoExposureMode is 1.
+                ct_len = (ct_cs == CT_EXPOSURE_TIME_ABSOLUTE_CONTROL) ? 4 : 1;
+
+                if (!dir)
+                {
+                    //Means Host will Send Data
+                    switch (usb_dev->ep0_state)
+                    {
+                        case LSC_EP0_SETUP_PHASE:
+
+                            if (setup_pkt->bRequest == SET_CUR)
+                            {
+                                lsc_usb_ep0_rcv(usb_dev, res_buf, setup_pkt->wLength);
+                            }
+                            else
+                            {
+                                terminalErrorCode[VC_ERR_CODE_INDEX] = ERR_CODE_INVALID_REQ;
+
+                                lsc_usb_ep0_stall_restart(usb_dev);
+                            }
+
+                            break;
+
+                        case LSC_EP0_DATA_PHASE:
+
+                            // dwExposureTimeAbsolute is 4 bytes, little endian.
+                            if (ct_cs == CT_EXPOSURE_TIME_ABSOLUTE_CONTROL)
+                            {
+                                uint32_t exposure = (uint32_t)res_buf[0]
+                                                  | ((uint32_t)res_buf[1] << 8)
+                                                  | ((uint32_t)res_buf[2] << 16)
+                                                  | ((uint32_t)res_buf[3] << 24);
+
+                                camTermCtrlsVal[ct_cs][GET_CUR_VAL_INDEX] = exposure;
+
+                                camera_set_gain(camera_gain_from_exposure(exposure,
+                                        camGainBaseSlider));
+                            }
+
+                            // Manual is the only mode; reject anything else so
+                            // the host's Auto checkbox reverts.
+                            if ((ct_cs == CT_AE_MODE_CONTROL) && (res_buf[0] != 0x01))
+                            {
+                                terminalErrorCode[VC_ERR_CODE_INDEX] = ERR_CODE_OUT_OF_RANGE;
+
+                                lsc_usb_ep0_stall_restart(usb_dev);
+                            }
+
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    return;
+                }
+
+                switch (setup_pkt->bRequest)
+                {
+                    case GET_CUR:
+                        ct_val = camTermCtrlsVal[ct_cs][GET_CUR_VAL_INDEX];
+                        break;
+                    case GET_MIN:
+                        ct_val = camTermCtrlsVal[ct_cs][GET_MIN_VAL_INDEX];
+                        break;
+                    case GET_MAX:
+                        ct_val = camTermCtrlsVal[ct_cs][GET_MAX_VAL_INDEX];
+                        break;
+                    case GET_DEF:
+                        ct_val = camTermCtrlsVal[ct_cs][GET_DEF_VAL_INDEX];
+                        break;
+                    case GET_RES:
+                        ct_val = camTermCtrlsVal[ct_cs][GET_RES_VAL_INDEX];
+                        break;
+                    case GET_LEN:
+                        ct_val = ct_len;
+                        ct_len = 2;
+                        break;
+                    case GET_INFO:
+                        ct_val = camTermCtrlsVal[ct_cs][GET_INFO_VAL_INDEX];
+                        ct_len = 1;
+                        break;
+
+                    default:
+                        terminalErrorCode[VC_ERR_CODE_INDEX] = ERR_CODE_INVALID_REQ;
+
+                        lsc_usb_ep0_stall_restart(usb_dev);
+
+                        return;
+                }
+
+                lsc_usb_ep0_send(usb_dev, (uint8_t*)&ct_val, ct_len);
 
                 return;
 
@@ -641,10 +746,26 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
                                     req_width = 1920;
                                     req_height = 1080;
                                     requested_resolution = RESOLUTION_1920x1080;
+                                } else if (requested_frame_index == FRAME_INDEX_3280x2160) {
+                                    req_width = 3280;
+                                    req_height = 2160;
+                                    // 3280x2160 is SuperSpeed only: the High Speed
+                                    // configuration does not advertise it.
+                                    if (usb_dev->dev_speed != LSC_SPEED_SUPER) {
+                                        printf("3280x2160 not supported at High Speed, rejecting\r\n");
+                                        terminalErrorCode[VC_ERR_CODE_INDEX] = ERR_CODE_INVALID_VALUE_WITHIN_RANGE;
+                                        lsc_usb_ep0_stall_restart(usb_dev);
+                                        return;
+                                    }
+                                    requested_resolution = RESOLUTION_3280x2160;
                                 } else if (requested_frame_index == FRAME_INDEX_1280x720) {
                                     req_width = 1280;
                                     req_height = 720;
                                     requested_resolution = RESOLUTION_1280x720;
+                                } else if (requested_frame_index == FRAME_INDEX_640x480) {
+                                    req_width = 640;
+                                    req_height = 480;
+                                    requested_resolution = RESOLUTION_640x480;
                                 } else {
                                     // Invalid frame index - reject the probe request
                                     printf("VS_PROBE_CONTROL: INVALID frame_index=0x%02x, rejecting\r\n", requested_frame_index);
@@ -732,8 +853,20 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
                                 
                                 if (requested_frame_index == FRAME_INDEX_1920x1080) {
                                     requested_resolution = RESOLUTION_1920x1080;
+                                } else if (requested_frame_index == FRAME_INDEX_3280x2160) {
+                                    // 3280x2160 is SuperSpeed only: the High Speed
+                                    // configuration does not advertise it.
+                                    if (usb_dev->dev_speed != LSC_SPEED_SUPER) {
+                                        printf("3280x2160 not supported at High Speed, rejecting\r\n");
+                                        terminalErrorCode[VC_ERR_CODE_INDEX] = ERR_CODE_INVALID_VALUE_WITHIN_RANGE;
+                                        lsc_usb_ep0_stall_restart(usb_dev);
+                                        return;
+                                    }
+                                    requested_resolution = RESOLUTION_3280x2160;
                                 } else if (requested_frame_index == FRAME_INDEX_1280x720) {
                                     requested_resolution = RESOLUTION_1280x720;
+                                } else if (requested_frame_index == FRAME_INDEX_640x480) {
+                                    requested_resolution = RESOLUTION_640x480;
                                 } else {
                                     // Invalid frame index - reject the commit request
                                     printf("VS_COMMIT_CONTROL: INVALID frame_index=0x%02x, rejecting\r\n", requested_frame_index);
@@ -770,7 +903,7 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
                                          * 
                                          * Steps:
                                          * 1. Disable camera (I2C register writes)
-                                         * 2. Wait 10ms for camera to fully disable
+                                         * 2. Wait 150ms (SuperSpeed) / 350ms (High Speed) for camera to fully disable
                                          * 3. Re-initialize common registers (skip PLL registers)
                                          * 4. Update current_resolution variable
                                          * 5. Set resolution-specific registers via I2C
@@ -783,8 +916,14 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
                                             // Disable camera before resolution change
                                             disable_camera();
                                             
-                                            // Add delay to ensure camera is fully disabled
-                                            delayMS(10);
+                                            // Wait 150ms (SuperSpeed) / 350ms (High Speed) to
+                                            // ensure the camera is fully disabled before
+                                            // reprogramming. Matches the deferred path in main.c.
+                                            if (usb_dev->dev_speed == LSC_SPEED_SUPER) {
+                                                delayMS(150);
+                                            } else {
+                                                delayMS(350);
+                                            }
                                             
                                             // Re-initialize ALL common registers (including PLL registers)
                                             // This matches the enumeration initialization sequence exactly
@@ -805,7 +944,21 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
                                             
                                             // Update resolution-specific registers
                                             set_resolution(current_resolution);
-                                            
+
+                                            // Apply the per-speed blanking and the
+                                            // standardized 20 ms exposure. Must follow
+                                            // set_resolution(), which writes LINE_LEN and
+                                            // the integration time from the mode table.
+                                            if (usb_dev->dev_speed == LSC_SPEED_SUPER) {
+                                                usb3_cam_blanking_setting(current_resolution);
+                                            } else {
+                                                usb2_cam_blanking_setting(current_resolution);
+                                            }
+
+                                            // Re-centre the host's trim range.
+                                            uvc_gain_sync_to_mode(current_resolution,
+                                                    usb_dev->dev_speed == LSC_SPEED_SUPER);
+
                                             // Add stabilization delay after PLL and resolution changes
                                             delayMS(20);
                                             
@@ -834,6 +987,10 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
                                 // (This may differ from host request if change was deferred)
                                 if (current_resolution == RESOLUTION_1920x1080) {
                                     vdoProbeCommit.bFrameIndex = FRAME_INDEX_1920x1080;
+                                } else if (current_resolution == RESOLUTION_640x480) {
+                                    vdoProbeCommit.bFrameIndex = FRAME_INDEX_640x480;
+                                } else if (current_resolution == RESOLUTION_3280x2160) {
+                                    vdoProbeCommit.bFrameIndex = FRAME_INDEX_3280x2160;
                                 } else {
                                     vdoProbeCommit.bFrameIndex = FRAME_INDEX_1280x720;
                                 }
@@ -859,9 +1016,15 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
                                 //   (Frame sizes will be updated in main.c after hardware change completes)
                                 // - Otherwise: Update frame sizes immediately
                                 if (!(straming_en && resolution_change_pending)) {
-                                    if (current_resolution == RESOLUTION_1920x1080) {
+                                    if (current_resolution == RESOLUTION_640x480) {
+                                        vdoProbeCommit.dwMaxVideoFrameSize = ((640 * 480 * BITSPERPIXEL) / 8) + 2;
+                                        vdoProbeCommit.dwMaxPayloadTransferSize = ((640 * 480 * BITSPERPIXEL) / 8) + 2;
+                                    } else if (current_resolution == RESOLUTION_1920x1080) {
                                         vdoProbeCommit.dwMaxVideoFrameSize = ((1920 * 1080 * BITSPERPIXEL) / 8) + 2;
                                         vdoProbeCommit.dwMaxPayloadTransferSize = ((1920 * 1080 * BITSPERPIXEL) / 8) + 2;
+                                    } else if (current_resolution == RESOLUTION_3280x2160) {
+                                        vdoProbeCommit.dwMaxVideoFrameSize = ((3280 * 2160 * BITSPERPIXEL) / 8) + 2;
+                                        vdoProbeCommit.dwMaxPayloadTransferSize = ((3280 * 2160 * BITSPERPIXEL) / 8) + 2;
                                     } else {
                                         vdoProbeCommit.dwMaxVideoFrameSize = ((1280 * 720 * BITSPERPIXEL) / 8) + 2;
                                         vdoProbeCommit.dwMaxPayloadTransferSize = ((1280 * 720 * BITSPERPIXEL) / 8) + 2;
@@ -976,6 +1139,16 @@ void lsc_usb_class_req(struct lsc_usb_dev *dev, setup_pkt *setup_pkt)
 }
 
 
+// Records this mode's calibrated gain as the centre of the host's trim range.
+void uvc_gain_sync_to_mode(camera_resolution_t resolution, int is_usb3)
+{
+    camGainBaseSlider = camera_gain_default(resolution, is_usb3);
+
+    // The centre step is the calibrated gain, so default == current everywhere.
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_DEF_VAL_INDEX] = camera_exposure_default();
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_CUR_VAL_INDEX] = camera_exposure_default();
+}
+
 void configure_uvc_device()
 {
     unsigned data_size = 0;
@@ -986,6 +1159,10 @@ void configure_uvc_device()
     vdoProbeCommit.bFormatIndex = 0x01;
     if (current_resolution == RESOLUTION_1920x1080) {
         vdoProbeCommit.bFrameIndex = FRAME_INDEX_1920x1080;  // 0x01
+    } else if (current_resolution == RESOLUTION_640x480) {
+        vdoProbeCommit.bFrameIndex = FRAME_INDEX_640x480;    // 0x03
+    } else if (current_resolution == RESOLUTION_3280x2160) {
+        vdoProbeCommit.bFrameIndex = FRAME_INDEX_3280x2160;  // 0x04
     } else {
         vdoProbeCommit.bFrameIndex = FRAME_INDEX_1280x720;   // 0x02
     }
@@ -1002,6 +1179,12 @@ void configure_uvc_device()
     if (current_resolution == RESOLUTION_1920x1080) {
         current_width = 1920;
         current_height = 1080;
+    } else if (current_resolution == RESOLUTION_640x480) {
+        current_width = 640;
+        current_height = 480;
+    } else if (current_resolution == RESOLUTION_3280x2160) {
+        current_width = 3280;
+        current_height = 2160;
     } else {
         current_width = 1280;
         current_height = 720;
@@ -1044,7 +1227,24 @@ void configure_uvc_device()
     vdoFormatPayloadHeader.bHeaderLength = 2;
 
     bmCtrlsSupported[PU_BMCONTROLS_INDEX] = 0x00000000;
-    bmCtrlsSupported[CAM_BMCONTROLS_INDEX] = 0x00000000;
+    bmCtrlsSupported[CAM_BMCONTROLS_INDEX] = (1u << CT_AE_MODE_CONTROL)
+                                           | (1u << CT_EXPOSURE_TIME_ABSOLUTE_CONTROL);
+
+    // Exposure is a gain trim: integration time is pinned to flicker-free values.
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_MIN_VAL_INDEX]  = camera_exposure_min();
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_MAX_VAL_INDEX]  = camera_exposure_max();
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_RES_VAL_INDEX]  = 1;
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_INFO_VAL_INDEX] = 0x03;
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_DEF_VAL_INDEX]  = camera_exposure_default();
+    camTermCtrlsVal[CT_EXPOSURE_TIME_ABSOLUTE_CONTROL][GET_CUR_VAL_INDEX]  = camera_exposure_default();
+
+    // Manual only - this firmware has no auto-exposure loop.
+    camTermCtrlsVal[CT_AE_MODE_CONTROL][GET_MIN_VAL_INDEX]  = 0x01;
+    camTermCtrlsVal[CT_AE_MODE_CONTROL][GET_MAX_VAL_INDEX]  = 0x01;
+    camTermCtrlsVal[CT_AE_MODE_CONTROL][GET_RES_VAL_INDEX]  = 0x01;
+    camTermCtrlsVal[CT_AE_MODE_CONTROL][GET_INFO_VAL_INDEX] = 0x03;
+    camTermCtrlsVal[CT_AE_MODE_CONTROL][GET_DEF_VAL_INDEX]  = 0x01;
+    camTermCtrlsVal[CT_AE_MODE_CONTROL][GET_CUR_VAL_INDEX]  = 0x01;
     bmCtrlsSupported[EU_BMCONTROLS_INDEX] = 0x00000001;
 
     //mapProcUnitCtrl[0]=;

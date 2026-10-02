@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 09 08 08:27:25" device="LIFCL-33U" device_int="jd5u27a" display_module="MIPI CSI/DSI" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Propel" gen_platform_version="2026.1.0.2606162255" generator="ipgen" library="ip" module="mipi_csi_dsi" name="mipi_csi_rx" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi.com" version="4.2.0">
+ <Package>
+  <File modified="2026 09 08 08:27:24" name="rtl/mipi_csi_rx_bb.sv" type="black_box_verilog"/>
+  <File modified="2026 09 08 08:27:24" name="mipi_csi_rx.cfg" type="cfg"/>
+  <File modified="2026 09 08 08:27:24" name="misc/mipi_csi_rx_tmpl.sv" type="template_verilog"/>
+  <File modified="2026 09 08 08:27:24" name="misc/mipi_csi_rx_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 09 08 08:27:25" name="rtl/mipi_csi_rx.sv" type="top_level_system_verilog"/>
+  <File modified="2026 09 08 08:27:25" name="constraints/constraint.sdc" stage="lse:all,synplify:all" type="tcl_constraints"/>
+  <File modified="2026 09 08 08:27:25" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2026 09 08 08:27:25" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 09 08 08:27:25" name="eval/dut_params.v" type="dependency_file"/>
+  <File modified="2026 09 08 08:27:25" name="eval/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 09 08 08:27:25" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 09 08 08:27:25" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/axi_byte_stream_pkt_gen.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/bus_driver.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/clk_driver.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/cphy_csi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/cphy_dsi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/dphy_csi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/dphy_dsi2_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/rx_model.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:06:15" name="testbench/tb_top.sv" type="testbench_system_verilog"/>
+  <File modified="2026 09 08 02:57:25" name="eval/constraint.pdc" type="eval"/>
+  <File modified="2026 09 08 02:06:15" name="eval/mipi_vision_interopt.zip" type="eval"/>
+  <File modified="2026 09 08 02:57:25" name="eval/eval_top.sv" type="eval"/>
+ </Package>
+</RadiantModule>

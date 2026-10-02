@@ -110,6 +110,7 @@
 
 #define REG_DIG_GAIN_GLOBAL_MSB		0x0158
 #define REG_DIG_GAIN_GLOBAL_LSB		0x0159
+
 #define REG_ANA_GAIN_GLOBAL			0x0157
 #define REG_INTEGRATION_TIME_MSB	0x015A
 #define REG_INTEGRATION_TIME_LSB 	0x015B
@@ -220,24 +221,118 @@ static unsigned char mode_table_common[] = {
   SHORT_TO_CHAR(0x478F),		0x10,		//0x47, 0x8F, 0x10,
   SHORT_TO_CHAR(0x4793),		0x10,		//0x47, 0x93, 0x10,
   SHORT_TO_CHAR(0x4797),		0x0E,		//0x47, 0x97, 0x0E,
-  SHORT_TO_CHAR(0x479B), 		0x0E,		//0x47, 0x9B, 0x0E
+  SHORT_TO_CHAR(0x479B), 		0x0E		//0x47, 0x9B, 0x0E
+
+  // Gain now lives in the per-speed blanking tables, one setting per exposure.
 
 };
 
+ static unsigned char mode_3280x2160[] = {
+
+
+     // Frame Length: 2200
+     // Active + Dummy lines = 2160 + 40 = 2200 (0x0898)
+     SHORT_TO_CHAR(REG_FRAME_LEN_MSB),		((0x0898 & 0xFF00) >> 8),
+     SHORT_TO_CHAR(REG_FRAME_LEN_LSB),		(0x0898 & 0xFF),
+
+     /* Integration time */
+     // Active + Dummy lines - 4 = 2196 (0x894)
+     SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	(((2200 - 4) & 0xFF00) >> 8),
+     SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	((2200 - 4) & 0xFF),
+
+     // Line Length: 3448 (0x0D78) - minimum for full width, highest frame rate
+     // Active + Dummy pixels
+     SHORT_TO_CHAR(REG_LINE_LEN_MSB),			((0x0D78 & 0xFF00) >> 8),
+     SHORT_TO_CHAR(REG_LINE_LEN_LSB),			(0x0D78 & 0xFF),
+
+     // crop_rect.left: 0
+     // X-Start address - 0 (0x0000)
+     SHORT_TO_CHAR(REG_X_ADD_STA_MSB),		0x00,
+     SHORT_TO_CHAR(REG_X_ADD_STA_LSB),		0x00,
+
+     // crop_rect.width: 3280
+     // X-End address - (0 + 3280) - 1 = 3279 (0x0CCF)
+     SHORT_TO_CHAR(REG_X_ADD_END_MSB),		0x0C,
+     SHORT_TO_CHAR(REG_X_ADD_END_LSB),		0xCF,
+
+     // Image Height:
+     // crop_rect.top: 152 - centered in 2464 array: (2464 - 2160) / 2 = 152
+     // Y-Start address - 152 (0x0098)
+     SHORT_TO_CHAR(REG_Y_ADD_STA_MSB),		0x00,
+     SHORT_TO_CHAR(REG_Y_ADD_STA_LSB),		0x98,
+
+     // crop_rect.height: 2160
+     // Y-end address - (152 + 2160) - 1 = 2311 (0x0907)
+     SHORT_TO_CHAR(REG_Y_ADD_END_MSB),		0x09,
+     SHORT_TO_CHAR(REG_Y_ADD_END_LSB),		0x07,
+
+     // image width = 3280 (0xCD0)
+     SHORT_TO_CHAR(REG_X_OUT_SIZE_MSB),		0x0C,
+     SHORT_TO_CHAR(REG_X_OUT_SIZE_LSB),		0xD0,
+
+     // image height = 2160 (0x870)
+     SHORT_TO_CHAR(REG_Y_OUT_SIZE_MSB),		0x08,
+     SHORT_TO_CHAR(REG_Y_OUT_SIZE_LSB),		0x70,
+
+     // X odd increment
+     SHORT_TO_CHAR(REG_X_ODD_INC),			0x01,
+
+     // Y odd increment
+     SHORT_TO_CHAR(REG_Y_ODD_INC),			0x01,
+
+     // Binning Mode: X (1)
+     SHORT_TO_CHAR(REG_BINNING_H),			0x00,
+
+     // Binning Mode: Y (1)
+     SHORT_TO_CHAR(REG_BINNING_V),			0x00,
+
+  #ifdef CAM_TP_EN
+
+    SHORT_TO_CHAR(REG_TEST_PATTERN_MSB),	0x00,
+    SHORT_TO_CHAR(REG_TEST_PATTERN_LSB),	0x02,
+    /*
+    SHORT_TO_CHAR(REG_TP_RED_MSB),		0x03,
+    SHORT_TO_CHAR(REG_TP_RED_LSB),		0xFF,
+
+    SHORT_TO_CHAR(REG_TP_GREEN_MSB),		0x00,
+    SHORT_TO_CHAR(REG_TP_GREEN_LSB),		0x00,
+
+    SHORT_TO_CHAR(REG_TP_BLUE_MSB),		0x00,
+    SHORT_TO_CHAR(REG_TP_BLUE_LSB),		0x00,
+
+    SHORT_TO_CHAR(0x0608),				0x00,
+    SHORT_TO_CHAR(0x0609),				0x00,
+
+    SHORT_TO_CHAR(0x060A),				0x00,
+    SHORT_TO_CHAR(0x060B),				0x00,
+    SHORT_TO_CHAR(0x060C),				0x00,
+    SHORT_TO_CHAR(0x060D),				0x00,
+    SHORT_TO_CHAR(0x060E),				0x00,
+    SHORT_TO_CHAR(0x060F),				0x00,
+    SHORT_TO_CHAR(0x0610),				0x00,
+    SHORT_TO_CHAR(0x0611),				0x00,
+
+    SHORT_TO_CHAR(REG_TP_X_OFFSET_MSB),	0x00,
+    SHORT_TO_CHAR(REG_TP_X_OFFSET_LSB),	0x00,
+    SHORT_TO_CHAR(REG_TP_Y_OFFSET_MSB),	0x00,
+    SHORT_TO_CHAR(REG_TP_Y_OFFSET_LSB),	0x00,
+  */
+    SHORT_TO_CHAR(REG_TP_WIDTH_MSB),		0x0C,
+    SHORT_TO_CHAR(REG_TP_WIDTH_LSB),		0xD0,
+    SHORT_TO_CHAR(REG_TP_HEIGHT_MSB),		0x08,
+    SHORT_TO_CHAR(REG_TP_HEIGHT_LSB),		0x70,
+ #endif
+   };
+
 static unsigned char mode_1920x1080[] = {
 
-  // analogue gain setting
-  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),	0xA0,		//0x01, 0x57, 0x00,
 
-  /* Digital gain */
-  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	0x01,		//0x01, 0x58, 0x01,
-  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	0xA0,		//0x01, 0x59, 0x00,
 
   // 30 FPS
   // Frame Length: 1120
   // Active + Dummy lines = 1080 + 20 = 1100 (0x044C)
   // Active + Dummy lines = 1080 + 30 = 1110 (0x0456)
-  // Active + Dummy lines = 1080 + 40 = 1120 (0x0460)
+  // Active + Dummy lines = 1080 + 40 = 1120 (0x0460)   <-- in use
   // Active + Dummy lines = 1080 + 44 = 1124 (0x0464)
   // Active + Dummy lines = 1080 + 50 = 1130 (0x046A)
   SHORT_TO_CHAR(REG_FRAME_LEN_MSB),		0x04,		//0x01, 0x60, 0x03,
@@ -338,22 +433,15 @@ static unsigned char mode_1920x1080[] = {
 
 static unsigned char mode_1280x720[] = {
 
-  // analogue gain setting
-  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),	0x80,		//0x01, 0x57, 0x00,
 
-  /* Digital gain */
-  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	0x02,		//0x01, 0x58, 0x01,
-  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	0x80,		//0x01, 0x59, 0x00,
 
-  // 30 FPS
-  // Frame Length: 1120
-  // Active + Dummy lines
-  SHORT_TO_CHAR(REG_FRAME_LEN_MSB),		0x04,		//0x01, 0x60, 0x03,
-  SHORT_TO_CHAR(REG_FRAME_LEN_LSB),		0x60,		//0x01, 0x61, 0x02,
+  // Frame Length: 720 + 40 = 760 (0x02F8), the 40-line vertical blanking rule.
+  SHORT_TO_CHAR(REG_FRAME_LEN_MSB),		((760 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_FRAME_LEN_LSB),		(760 & 0xFF),
 
-  /* Integration time */
-  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	0x02,		//0x01, 0x5A, 0x02,
-  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	0xEA,		//0x01, 0x5B, 0xFE,
+  /* Integration time */  // overwritten per USB speed with the 20 ms exposure
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((746 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(746 & 0xFF),
 
   // Line Length: 3448
   // Active + Dummy pixels
@@ -444,141 +532,172 @@ static unsigned char mode_1280x720[] = {
 
 };
 
-static unsigned char cam_pll_setting_u2[] = {
+// Small exposure applied before any FRAME_LEN change, to stay within the
+// sensor's coarse_integration_time <= FRAME_LEN - 4 limit.
+static unsigned char cam_safe_integration_time[] = {
 
-  // PLL_VT_MPY = 20 (Multiplier)
-  // PLL1
-  0x03, 0x06, 0x00,
-  0x03, 0x07, 0x0C,
-
-  // PLL_OP_MPY = 40 (Multiplier)
-  // PLL2
-  0x03, 0x0C, 0x00,
-  0x03, 0x0D, 0x18
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((16 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(16 & 0xFF)
 
 };
 
-static unsigned char cam_pll_setting_u3[] = {
+// Sensor clock tree, shared by both USB speeds: vt_pix_clk 118.4 MHz, MIPI link
+// 592 Mbps/lane. Do not reduce - the datasheet floor for vt_pix_clk is 80 MHz.
+// USB 2.0 bandwidth is reduced with LINE_LEN instead.
+static unsigned char cam_pll_setting[] = {
 
-  // PLL_VT_MPY = 43 (Multiplier)
-  // PLL1
+  // PLL_VT_MPY = 37 -> vt_pix_clk 24/3 * 37 / 5 * 2 = 118.4 MHz
   0x03, 0x06, 0x00,
   0x03, 0x07, 0x25,
 
-  // PLL_OP_MPY = 86 (Multiplier)
-  // PLL2
+  // PLL_OP_MPY = 74 -> 592 Mbps per lane, matching mipi_csi_rx LINE_RATE 592.0
   0x03, 0x0C, 0x00,
-  0x03, 0x0D, 0x4A
+  0x03, 0x0D, 0x4A,
+
+  // VTPXCK_DIV = 5, the only value the sensor accepts (min = max = 5)
+  SHORT_TO_CHAR(REG_VTPXCK_DIV), 0x05
 
 };
 
-// ---------------------------------------------------------------------------
-// Note: Somehow 640x480 resolution is not working for IMX219 camera sensor
-//       That's why below block is commented.
-// ---------------------------------------------------------------------------
-//static unsigned char mode_640x480[] = {
-//
-//  		  // analogue gain setting
-//  		  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),	0x80,		//0x01, 0x57, 0x00,
-//
-//  		  /* Digital gain */
-//  		  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	0x01,		//0x01, 0x58, 0x01,
-//  		  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	0x80,		//0x01, 0x59, 0x00,
-//
-//  		  // 30 FPS
-//  		  // Frame Length: 520
-//  		  // Active + Dummy lines = 480 + 30 = 510 (0x01FE)
-//  		  SHORT_TO_CHAR(REG_FRAME_LEN_MSB),		0x01,		//0x01, 0x60, 0x03,
-//  		  SHORT_TO_CHAR(REG_FRAME_LEN_LSB),		0xFE,		//0x01, 0x61, 0x02,
-//
-//  		  /* Integration time */
-//  		  // Active + Dummy lines - 4 = 506 (0x01FA)
-//  		  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	0x01,		//0x01, 0x5A, 0x02,
-//  		  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	0xFA,		//0x01, 0x5B, 0xFE,
-//
-//  		  // Line Length: 3448
-//  		  // Active + Dummy pixels
-//  		  SHORT_TO_CHAR(REG_LINE_LEN_MSB),		0x0D,		//0x01, 0x62, 0x0D,
-//  		  SHORT_TO_CHAR(REG_LINE_LEN_LSB),		0x78,		//0x01, 0x63, 0x78,
-//
-//  		  // crop_rect.left: 680
-//  		  // X-Start address (width) -
-//  		  SHORT_TO_CHAR(REG_X_ADD_STA_MSB),		0x02,		//0x01, 0x64, 0x02,
-//  		  SHORT_TO_CHAR(REG_X_ADD_STA_LSB),		0xA8,		//0x01, 0x65, 0xA8,
-//
-//  		  // crop_rect.width:
-//  		  // X-End address (width) - (680 + 640) - 1 = 1319 (0x0527)
-//  		  SHORT_TO_CHAR(REG_X_ADD_END_MSB),		0x05,		//0x01, 0x66, 0x07,
-//  		  SHORT_TO_CHAR(REG_X_ADD_END_LSB),		0x27,		//0x01, 0x67, 0xA7,
-//
-//  		  // Image Height:
-//  		  // crop_rect.top: 692
-//  		  // Y-Start address (Height)  -
-//  		  SHORT_TO_CHAR(REG_Y_ADD_STA_MSB),		0x02,		//0x01, 0x68, 0x02,
-//  		  SHORT_TO_CHAR(REG_Y_ADD_STA_LSB),		0xB4,		//0x01, 0x69, 0xB4,
-//
-//  		  // crop_rect.height: 991
-//  		  // Y-end address (Height)  - (692 + 480) - 1 = 1171 (0x0493)
-//  		  SHORT_TO_CHAR(REG_Y_ADD_END_MSB),		0x04,		//0x01, 0x6A, 0x05,
-//  		  SHORT_TO_CHAR(REG_Y_ADD_END_LSB),		0x93,		//0x01, 0x6B, 0x83,
-//
-//  		  // image width = 640 (0x280)
-//  		  SHORT_TO_CHAR(REG_X_OUT_SIZE_MSB),	0x02,		//0x01, 0x6C, 0x07,
-//  		  SHORT_TO_CHAR(REG_X_OUT_SIZE_LSB),	0x80,		//0x01, 0x6D, 0x80,
-//
-//  		  // image height = 480 (0x1E0)
-//  		  SHORT_TO_CHAR(REG_Y_OUT_SIZE_MSB),	0x01,		//0x01, 0x6E, 0x02,
-//  		  SHORT_TO_CHAR(REG_Y_OUT_SIZE_LSB),	0xE0,		//0x01, 0x6F, 0xD0,
-//
-//  		  // X odd increment
-//  		  SHORT_TO_CHAR(REG_X_ODD_INC),			0x01,		//0x01, 0x70, 0x01,
-//
-//  		  // Y odd increment
-//  		  SHORT_TO_CHAR(REG_Y_ODD_INC),			0x01,		//0x01, 0x71, 0x01,
-//
-//  		  // Binning Mode: X (1)
-//  		  SHORT_TO_CHAR(REG_BINNING_H),			0x00,		//0x01, 0x74, 0x00,
-//
-//  		  // Binning Mode: Y (1)
-//  		  SHORT_TO_CHAR(REG_BINNING_V),			0x00,		//0x01, 0x75, 0x00
-//
-//  		#ifdef CAM_TP_EN
-//
-//  		  SHORT_TO_CHAR(REG_TEST_PATTERN_MSB),	0x00,		//0x06, 0x00, 0x00, //TP Mode
-//  		  SHORT_TO_CHAR(REG_TEST_PATTERN_LSB),	0x02,		//0x06, 0x01, 0x02, //TP Mode
-//
-//  		  SHORT_TO_CHAR(REG_TP_RED_MSB),		0x03,		//0x06, 0x02, 0x03, //TD_R
-//  		  SHORT_TO_CHAR(REG_TP_RED_LSB),		0xFF,		//0x06, 0x03, 0xFF,
-//
-//  		  SHORT_TO_CHAR(REG_TP_GREEN_MSB),		0x00,		//0x06, 0x04, 0x00, //TD_GR
-//  		  SHORT_TO_CHAR(REG_TP_GREEN_LSB),		0x00,		//0x06, 0x05, 0x00,
-//
-//  		  SHORT_TO_CHAR(REG_TP_BLUE_MSB),		0x00,		//0x06, 0x06, 0x00, //TD_B
-//  		  SHORT_TO_CHAR(REG_TP_BLUE_LSB),		0x00,		//0x06, 0x07, 0x00,
-//
-//  		  SHORT_TO_CHAR(0x0608),				0x00,		//0x06, 0x08, 0x00, //TD_GB
-//  		  SHORT_TO_CHAR(0x0609),				0x00,		//0x06, 0x09, 0x00,
-//
-//  		  SHORT_TO_CHAR(0x060A),				0x00,		//0x06, 0x0A, 0x00,
-//  		  SHORT_TO_CHAR(0x060B),				0x00,		//0x06, 0x0B, 0x00,
-//  		  SHORT_TO_CHAR(0x060C),				0x00,		//0x06, 0x0C, 0x00,
-//  		  SHORT_TO_CHAR(0x060D),				0x00,		//0x06, 0x0D, 0x00,
-//  		  SHORT_TO_CHAR(0x060E),				0x00,		//0x06, 0x0E, 0x00,
-//  		  SHORT_TO_CHAR(0x060F),				0x00,		//0x06, 0x0F, 0x00,
-//  		  SHORT_TO_CHAR(0x0610),				0x00,		//0x06, 0x10, 0x00,
-//  		  SHORT_TO_CHAR(0x0611),				0x00,		//0x06, 0x11, 0x00,
-//
-//  		  SHORT_TO_CHAR(REG_TP_X_OFFSET_MSB),	0x00,		//0x06, 0x20, 0x00, //test_pattern_window_x_offset
-//  		  SHORT_TO_CHAR(REG_TP_X_OFFSET_LSB),	0x00,		//0x06, 0x21, 0x00,
-//  		  SHORT_TO_CHAR(REG_TP_Y_OFFSET_MSB),	0x00,		//0x06, 0x22, 0x00, //test_pattern_window_y_offset
-//  		  SHORT_TO_CHAR(REG_TP_Y_OFFSET_LSB),	0x00,		//0x06, 0x23, 0x00,
-//  		  SHORT_TO_CHAR(REG_TP_WIDTH_MSB),		0x05,		//0x06, 0x24, 0x05, //test_pattern_window_width
-//  		  SHORT_TO_CHAR(REG_TP_WIDTH_LSB),		0x00,		//0x06, 0x25, 0x00,
-//  		  SHORT_TO_CHAR(REG_TP_HEIGHT_MSB),		0x02,		//0x06, 0x26, 0x02, //test_pattern_window_height
-//  		  SHORT_TO_CHAR(REG_TP_HEIGHT_LSB),		0xD0,		//0x06, 0x27, 0xD0
-//  		#endif
-//
-//};
+// USB 2.0 blanking, exposure and gain. HTS sized for 40 MB/s; exposure in whole 10 ms / 8.333 ms mains periods where the frame allows; gain targets 434.2 ms-units.
+// 1280x720: 20.56 fps, 756 lines = 48.387 ms (FRAME_LEN - 4 ceiling), 4.473x gain.
+static unsigned char cam_blanking_setting_u2_1280x720[] = {
+
+  SHORT_TO_CHAR(REG_LINE_LEN_MSB),			((7578 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_LINE_LEN_LSB),			(7578 & 0xFF),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((756 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(756 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0xA3,	// 2.753x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x01A0 & 0xFF00) >> 8),	// 1.625x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x01A0 & 0xFF)
+
+};
+
+// 1920x1080: 9.30 fps, 1042 lines = 100.028 ms, 2.167x gain.
+static unsigned char cam_blanking_setting_u2_1920x1080[] = {
+
+  SHORT_TO_CHAR(REG_LINE_LEN_MSB),			((11366 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_LINE_LEN_LSB),			(11366 & 0xFF),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((1042 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(1042 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0x40,	// 1.333x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x01A0 & 0xFF00) >> 8),	// 1.625x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x01A0 & 0xFF)
+
+};
+
+// 3280x2160: 2.77 fps, 610 lines = 100.042 ms, 2.167x gain. SuperSpeed only.
+static unsigned char cam_blanking_setting_u2_3280x2160[] = {
+
+  SHORT_TO_CHAR(REG_LINE_LEN_MSB),			((19418 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_LINE_LEN_LSB),			(19418 & 0xFF),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((610 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(610 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0x40,	// 1.333x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x01A0 & 0xFF00) >> 8),	// 1.625x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x01A0 & 0xFF)
+
+};
+
+// 640x480: 60.11 fps, 516 lines = 16.509 ms (FRAME_LEN - 4 ceiling), 13.167x gain.
+static unsigned char cam_blanking_setting_u2_640x480[] = {
+
+  SHORT_TO_CHAR(REG_LINE_LEN_MSB),			((3788 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_LINE_LEN_LSB),			(3788 & 0xFF),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((516 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(516 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0xE8,	// 10.667x, sensor ceiling
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x013C & 0xFF00) >> 8),	// 1.234x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x013C & 0xFF)
+
+};
+
+// USB 3.0 exposure and gain. HTS stays at the mode table's 3448; 3280x2160 takes 50 ms, the rest the FRAME_LEN - 4 ceiling.
+// 1280x720: 45.18 fps, 756 lines = 22.016 ms, 9.905x gain.
+static unsigned char cam_blanking_setting_u3_1280x720[] = {
+
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((756 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(756 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0xD6,	// 6.095x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x01A0 & 0xFF00) >> 8),	// 1.625x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x01A0 & 0xFF)
+
+};
+
+// 1920x1080: 30.66 fps, 1116 lines = 32.500 ms, 6.710x gain.
+static unsigned char cam_blanking_setting_u3_1920x1080[] = {
+
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((1116 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(1116 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0xC2,	// 4.129x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x01A0 & 0xFF00) >> 8),	// 1.625x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x01A0 & 0xFF)
+
+};
+
+// 3280x2160: 15.61 fps, 1717 lines = 50.002 ms, flicker-free at 50 and 60 Hz, 4.333x gain.
+static unsigned char cam_blanking_setting_u3_3280x2160[] = {
+
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((1717 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(1717 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0xA0,	// 2.667x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x01A0 & 0xFF00) >> 8),	// 1.625x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x01A0 & 0xFF)
+
+};
+
+// 640x480: 66.04 fps, 516 lines = 15.027 ms (FRAME_LEN - 4 ceiling), 14.345x gain.
+static unsigned char cam_blanking_setting_u3_640x480[] = {
+
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((516 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(516 & 0xFF),
+  SHORT_TO_CHAR(REG_ANA_GAIN_GLOBAL),		0xE3,	// 8.828x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_MSB),	((0x01A0 & 0xFF00) >> 8),	// 1.625x
+  SHORT_TO_CHAR(REG_DIG_GAIN_GLOBAL_LSB),	(0x01A0 & 0xFF)
+
+};
+
+// 640x480, cropped from the array at (680, 692).
+static unsigned char mode_640x480[] = {
+
+  // Frame Length: 520
+  // Active + Dummy lines = 480 + 40 = 520 (0x0208)
+  SHORT_TO_CHAR(REG_FRAME_LEN_MSB),		((520 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_FRAME_LEN_LSB),		(520 & 0xFF),
+
+  /* Integration time */  // overwritten per USB speed with the 20 ms exposure
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_MSB),	((500 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_INTEGRATION_TIME_LSB),	(500 & 0xFF),
+
+  // Line Length: 3448 (sensor native); USB 2.0 stretches this
+  SHORT_TO_CHAR(REG_LINE_LEN_MSB),		((3448 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_LINE_LEN_LSB),		(3448 & 0xFF),
+
+  // X-Start 680, X-End 680 + 640 - 1 = 1319 (0x0527)
+  SHORT_TO_CHAR(REG_X_ADD_STA_MSB),		((680 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_X_ADD_STA_LSB),		(680 & 0xFF),
+  SHORT_TO_CHAR(REG_X_ADD_END_MSB),		((1319 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_X_ADD_END_LSB),		(1319 & 0xFF),
+
+  // Y-Start 692, Y-End 692 + 480 - 1 = 1171 (0x0493)
+  SHORT_TO_CHAR(REG_Y_ADD_STA_MSB),		((692 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_Y_ADD_STA_LSB),		(692 & 0xFF),
+  SHORT_TO_CHAR(REG_Y_ADD_END_MSB),		((1171 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_Y_ADD_END_LSB),		(1171 & 0xFF),
+
+  // Output size 640 x 480
+  SHORT_TO_CHAR(REG_X_OUT_SIZE_MSB),	((640 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_X_OUT_SIZE_LSB),	(640 & 0xFF),
+  SHORT_TO_CHAR(REG_Y_OUT_SIZE_MSB),	((480 & 0xFF00) >> 8),
+  SHORT_TO_CHAR(REG_Y_OUT_SIZE_LSB),	(480 & 0xFF),
+
+  // No binning or subsampling, matching the other modes
+  SHORT_TO_CHAR(REG_X_ODD_INC),			0x01,
+  SHORT_TO_CHAR(REG_Y_ODD_INC),			0x01,
+  SHORT_TO_CHAR(REG_BINNING_H),			0x00,
+  SHORT_TO_CHAR(REG_BINNING_V),			0x00
+
+};
 
 static unsigned char cam_en[] = {
 	SHORT_TO_CHAR(REG_MODE_SEL),	0x01,	//0x01, 0x00, 0x01
@@ -589,10 +708,24 @@ static unsigned char cam_dis[] = {
 	};
 
 
+// Host gain control, driven by the UVC exposure control; see cam_gain_slider.
+#define CAM_GAIN_SLIDER_MAX     100
+
+void camera_set_gain(uint8_t slider);
+uint8_t camera_gain_default(camera_resolution_t resolution, int is_usb3);
+
+// The host's exposure control is a +/-3 stop trim around the calibrated gain.
+uint32_t camera_exposure_min(void);
+uint32_t camera_exposure_max(void);
+uint32_t camera_exposure_default(void);
+uint8_t camera_gain_from_exposure(uint32_t exposure, uint8_t base_slider);
+
 void mode_default_register_init();
 void set_resolution(camera_resolution_t resolution);
 void usb2_cam_pll_setting(camera_resolution_t resolution);
 void usb3_cam_pll_setting(camera_resolution_t resolution);
+void usb2_cam_blanking_setting(camera_resolution_t resolution);
+void usb3_cam_blanking_setting(camera_resolution_t resolution);
 void enable_camera();
 void disable_camera();
 

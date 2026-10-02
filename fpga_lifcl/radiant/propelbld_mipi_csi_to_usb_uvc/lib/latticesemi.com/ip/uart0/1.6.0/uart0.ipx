@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 07 21 09:05:10" device="LIFCL-33U" device_int="jd5u27a" display_module="UART" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Propel" gen_platform_version="2026.1.0.2606162255" generator="ipgen" library="ip" module="uart" name="uart0" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi.com" version="1.6.0">
+ <Package>
+  <File modified="2026 07 21 09:05:10" name="rtl/uart0_bb.v" type="black_box_verilog"/>
+  <File modified="2026 07 21 09:05:10" name="uart0.cfg" type="cfg"/>
+  <File modified="2026 07 21 09:05:10" name="misc/uart0_tmpl.v" type="template_verilog"/>
+  <File modified="2026 07 21 09:05:10" name="misc/uart0_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 07 21 09:05:10" name="rtl/uart0.v" type="top_level_verilog"/>
+  <File modified="2026 07 21 09:05:10" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2026 07 21 09:05:10" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 07 21 09:05:10" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 07 21 09:05:10" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2026 07 03 05:24:13" name="testbench/lscc_lmmi2apb.v" type="testbench_verilog"/>
+  <File modified="2026 07 03 05:24:13" name="testbench/lscc_uart_model.v" type="testbench_verilog"/>
+  <File modified="2026 07 03 05:24:13" name="testbench/tb_lmmi_mst.v" type="testbench_verilog"/>
+  <File modified="2026 07 03 05:24:13" name="testbench/tb_top.v" type="testbench_verilog"/>
+  <File modified="2026 07 03 05:24:13" name="testbench/uart_rx.v" type="testbench_verilog"/>
+  <File modified="2026 07 03 05:24:13" name="testbench/uart_tx.v" type="testbench_verilog"/>
+  <File modified="2026 07 03 05:24:13" name="driver/uart.c" type="driver_source"/>
+  <File modified="2026 07 03 05:24:13" name="driver/uart.h" type="driver_header"/>
+  <File modified="2026 07 03 05:24:13" name="driver/uart.xml" type="driver_metadata"/>
+ </Package>
+</RadiantModule>

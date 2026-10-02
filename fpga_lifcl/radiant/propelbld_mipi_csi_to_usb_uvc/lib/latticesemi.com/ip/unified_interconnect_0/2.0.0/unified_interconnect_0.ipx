@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 07 06 08:32:52" device="LIFCL-33U" device_int="jd5u27a" display_module="Unified Interconnect" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Propel" gen_platform_version="2026.1.0.2605310407" generator="ipgen" library="ip" module="unified_interconnect" name="unified_interconnect_0" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi.com" version="2.0.0">
+ <Package>
+  <File modified="2026 07 06 08:32:50" name="rtl/unified_interconnect_0_bb.sv" type="black_box_verilog"/>
+  <File modified="2026 07 06 08:32:50" name="unified_interconnect_0.cfg" type="cfg"/>
+  <File modified="2026 07 06 08:32:50" name="misc/unified_interconnect_0_tmpl.sv" type="template_verilog"/>
+  <File modified="2026 07 06 08:32:50" name="misc/unified_interconnect_0_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 07 06 08:32:51" name="rtl/unified_interconnect_0.sv" type="top_level_system_verilog"/>
+  <File modified="2026 07 06 08:32:51" name="constraints/constraints.sdc" stage="lse:premap,synplify:premap" type="tcl_constraints"/>
+  <File modified="2026 07 06 08:32:52" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 07 06 08:32:51" name="design.xml" type="IP-XACT_design"/>
+ </Package>
+</RadiantModule>

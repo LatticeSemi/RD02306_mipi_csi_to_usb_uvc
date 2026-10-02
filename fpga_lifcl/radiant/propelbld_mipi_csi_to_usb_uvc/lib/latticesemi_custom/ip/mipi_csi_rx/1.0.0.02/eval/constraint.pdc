@@ -1,3 +1,0 @@
-ldc_set_attribute {VIRTUAL_IO=TRUE} [get_ports *]
-ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports clk_fr_i]
-ldc_set_port -iobuf {IO_TYPE=LVDS} [get_ports axis_vid_clk_i]

@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RadiantProject version="4.2" radiant="2025.2.0.48.0" title="mipi_csi_to_usb_uvc" device="LIFCL-33U-7CTG104C" performance_grade="7_High-Performance_1.0V" family_int="je5d00" device_int="jd5u27a" package_int="FCCSP104" operation_int="COM" speed_int="10" default_implementation="impl_1">
+<RadiantProject version="4.2" radiant="2026.1.0.37.0" title="mipi_csi_to_usb_uvc" device="LIFCL-33U-7CTG104C" performance_grade="7_High-Performance_1.0V" family_int="je5d00" device_int="jd5u27a" package_int="FCCSP104" operation_int="COM" speed_int="10" default_implementation="impl_1">
     <Options/>
     <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="synplify" default_strategy="Strategy1">
         <Options def_top="isp_csc_ipgen_shiftreg">
             <Option name="include path" value="."/>
             <Option name="top" value="mipi_csi_to_usb_uvc"/>
         </Options>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/HW_ver_gpio/1.8.0/HW_ver_gpio.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/tp_en_gpio/1.8.0/tp_en_gpio.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/module/apb0/1.4.0/apb0.ipx" type="IPX_Module" type_short="IPX">
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/unified_interconnect_0/2.0.0/unified_interconnect_0.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/unified_video_to_usb/1.0.0/unified_video_to_usb.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/lsc_i2cc/2.4.0/lsc_i2cc.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/isp_ccm/1.3.1.01/isp_ccm.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/ahbl_to_axilite_bridge/1.0.1.0/ahbl_to_axilite_bridge.ipx" type="IPX_Module" type_short="IPX">
@@ -36,24 +24,6 @@
         <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/ahbl_to_lmmi_inst/1.4.0.0/ahbl_to_lmmi_inst.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/cpu0/2.8.1/cpu0.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/module/ahbl2apb0/1.2.0/ahbl2apb0.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/mipi_csi_rx/1.0.0.02/mipi_csi_rx.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/sysmem0/2.5.1/sysmem0.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/USB23/usb23_ip/3.1.1/usb23_ip.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/isp_debayer/1.4.0.01/isp_debayer.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
         <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/isp_chroma_resampler/1.0.0/isp_chroma_resampler.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
@@ -63,15 +33,6 @@
         <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/module/pll_multiclk/1.9.1/pll_multiclk.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/isp_csc/2.4.1.01/isp_csc.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/module/ahbl0/1.5.0/ahbl0.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
-        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/uart0/1.5.0/uart0.ipx" type="IPX_Module" type_short="IPX">
-            <Options/>
-        </Source>
         <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/module/rs_pixel/1.1.0/rs_pixel.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
@@ -79,6 +40,39 @@
             <Options/>
         </Source>
         <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/module/rs_riscv/1.1.0/rs_riscv.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/cpu0/2.9.0/cpu0.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/sysmem0/2.6.0/sysmem0.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/uart0/1.6.0/uart0.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/lsc_i2cc/2.4.1/lsc_i2cc.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/USB23/usb23_ip/3.2.0/usb23_ip.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/HW_ver_gpio/1.8.1/HW_ver_gpio.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/tp_en_gpio/1.8.1/tp_en_gpio.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/isp_debayer/1.4.0.03/isp_debayer.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/isp_ccm/1.3.1.03/isp_ccm.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi.com/ip/mipi_csi_rx/4.2.0/mipi_csi_rx.ipx" type="IPX_Module" type_short="IPX">
+            <Options/>
+        </Source>
+        <Source name="propelbld_mipi_csi_to_usb_uvc/lib/latticesemi_custom/ip/isp_csc/2.4.1.03/isp_csc.ipx" type="IPX_Module" type_short="IPX">
             <Options/>
         </Source>
         <Source name="src/constraints/mipi_csi_to_usb_uvc.pdc" type="Physical Constraints File" type_short="PDC">

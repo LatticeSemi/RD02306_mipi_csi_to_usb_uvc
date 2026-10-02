@@ -217,15 +217,29 @@ int main (void)
         if(usb_dev.is_enum_done && !status){
 
             if ( cam_chip_id == IMX219_SENSOR_ID ) {
+                camera_resolution_t default_resolution = RESOLUTION_1920x1080;
+
+                // Keep the software state in step with what is programmed here.
+                current_resolution = default_resolution;
 
                 mode_default_register_init();
 
                 if(usb_dev.dev_speed == LSC_SPEED_SUPER)
-                    usb3_cam_pll_setting(RESOLUTION_1280x720);
+                    usb3_cam_pll_setting(default_resolution);
                 else
-                    usb2_cam_pll_setting(RESOLUTION_1280x720);
+                    usb2_cam_pll_setting(default_resolution);
 
-                set_resolution(RESOLUTION_1280x720);
+                set_resolution(default_resolution);
+
+                // Per-speed blanking and exposure. Must follow set_resolution().
+                if(usb_dev.dev_speed == LSC_SPEED_SUPER)
+                    usb3_cam_blanking_setting(default_resolution);
+                else
+                    usb2_cam_blanking_setting(default_resolution);
+
+                // Re-centre the host's trim range.
+                uvc_gain_sync_to_mode(default_resolution,
+                        usb_dev.dev_speed == LSC_SPEED_SUPER);
 
             }
 
@@ -266,21 +280,21 @@ int main (void)
 
             /**
              * Phase 4: Deferred Resolution Change (if streaming was active during commit)
-             * 
+             *
              * When a resolution change is requested during active streaming, the hardware
              * change is deferred to avoid interrupting the video stream. This section
              * performs the deferred hardware change when detected.
-             * 
+             *
          * Trigger Condition: usb_dev.is_enum_done == 1 AND straming_en == 1 AND resolution_change_pending == 1
-             * 
+             *
              * This happens when:
              * - PotPlayer requests resolution change while video is streaming
              * - Commit control handler set resolution_change_pending flag
              * - Main loop detects the flag and performs the hardware change
-             * 
+             *
              * Sequence:
              * 1. Disable camera (I2C register writes)
-             * 2. Wait 10ms for camera to fully disable
+             * 2. Wait 150ms (SuperSpeed) / 350ms (High Speed) for camera to fully disable
          * 3. Re-initialize common registers (including PLL registers)
              * 4. Set resolution-specific registers via I2C
              * 5. Configure PLL based on USB speed and resolution
@@ -290,58 +304,100 @@ int main (void)
              * 9. Clear resolution_change_pending flag
              */
         if (usb_dev.is_enum_done && straming_en && resolution_change_pending) {
+                // Latch once: current_resolution is written from interrupt context.
+                camera_resolution_t target_resolution = current_resolution;
+
                 if (cam_chip_id == IMX219_SENSOR_ID) {
                     // Step 1: Disable camera before resolution change
                     // This stops the sensor from generating frames at the old resolution
                     disable_camera();
-                    
-                    // Step 2: Stabilization delay - ensure camera is fully disabled
-                    // Timing: 10ms delay to allow camera to fully power down
-                    delayMS(10);
-                    
+
+                    // Step 2: Let the sensor finish its current frame and that frame
+                    // reach the host before reprogramming. Sized on the slowest mode
+                    // of each speed: 111 ms SuperSpeed, 292 ms High Speed.
+                    if (usb_dev.dev_speed == LSC_SPEED_SUPER) {
+                        delayMS(150);
+                    } else {
+                        delayMS(350);
+                    }
+
                     // Step 3: Re-initialize ALL common registers (including PLL registers)
                     // This matches the enumeration initialization sequence exactly
                     // PLL registers will be overwritten in the next step
                     mode_default_register_init();
-                    
+
                     // Step 4: Update PLL settings based on resolution and USB speed
                     // PLL must be set after common registers but before resolution-specific registers
                     // This matches the enumeration sequence: common init → PLL → resolution
                     // Different PLL settings for USB 2.0 vs USB 3.0, and for each resolution
                     if (usb_dev.dev_speed == LSC_SPEED_SUPER) {
-                        usb3_cam_pll_setting(current_resolution);
+                        usb3_cam_pll_setting(target_resolution);
                     } else {
-                        usb2_cam_pll_setting(current_resolution);
+                        usb2_cam_pll_setting(target_resolution);
                     }
-                    
+
                     // Step 5: Update resolution-specific registers
                     // Writes I2C registers specific to the new resolution:
                     //   - For 720p: mode_1280x720[] array
                     //   - For 1080p: mode_1920x1080[] array
-                set_resolution(current_resolution);
-                    
+                set_resolution(target_resolution);
+
+                    // Step 5a: Per-speed blanking and exposure, after set_resolution().
+                    if (usb_dev.dev_speed == LSC_SPEED_SUPER) {
+                        usb3_cam_blanking_setting(target_resolution);
+                    } else {
+                        usb2_cam_blanking_setting(target_resolution);
+                    }
+
+                    // Re-centre the host's trim range.
+                    uvc_gain_sync_to_mode(target_resolution,
+                            usb_dev.dev_speed == LSC_SPEED_SUPER);
+
                     // Step 6: Stabilization delay after PLL and resolution changes
                     // Timing: 20ms delay to allow PLL to lock and registers to stabilize
                     delayMS(20);
-                    
+
                     // Step 7: Update probe/commit structure with new frame sizes
                     // Formula: (width * height * BITSPERPIXEL) / 8 + 2
                     // This updates the UVC control structure that the host reads
-                    if (current_resolution == RESOLUTION_1920x1080) {
+                    if (target_resolution == RESOLUTION_640x480) {
+                        vdoProbeCommit.dwMaxVideoFrameSize = ((640 * 480 * BITSPERPIXEL) / 8) + 2;
+                        vdoProbeCommit.dwMaxPayloadTransferSize = ((640 * 480 * BITSPERPIXEL) / 8) + 2;
+                    } else if (target_resolution == RESOLUTION_1920x1080) {
                         vdoProbeCommit.dwMaxVideoFrameSize = ((1920 * 1080 * BITSPERPIXEL) / 8) + 2;
                         vdoProbeCommit.dwMaxPayloadTransferSize = ((1920 * 1080 * BITSPERPIXEL) / 8) + 2;
+                    } else if (target_resolution == RESOLUTION_3280x2160) {
+                        vdoProbeCommit.dwMaxVideoFrameSize = ((3280 * 2160 * BITSPERPIXEL) / 8) + 2;
+                        vdoProbeCommit.dwMaxPayloadTransferSize = ((3280 * 2160* BITSPERPIXEL) / 8) + 2;
                     } else {
                         vdoProbeCommit.dwMaxVideoFrameSize = ((1280 * 720 * BITSPERPIXEL) / 8) + 2;
                         vdoProbeCommit.dwMaxPayloadTransferSize = ((1280 * 720 * BITSPERPIXEL) / 8) + 2;
                     }
-                    
+
                     // Step 8: Re-enable camera with new resolution
                     // Camera will now start generating frames at the new resolution
                     enable_camera();
-                    
-                    // Step 9: Clear resolution_change_pending flag
-                    // Hardware change is complete, clear the pending flag
-                    resolution_change_pending = 0;
+
+                    // Step 8a: Pulse the IEBM flush bit so the RTL discards the first
+                    // frames of the new geometry. The flush write clears IP_CNF, so
+                    // it has to be set again afterwards.
+                    lsc_32_write((LSC_IEBM_BUF_MGMT_IP_BASE + LSC_IEBM_CTRL_REG),
+                            LSC_IEBM_FLUSH_BUF_MASK);
+                    while (lsc_32_read(LSC_IEBM_BUF_MGMT_IP_BASE + LSC_IEBM_CTRL_REG)
+                            & LSC_IEBM_FLUSH_BUF_MASK)
+                        ;
+                    lsc_32_write((LSC_IEBM_BUF_MGMT_IP_BASE + LSC_IEBM_CTRL_REG),
+                            LSC_IEBM_IP_CNF_MASK);
+
+                    // Step 9: Clear the pending flag only if no newer request arrived.
+                    if (current_resolution == target_resolution) {
+                        resolution_change_pending = 0;
+                    }
+
+            }
+            else {
+                // Non-IMX219 sensor: nothing to reprogram, just clear the flag.
+                resolution_change_pending = 0;
             }
         }
 
@@ -352,7 +408,6 @@ int main (void)
             status = 0;
             straming_en = 0;
         }
-
 
 
     }

@@ -1,0 +1,2674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice">
+    <ipxact:vendor>latticesemi.com</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>uart</ipxact:name>
+    <ipxact:version>1.0.0.04</ipxact:version>
+    <ipxact:model>
+        <ipxact:moduleParameters>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="param" resolve="generated" type="string">
+                <ipxact:name>param</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="FAMILY" resolve="generated" type="string">
+                <ipxact:name>FAMILY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DATA_WIDTH" resolve="generated" type="int">
+                <ipxact:name>DATA_WIDTH</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="ADDR_WIDTH" resolve="generated" type="int">
+                <ipxact:name>ADDR_WIDTH</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="CFG1_INIT_MODE" resolve="generated" type="bool">
+                <ipxact:name>CFG1_INIT_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="CFG1_INIT_FILE" resolve="generated" type="path">
+                <ipxact:name>CFG1_INIT_FILE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="UFM2_INIT_MODE" resolve="generated" type="bool">
+                <ipxact:name>UFM2_INIT_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="UFM2_INIT_FILE" resolve="generated" type="path">
+                <ipxact:name>UFM2_INIT_FILE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="param" resolve="generated" type="string">
+                <ipxact:name>param</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="FAMILY" resolve="generated" type="string">
+                <ipxact:name>FAMILY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="IO_LINES_COUNT" resolve="generated" type="int">
+                <ipxact:name>IO_LINES_COUNT</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="OUT_RESET_VAL_INPUT" resolve="generated" type="string">
+                <ipxact:name>OUT_RESET_VAL_INPUT</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="OUT_RESET_VAL" resolve="generated" type="string">
+                <ipxact:name>OUT_RESET_VAL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="IO_OUT_DEF_VAL" resolve="generated" type="string">
+                <ipxact:name>IO_OUT_DEF_VAL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DIRECTION_DEF_VAL_INPUT" resolve="generated" type="string">
+                <ipxact:name>DIRECTION_DEF_VAL_INPUT</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DIRECTION_DEF_VAL" resolve="generated" type="string">
+                <ipxact:name>DIRECTION_DEF_VAL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DIRECTION_DEF_ENCODING" resolve="generated" type="string">
+                <ipxact:name>DIRECTION_DEF_ENCODING</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="IF_USER_INTF" resolve="generated" type="string">
+                <ipxact:name>IF_USER_INTF</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="param" resolve="generated" type="string">
+                <ipxact:name>param</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DEFAULT_SPI_MODE" resolve="generated" type="int">
+                <ipxact:name>DEFAULT_SPI_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="DEFAULT_SCK_DIV" resolve="generated" type="int">
+                <ipxact:name>DEFAULT_SCK_DIV</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="TX_FIFO_SIZE" resolve="generated" type="int">
+                <ipxact:name>TX_FIFO_SIZE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="TX_FIFO_ALMOST_FULL_LEVEL" resolve="generated" type="int">
+                <ipxact:name>TX_FIFO_ALMOST_FULL_LEVEL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="TX_FIFO_ALMOST_EMPTY_LEVEL" resolve="generated" type="int">
+                <ipxact:name>TX_FIFO_ALMOST_EMPTY_LEVEL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="TX_FIFO_ENDIANNESS" resolve="generated" type="string">
+                <ipxact:name>TX_FIFO_ENDIANNESS</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="RX_FIFO_SIZE" resolve="generated" type="int">
+                <ipxact:name>RX_FIFO_SIZE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="RX_FIFO_ALMOST_FULL_LEVEL" resolve="generated" type="int">
+                <ipxact:name>RX_FIFO_ALMOST_FULL_LEVEL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="RX_FIFO_ALMOST_EMPTY_LEVEL" resolve="generated" type="int">
+                <ipxact:name>RX_FIFO_ALMOST_EMPTY_LEVEL</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="RX_FIFO_ENDIANNESS" resolve="generated" type="string">
+                <ipxact:name>RX_FIFO_ENDIANNESS</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="RX_FIFO_ENDIANNESS" resolve="generated" type="string">
+                <ipxact:name>RX_FIFO_ENDIANNESS</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="NUM_EXT_RX_FIFO_INTERFACES" resolve="generated" type="int">
+                <ipxact:name>NUM_EXT_RX_FIFO_INTERFACES</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="NUM_BUS_MONITORS" resolve="generated" type="int">
+                <ipxact:name>NUM_BUS_MONITORS</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_monitor_only" resolve="generated" type="int">
+                <ipxact:name>mon0_monitor_only</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_MONITOR_ONLY" resolve="generated" type="int">
+                <ipxact:name>MON0_MONITOR_ONLY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_spi_mode" resolve="generated" type="int">
+                <ipxact:name>mon0_spi_mode</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_SPI_MODE" resolve="generated" type="int">
+                <ipxact:name>MON0_SPI_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_maxaddr" resolve="generated" type="string">
+                <ipxact:name>mon0_maxaddr</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_MAX_ADDR" resolve="generated" type="string">
+                <ipxact:name>MON0_MAX_ADDR</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd0" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD0" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd1" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD1" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd2" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD2" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd3" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD3" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd4" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD4" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd5" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD5" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd6" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD6" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd7" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD7" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd8" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD8" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_init_cmd9" resolve="generated" type="string">
+                <ipxact:name>mon0_init_cmd9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_INIT_CMD9" resolve="generated" type="string">
+                <ipxact:name>MON0_INIT_CMD9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_qspi_mode_enable" resolve="generated" type="bool">
+                <ipxact:name>mon0_qspi_mode_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_QSPI_MODE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON0_QSPI_MODE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_qspi_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_qspi_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_QSPI_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_QSPI_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_qspi_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_qspi_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_QSPI_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_QSPI_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4byte_enable" resolve="generated" type="bool">
+                <ipxact:name>mon0_4byte_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4BYTE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON0_4BYTE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_rdear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_rdear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_RDEAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_RDEAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_wrear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_wrear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_WREAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_WREAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon0_4b_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon0_4b_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON0_4B_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON0_4B_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_monitor_only" resolve="generated" type="int">
+                <ipxact:name>mon1_monitor_only</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_MONITOR_ONLY" resolve="generated" type="int">
+                <ipxact:name>MON1_MONITOR_ONLY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_spi_mode" resolve="generated" type="int">
+                <ipxact:name>mon1_spi_mode</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_SPI_MODE" resolve="generated" type="int">
+                <ipxact:name>MON1_SPI_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_maxaddr" resolve="generated" type="string">
+                <ipxact:name>mon1_maxaddr</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_MAX_ADDR" resolve="generated" type="string">
+                <ipxact:name>MON1_MAX_ADDR</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd0" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD0" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd1" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD1" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd2" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD2" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd3" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD3" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd4" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD4" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd5" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD5" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd6" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD6" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd7" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD7" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd8" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD8" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_init_cmd9" resolve="generated" type="string">
+                <ipxact:name>mon1_init_cmd9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_INIT_CMD9" resolve="generated" type="string">
+                <ipxact:name>MON1_INIT_CMD9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_qspi_mode_enable" resolve="generated" type="bool">
+                <ipxact:name>mon1_qspi_mode_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_QSPI_MODE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON1_QSPI_MODE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_qspi_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_qspi_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_QSPI_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_QSPI_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_qspi_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_qspi_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_QSPI_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_QSPI_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4byte_enable" resolve="generated" type="bool">
+                <ipxact:name>mon1_4byte_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4BYTE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON1_4BYTE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_rdear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_rdear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_RDEAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_RDEAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_wrear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_wrear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_WREAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_WREAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon1_4b_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon1_4b_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON1_4B_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON1_4B_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_monitor_only" resolve="generated" type="int">
+                <ipxact:name>mon2_monitor_only</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_MONITOR_ONLY" resolve="generated" type="int">
+                <ipxact:name>MON2_MONITOR_ONLY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_spi_mode" resolve="generated" type="int">
+                <ipxact:name>mon2_spi_mode</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_SPI_MODE" resolve="generated" type="int">
+                <ipxact:name>MON2_SPI_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_maxaddr" resolve="generated" type="string">
+                <ipxact:name>mon2_maxaddr</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_MAX_ADDR" resolve="generated" type="string">
+                <ipxact:name>MON2_MAX_ADDR</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd0" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD0" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd1" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD1" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd2" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD2" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd3" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD3" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd4" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD4" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd5" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD5" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd6" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD6" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd7" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD7" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd8" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD8" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_init_cmd9" resolve="generated" type="string">
+                <ipxact:name>mon2_init_cmd9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_INIT_CMD9" resolve="generated" type="string">
+                <ipxact:name>MON2_INIT_CMD9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_qspi_mode_enable" resolve="generated" type="bool">
+                <ipxact:name>mon2_qspi_mode_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_QSPI_MODE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON2_QSPI_MODE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_qspi_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_qspi_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_QSPI_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_QSPI_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_qspi_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_qspi_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_QSPI_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_QSPI_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4byte_enable" resolve="generated" type="bool">
+                <ipxact:name>mon2_4byte_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4BYTE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON2_4BYTE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_rdear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_rdear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_RDEAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_RDEAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_wrear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_wrear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_WREAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_WREAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon2_4b_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon2_4b_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON2_4B_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON2_4B_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_monitor_only" resolve="generated" type="int">
+                <ipxact:name>mon3_monitor_only</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_MONITOR_ONLY" resolve="generated" type="int">
+                <ipxact:name>MON3_MONITOR_ONLY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_spi_mode" resolve="generated" type="int">
+                <ipxact:name>mon3_spi_mode</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_SPI_MODE" resolve="generated" type="int">
+                <ipxact:name>MON3_SPI_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_maxaddr" resolve="generated" type="string">
+                <ipxact:name>mon3_maxaddr</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_MAX_ADDR" resolve="generated" type="string">
+                <ipxact:name>MON3_MAX_ADDR</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd0" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD0" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd1" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD1" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd2" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD2" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd3" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD3" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd4" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD4" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd5" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD5" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd6" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD6" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd7" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD7" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd8" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD8" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_init_cmd9" resolve="generated" type="string">
+                <ipxact:name>mon3_init_cmd9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_INIT_CMD9" resolve="generated" type="string">
+                <ipxact:name>MON3_INIT_CMD9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_qspi_mode_enable" resolve="generated" type="bool">
+                <ipxact:name>mon3_qspi_mode_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_QSPI_MODE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON3_QSPI_MODE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_qspi_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_qspi_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_QSPI_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_QSPI_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_qspi_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_qspi_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_QSPI_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_QSPI_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4byte_enable" resolve="generated" type="bool">
+                <ipxact:name>mon3_4byte_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4BYTE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON3_4BYTE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_rdear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_rdear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_RDEAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_RDEAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_wrear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_wrear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_WREAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_WREAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon3_4b_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon3_4b_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON3_4B_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON3_4B_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_monitor_only" resolve="generated" type="int">
+                <ipxact:name>mon4_monitor_only</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_MONITOR_ONLY" resolve="generated" type="int">
+                <ipxact:name>MON4_MONITOR_ONLY</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_spi_mode" resolve="generated" type="int">
+                <ipxact:name>mon4_spi_mode</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_SPI_MODE" resolve="generated" type="int">
+                <ipxact:name>MON4_SPI_MODE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_maxaddr" resolve="generated" type="string">
+                <ipxact:name>mon4_maxaddr</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_MAX_ADDR" resolve="generated" type="string">
+                <ipxact:name>MON4_MAX_ADDR</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd0" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD0" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd1" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD1" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd2" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD2" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd3" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD3" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd4" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD4" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd5" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD5" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD5</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd6" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD6" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD6</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd7" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD7" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD7</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd8" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD8" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD8</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_init_cmd9" resolve="generated" type="string">
+                <ipxact:name>mon4_init_cmd9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_INIT_CMD9" resolve="generated" type="string">
+                <ipxact:name>MON4_INIT_CMD9</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_qspi_mode_enable" resolve="generated" type="bool">
+                <ipxact:name>mon4_qspi_mode_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_QSPI_MODE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON4_QSPI_MODE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_qspi_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_qspi_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_QSPI_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_QSPI_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_qspi_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_qspi_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_QSPI_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_QSPI_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4byte_enable" resolve="generated" type="bool">
+                <ipxact:name>mon4_4byte_enable</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4BYTE_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>MON4_4BYTE_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_mode_enter_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_mode_enter_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_MODE_ENTER_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_MODE_ENTER_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_mode_exit_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_mode_exit_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_MODE_EXIT_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_MODE_EXIT_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_rdear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_rdear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_RDEAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_RDEAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_wrear_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_wrear_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_WREAR_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_WREAR_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_prg_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_prg_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_PRG_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_PRG_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_prg_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_prg_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_PRG_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_PRG_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_erase_4kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_erase_4kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_ERASE_4KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_ERASE_4KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_erase_32kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_erase_32kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_ERASE_32KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_ERASE_32KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_erase_64kb_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_erase_64kb_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_ERASE_64KB_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_ERASE_64KB_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_read_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_read_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_READ_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_READ_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_read_fast_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_read_fast_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_READ_FAST_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_READ_FAST_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_read_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_read_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_READ_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_READ_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="mon4_4b_read_qaddr_qdata_cmd" resolve="generated" type="string">
+                <ipxact:name>mon4_4b_read_qaddr_qdata_cmd</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MON4_4B_READ_QADDR_QDATA_CMD" resolve="generated" type="string">
+                <ipxact:name>MON4_4B_READ_QADDR_QDATA_CMD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="en_mon0" resolve="generated" type="int">
+                <ipxact:name>en_mon0</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="en_mon1" resolve="generated" type="int">
+                <ipxact:name>en_mon1</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="en_mon2" resolve="generated" type="int">
+                <ipxact:name>en_mon2</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="en_mon3" resolve="generated" type="int">
+                <ipxact:name>en_mon3</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="en_mon4" resolve="generated" type="int">
+                <ipxact:name>en_mon4</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="APB_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>APB_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="SYS_CLOCK_FREQ" resolve="generated" type="float">
+                <ipxact:name>SYS_CLOCK_FREQ</ipxact:name>
+                <ipxact:matchname sequence_id="1">SYS_CLK</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="LCR_DATA_BITS" resolve="generated" type="int">
+                <ipxact:name>LCR_DATA_BITS</ipxact:name>
+                <ipxact:matchname sequence_id="4">DATA_WIDTH</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="LCR_STOP_BITS" resolve="generated" type="int">
+                <ipxact:name>LCR_STOP_BITS</ipxact:name>
+                <ipxact:matchname sequence_id="3">STOP_BITS</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="LCR_PARITY_ENABLE" resolve="generated" type="bool">
+                <ipxact:name>LCR_PARITY_ENABLE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="LCR_PARITY_ODD" resolve="generated" type="bool">
+                <ipxact:name>LCR_PARITY_ODD</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="LCR_PARITY_STICK" resolve="generated" type="bool">
+                <ipxact:name>LCR_PARITY_STICK</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="BAUD_RATE_TYPE" resolve="generated" type="int">
+                <ipxact:name>BAUD_RATE_TYPE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="STANDARD_BAUD_RATE" resolve="generated" type="int">
+                <ipxact:name>STANDARD_BAUD_RATE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="CUSTOM_BAUD_RATE" resolve="generated" type="int">
+                <ipxact:name>CUSTOM_BAUD_RATE</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="BAUD_RATE" resolve="generated" type="int">
+                <ipxact:name>BAUD_RATE</ipxact:name>
+                <ipxact:matchname sequence_id="2">BAUD_RATE</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="CLK_DIVISOR" resolve="generated" type="int">
+                <ipxact:name>CLK_DIVISOR</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="FIFO" resolve="generated" type="bool">
+                <ipxact:name>FIFO</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="MODEM_ENA" resolve="generated" type="bool">
+                <ipxact:name>MODEM_ENA</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="RXRDY_ENA" resolve="generated" type="bool">
+                <ipxact:name>RXRDY_ENA</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+            <ipxact:moduleParameter configGroups="SystemBuilder" parameterId="TXRDY_ENA" resolve="generated" type="bool">
+                <ipxact:name>TXRDY_ENA</ipxact:name>
+                <ipxact:matchname sequence_id="0">None</ipxact:matchname>
+                <ipxact:description/>
+                <ipxact:value>None</ipxact:value>
+            </ipxact:moduleParameter>
+        </ipxact:moduleParameters>
+    </ipxact:model>
+    <ipxact:vendorExtensions>
+        <lattice:structName>uart_instance</lattice:structName>
+        <lattice:initName>uart_init</lattice:initName>
+        <lattice:headerFile>uart.h</lattice:headerFile>
+    </ipxact:vendorExtensions>
+</ipxact:component>

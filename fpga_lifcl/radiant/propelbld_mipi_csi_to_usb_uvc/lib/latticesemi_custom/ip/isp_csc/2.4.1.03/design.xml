@@ -1,0 +1,248 @@
+<?xml version="1.0" ?>
+<ipxact:design xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi_custom</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>isp_csc</ipxact:name>
+    <ipxact:version>2.4.1.03</ipxact:version>
+    <ipxact:componentInstances>
+        <ipxact:componentInstance>
+            <ipxact:instanceName>lscc_csc_inst</ipxact:instanceName>
+            <ipxact:componentRef library="ip" name="color_space_converter" vendor="latticesemi_custom" version="2.4.1.03">
+                <ipxact:configurableElementValues>
+                    <ipxact:configurableElementValue referenceId="FAMILY">LIFCL</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CORETYPE_INPUT">1</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="EQUATION">dout = coeff0*din0 + coeff1*din1 + coeff2*din2 + constant</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="OPTIMIZE">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CORETYPE">1</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CPOINTS">8</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MH_INPUT">0.257</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MH">66</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MI_INPUT">0.504</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MI">129</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MJ_INPUT">0.098</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MJ">25</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MK_INPUT">16.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MK">4096</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NH_INPUT">-0.148</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NH">-38</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NI_INPUT">-0.291</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NI">-74</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NJ_INPUT">0.439</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NJ">112</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NK_INPUT">128.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NK">32768</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PH_INPUT">0.439</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PH">112</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PI_INPUT">-0.368</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PI">-94</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PJ_INPUT">-0.071</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PJ">-18</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PK_INPUT">128.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PK">32768</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MH_INPUT_CUSTOM">0.257</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MI_INPUT_CUSTOM">0.257</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MJ_INPUT_CUSTOM">0.257</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_MK_INPUT_CUSTOM">16.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NH_INPUT_CUSTOM">-0.148</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NI_INPUT_CUSTOM">-0.291</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NJ_INPUT_CUSTOM">0.439</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_NK_INPUT_CUSTOM">128.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PH_INPUT_CUSTOM">0.439</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PI_INPUT_CUSTOM">-0.368</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PJ_INPUT_CUSTOM">-0.071</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CV_PK_INPUT_CUSTOM">128.0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="INSERIAL">Parallel</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="DINSIGN">Unsigned</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="DINWIDTH">8</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="PIXELS_PER_CLK">2</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="AXI_STREAM_DATA_WIDTH">48</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CWIDTH">9</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="TAGSWIDTH">9</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="DSPBLKMULT">Enable</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="INREG">Enable</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="CE">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="SR">False</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LATENCY">8</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="DOUTSIGN">Unsigned</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="TX_BUFFER_DEPTH">128</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="DOUTPOINTS">0</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LATENCY_COMP">8.458333333333332</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MSBMETHOD_INPUT">Saturation</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="MSBMETHOD">Saturation</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LSBMETHOD_INPUT">Rounding_up</ipxact:configurableElementValue>
+                    <ipxact:configurableElementValue referenceId="LSBMETHOD">Rounding_up</ipxact:configurableElementValue>
+                </ipxact:configurableElementValues>
+            </ipxact:componentRef>
+        </ipxact:componentInstance>
+    </ipxact:componentInstances>
+    <ipxact:adHocConnections>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.axis_rx_clk_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="axis_rx_clk_i"/>
+                <ipxact:externalPortReference portRef="axis_rx_clk_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.axis_rx_arstn_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="axis_rx_arstn_i"/>
+                <ipxact:externalPortReference portRef="axis_rx_arstn_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.axis_tx_clk_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="axis_tx_clk_i"/>
+                <ipxact:externalPortReference portRef="axis_tx_clk_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.axis_tx_arstn_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="axis_tx_arstn_i"/>
+                <ipxact:externalPortReference portRef="axis_tx_arstn_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.ce_i</ipxact:name>
+            <ipxact:tiedValue>1'b1</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="ce_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.sr_i</ipxact:name>
+            <ipxact:tiedValue>1'b0</ipxact:tiedValue>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="sr_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.rx_tdata_i.47:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="rx_tdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>47</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="rx_tdata_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>47</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.rx_tuser_i.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="rx_tuser_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="rx_tuser_i">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.rx_tlast_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="rx_tlast_i"/>
+                <ipxact:externalPortReference portRef="rx_tlast_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.rx_tvalid_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="rx_tvalid_i"/>
+                <ipxact:externalPortReference portRef="rx_tvalid_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.rx_tready_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="rx_tready_o"/>
+                <ipxact:externalPortReference portRef="rx_tready_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.tx_tready_i</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="tx_tready_i"/>
+                <ipxact:externalPortReference portRef="tx_tready_i"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.tx_tdata_o.47:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="tx_tdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>47</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="tx_tdata_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>47</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.tx_tvalid_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="tx_tvalid_o"/>
+                <ipxact:externalPortReference portRef="tx_tvalid_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.tx_tlast_o</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="tx_tlast_o"/>
+                <ipxact:externalPortReference portRef="tx_tlast_o"/>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+        <ipxact:adHocConnection>
+            <ipxact:name>isp_csc.tx_tuser_o.1:0</ipxact:name>
+            <ipxact:portReferences>
+                <ipxact:internalPortReference componentRef="isp_csc" portRef="tx_tuser_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:internalPortReference>
+                <ipxact:externalPortReference portRef="tx_tuser_o">
+                    <ipxact:partSelect>
+                        <ipxact:range>
+                            <ipxact:left>1</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:range>
+                    </ipxact:partSelect>
+                </ipxact:externalPortReference>
+            </ipxact:portReferences>
+        </ipxact:adHocConnection>
+    </ipxact:adHocConnections>
+</ipxact:design>

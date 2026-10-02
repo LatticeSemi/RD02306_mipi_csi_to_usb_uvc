@@ -53,6 +53,8 @@
 #ifndef LSC_IN_EP_BUF_MGMT_H_
 #define LSC_IN_EP_BUF_MGMT_H_
 
+struct lsc_usb_dev;
+
 #include <sys/_stdint.h>
 #include "lsc_usb_dev.h"
 #include "sys_platform.h"

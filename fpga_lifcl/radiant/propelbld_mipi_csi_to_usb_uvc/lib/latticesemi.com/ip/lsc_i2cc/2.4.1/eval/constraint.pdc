@@ -1,0 +1,15 @@
+##================================================================================##
+## Copy these constraints to your top-level pdc and replace path with actual path 
+##================================================================================##
+
+ldc_set_port -iobuf {PULLMODE=UP} [get_ports {scl_io}]
+ldc_set_port -iobuf {PULLMODE=UP} [get_ports {sda_io}]
+
+set CLK_PERIOD 13.9
+create_clock -name {clk_i} -period $CLK_PERIOD [get_ports clk_i]
+##================================================================================##
+## The following are used for maverick regression only, remove when using in Radiant 
+##================================================================================##
+
+ldc_set_attribute {VIRTUAL_IO=TRUE} [get_ports apb*]
+ldc_set_attribute {VIRTUAL_IO=TRUE} [get_ports lmmi*]

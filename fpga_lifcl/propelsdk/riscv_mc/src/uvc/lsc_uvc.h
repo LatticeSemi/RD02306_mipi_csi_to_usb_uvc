@@ -296,12 +296,12 @@ extern "C" {
 //Change in descriptor structure bmControls field as per UVC 1.5 specification
 #ifdef UVC1_5
 #define PU_D_BM_CTRLS                        {0x00,0x00,0x00}
-#define CTD_BM_CTRLS                         {0x00,\
+#define CTD_BM_CTRLS                         {0x0A,\
                                               0x00,\
                                               0x00}
 #else
 #define PU_D_BM_CTRLS                        {0x00,0x00}
-#define CTD_BM_CTRLS                         {0x00,\
+#define CTD_BM_CTRLS                         {0x0A,\
                                               0x00}
 #endif
 
@@ -345,8 +345,11 @@ extern "C" {
 #define UVCFD_FRAME_INDEX     0x01
 #define UVCFD_CAPABILITIES    0x00
 
+// Indices run 1..bNumFrameDescriptors; 3280x2160 is last so High Speed stops at 3.
 #define FRAME_INDEX_1920x1080 0x01
 #define FRAME_INDEX_1280x720  0x02
+#define FRAME_INDEX_640x480   0x03
+#define FRAME_INDEX_3280x2160 0x04
 
 #define WIDTH   1280  // 1920////1280 //640   //    //0x0780
 #define HEIGHT  720 //1080///720  ///480  //     //0x0438
@@ -361,6 +364,8 @@ extern "C" {
 #define FRAMEINTERVALSTEP     0x000186A0            // 10ms Interval  ;;  (FRAMEINTERVALSTEP*100)ns
 
 #define NO_PROC_UNIT_CONTROLS_SUPPORTED     0x0A
+
+#define NO_CAM_TERM_CONTROLS_SUPPORTED      0x08
 
 #define GET_MIN_VAL_INDEX                   0x00
 #define GET_MAX_VAL_INDEX                   0x01
@@ -387,7 +392,9 @@ extern "C" {
  */
  typedef enum {
     RESOLUTION_1920x1080 = 0,
-    RESOLUTION_1280x720 = 1
+    RESOLUTION_1280x720 = 1,
+    RESOLUTION_3280x2160 = 2,
+    RESOLUTION_640x480 = 3
 } camera_resolution_t;
 
 /************************** TypeDef Definitions *****************************/
@@ -709,11 +716,15 @@ typedef struct {
 #define VCID_TOTAL_LEN                       sizeof(USB_UVC_VCID) + sizeof(USB_UVC_CTD) + sizeof(USB_UVC_OTD) + sizeof(USB_UVC_XUD)
 
 #ifdef UVC_YUY2
+// SuperSpeed length: four frame descriptors.
 #define VSI_IHD_TOTAL_LEN                     sizeof(USB_UVC_VSIHD)+\
                                               sizeof(USB_UVC_UVFD)+\
                                               sizeof(USB_UVC_UVCFD)+\
                                               sizeof(USB_UVC_UVCFD)+\
+                                              sizeof(USB_UVC_UVCFD)+\
+                                              sizeof(USB_UVC_UVCFD)+\
                                               sizeof(USB_UVC_CMD)
+
 #else
 #define VSI_IHD_TOTAL_LEN                     sizeof(USB_UVC_VSIHD)+\
                                               sizeof(USB_UVC_MVFD)+\
@@ -744,6 +755,7 @@ typedef struct {
     USB_UVC_UVFD vs_uvfd;
     USB_UVC_UVCFD vs_uvcfd;
     USB_UVC_UVCFD vs_uvcfd_2;
+    USB_UVC_UVCFD vs_uvcfd_3;
 #else
     USB_UVC_MVFD vs_mvfd;
     USB_UVC_MVCFD vs_mvcfd;
@@ -780,6 +792,8 @@ typedef struct {
     USB_UVC_UVFD vs_uvfd;
     USB_UVC_UVCFD vs_uvcfd;
     USB_UVC_UVCFD vs_uvcfd_2;
+    USB_UVC_UVCFD vs_uvcfd_3;
+    USB_UVC_UVCFD vs_uvcfd_4;   // 3280x2160, SuperSpeed only
 #else
     USB_UVC_MVFD vs_mvfd;
     USB_UVC_MVCFD vs_mvcfd;
@@ -1057,6 +1071,9 @@ typedef struct {
 //}};
 
 void configure_uvc_device();
+
+// Re-centres the host's exposure trim; call after the per-speed blanking table.
+void uvc_gain_sync_to_mode(camera_resolution_t resolution, int is_usb3);
 
 #ifdef __cplusplus
 }

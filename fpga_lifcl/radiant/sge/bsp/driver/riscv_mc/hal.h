@@ -51,8 +51,8 @@
 #ifndef HAL_H_
 #define HAL_H_
 
-#define RISCV_MC_DRV_VER "v2.8.0"
-#define RISCV_MC_DRV_VER_NO 0x020800
+#define RISCV_MC_DRV_VER "v2.9.0"
+#define RISCV_MC_DRV_VER_NO 0x020900
 
 #include "pic.h"
 #include "reg_access.h"

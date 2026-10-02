@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<RadiantModule architecture="je5d00" date="2026 09 04 11:50:27" device="LIFCL-33U" device_int="jd5u27a" display_module="System Memory" display_vendor="latticesemi.com" family="LIFCL" gen_platform="Propel" gen_platform_version="2026.1.0.2606162255" generator="ipgen" library="ip" module="system_memory" name="sysmem0" operation="Commercial" package="FCCSP104" package_int="FCCSP104" partnumber="LIFCL-33U-7CTG104C" source_format="Verilog" speed="7_High-Performance_1.0V" speed_int="10" vendor="latticesemi.com" version="2.6.0">
+ <Package>
+  <File modified="2026 09 04 11:50:27" name="rtl/sysmem0_bb.v" type="black_box_verilog"/>
+  <File modified="2026 09 04 11:50:27" name="sysmem0.cfg" type="cfg"/>
+  <File modified="2026 09 04 11:50:27" name="misc/sysmem0_tmpl.v" type="template_verilog"/>
+  <File modified="2026 09 04 11:50:27" name="misc/sysmem0_tmpl.vhd" type="template_vhdl"/>
+  <File modified="2026 09 04 11:50:27" name="rtl/sysmem0.v" type="top_level_verilog"/>
+  <File modified="2026 09 04 11:50:27" name="constraints/constraint.sdc" stage="lse:all,synplify:all" type="tcl_constraints"/>
+  <File modified="2026 09 04 11:50:27" name="testbench/dut_params.v" type="dependency_file"/>
+  <File modified="2026 09 04 11:50:27" name="testbench/dut_inst.v" type="dependency_file"/>
+  <File modified="2026 09 04 11:50:27" name="component.xml" type="IP-XACT_component"/>
+  <File modified="2026 09 04 11:50:27" name="design.xml" type="IP-XACT_design"/>
+  <File modified="2026 04 21 10:26:39" name="testbench/lscc_ahblmem_manager.v" type="testbench_verilog"/>
+  <File modified="2025 11 12 14:34:45" name="testbench/lscc_aximem_manager.v" type="testbench_verilog"/>
+  <File modified="2023 03 16 10:51:14" name="testbench/lscc_data_checker.v" type="testbench_verilog"/>
+  <File modified="2020 08 19 16:03:38" name="testbench/lscc_fifo_master.v" type="testbench_verilog"/>
+  <File modified="2026 04 21 10:26:39" name="testbench/tb_top.v" type="testbench_verilog"/>
+ </Package>
+</RadiantModule>

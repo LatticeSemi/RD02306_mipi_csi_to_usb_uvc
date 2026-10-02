@@ -22,7 +22,7 @@
 //  OR ITS CONTENTS WILL BE UNINTERRUPTED OR ERROR FREE, OR THAT DEFECTS
 //  HEREIN WILL BE CORRECTED.  LICENSEE ASSUMES RESPONSIBILITY FOR 
 //  SELECTION OF MATERIALS TO ACHIEVE ITS INTENDED RESULTS, AND FOR THE
-//  PROPER INSTALLATION, USE, AND RESULTS OBTAINED THEREFROM.  LICENSEE
+//  PROPER INSTALLATION, USE, AND RESULTS OBTAINED THERE FROM.  LICENSEE
 //  ASSUMES THE ENTIRE RISK OF THE FILE AND ITS CONTENTS PROVING DEFECTIVE
 //  OR FAILING TO PERFORM PROPERLY AND IN SUCH EVENT, LICENSEE SHALL
 //  ASSUME THE ENTIRE COST AND RISK OF ANY REPAIR, SERVICE, CORRECTION, OR
@@ -41,7 +41,14 @@
 
 //Verilog instantiation template
 
-mipi_csi_to_usb_uvc _inst (.REFINCLKEXTM_i(), 
+mipi_csi_to_usb_uvc _inst (.cam_scl_z(), 
+                           .cam_sda_z(), 
+                           .uart_rxd_i(), 
+                           .uart_txd_o(), 
+                           .rx_clk_n_i(), 
+                           .rx_clk_p_i(), 
+                           .clk_60m_i(), 
+                           .REFINCLKEXTM_i(), 
                            .REFINCLKEXTP_i(), 
                            .dm_z(), 
                            .dp_z(), 
@@ -50,11 +57,4 @@ mipi_csi_to_usb_uvc _inst (.REFINCLKEXTM_i(),
                            .u3_rxp_i(), 
                            .u3_txm_o(), 
                            .u3_txp_o(), 
-                           .vbus_z(), 
-                           .uart_rxd_i(), 
-                           .uart_txd_o(), 
-                           .cam_scl_z(), 
-                           .cam_sda_z(), 
-                           .clk_60m_i(), 
-                           .rx_clk_n_i(), 
-                           .rx_clk_p_i());
+                           .vbus_z());

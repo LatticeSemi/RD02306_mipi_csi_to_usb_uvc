@@ -1,0 +1,1335 @@
+<?xml version="1.0" ?>
+<ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:lattice="http://www.latticesemi.com/lattice" xmlns:lsccip="http://www.latticesemi.com/XMLSchema/Radiant/ip">
+    <ipxact:vendor>latticesemi.com</ipxact:vendor>
+    <ipxact:library>ip</ipxact:library>
+    <ipxact:name>lsc_i2cc</ipxact:name>
+    <ipxact:version>2.4.1</ipxact:version>
+    <ipxact:busInterfaces>
+        <ipxact:busInterface>
+            <ipxact:name>APB_S0</ipxact:name>
+            <ipxact:displayName>APB_S0</ipxact:displayName>
+            <ipxact:description>APB completer port</ipxact:description>
+            <ipxact:busType library="AMBA3" name="APB" vendor="amba.com" version="r1p0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="AMBA3" name="APB_rtl" vendor="amba.com" version="r1p0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PADDR</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_paddr_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PSELx</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_psel_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PENABLE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_penable_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PWRITE</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_pwrite_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PRDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_prdata_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PWDATA</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_pwdata_i</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PREADY</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_pready_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>PSLVERR</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>apb_pslverr_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:slave>
+                <ipxact:memoryMapRef memoryMapRef="i2c_controller_mem_map"/>
+            </ipxact:slave>
+        </ipxact:busInterface>
+        <ipxact:busInterface>
+            <ipxact:name>INTR</ipxact:name>
+            <ipxact:displayName>INTR</ipxact:displayName>
+            <ipxact:description>Interrupt Request</ipxact:description>
+            <ipxact:busType library="busdef.interrupt" name="interrupt" vendor="spiritconsortium.org" version="1.0"/>
+            <ipxact:abstractionTypes>
+                <ipxact:abstractionType>
+                    <ipxact:abstractionRef library="busdef.interrupt" name="interrupt_rtl" vendor="spiritconsortium.org" version="1.0"/>
+                    <ipxact:portMaps>
+                        <ipxact:portMap>
+                            <ipxact:logicalPort>
+                                <ipxact:name>IRQ</ipxact:name>
+                            </ipxact:logicalPort>
+                            <ipxact:physicalPort>
+                                <ipxact:name>int_o</ipxact:name>
+                            </ipxact:physicalPort>
+                        </ipxact:portMap>
+                    </ipxact:portMaps>
+                </ipxact:abstractionType>
+            </ipxact:abstractionTypes>
+            <ipxact:master/>
+        </ipxact:busInterface>
+    </ipxact:busInterfaces>
+    <ipxact:memoryMaps>
+        <ipxact:memoryMap>
+            <ipxact:name>i2c_controller_mem_map</ipxact:name>
+            <ipxact:description>I2C Controller memory map</ipxact:description>
+            <ipxact:addressBlock>
+                <ipxact:name>I2C_Controller_Registers</ipxact:name>
+                <ipxact:baseAddress>0</ipxact:baseAddress>
+                <ipxact:range>64</ipxact:range>
+                <ipxact:width>32</ipxact:width>
+                <ipxact:register>
+                    <ipxact:name>WR_DATA_REG</ipxact:name>
+                    <ipxact:displayName>Write_Data_Register</ipxact:displayName>
+                    <ipxact:description>Write Data Register</ipxact:description>
+                    <ipxact:addressOffset>0</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>true</ipxact:volatile>
+                    <ipxact:access>write-only</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO</ipxact:displayName>
+                        <ipxact:description>Write access to this field pushes data to Transmit FIFO</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                                <ipxact:mask>0</ipxact:mask>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>8</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>RD_DATA_REG</ipxact:name>
+                    <ipxact:displayName>Read_Data_Register</ipxact:displayName>
+                    <ipxact:description>Read Data Register</ipxact:description>
+                    <ipxact:addressOffset>0</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>true</ipxact:volatile>
+                    <ipxact:access>read-only</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo</ipxact:name>
+                        <ipxact:displayName>Receive FIFO</ipxact:displayName>
+                        <ipxact:description>Read access to this field pops data from Receive FIFO</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                                <ipxact:mask>0</ipxact:mask>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>8</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>TARGET_ADDRL_REG</ipxact:name>
+                    <ipxact:displayName>Target_Address_Lower_Register</ipxact:displayName>
+                    <ipxact:description>Lower 7-bit target address</ipxact:description>
+                    <ipxact:addressOffset>4</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>target_addr_l_reg</ipxact:name>
+                        <ipxact:displayName>Target Lower Address</ipxact:displayName>
+                        <ipxact:description>Lower 7-bit target address</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>7</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>TARGET_ADDRH_REG</ipxact:name>
+                    <ipxact:displayName>Target_Address_Higher_Register</ipxact:displayName>
+                    <ipxact:description>Upper 3-bit target address</ipxact:description>
+                    <ipxact:addressOffset>8</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>target_addr_h_reg</ipxact:name>
+                        <ipxact:displayName>Target Upper Address</ipxact:displayName>
+                        <ipxact:description>For 10-bit address mode only. Lower 3-bit target address</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>3</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>CONTROL_REG</ipxact:name>
+                    <ipxact:displayName>Control_Register</ipxact:displayName>
+                    <ipxact:description>Control Register</ipxact:description>
+                    <ipxact:addressOffset>12</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>true</ipxact:volatile>
+                    <ipxact:access>write-only</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>start</ipxact:name>
+                        <ipxact:displayName>Start</ipxact:displayName>
+                        <ipxact:description>Starts the I2C transaction. This is asserted after the MPU has finished writing to all configuration registers</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>abort</ipxact:name>
+                        <ipxact:displayName>Abort</ipxact:displayName>
+                        <ipxact:description>Stops an I2C transaction currently in progress</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>reset</ipxact:name>
+                        <ipxact:displayName>Reset</ipxact:displayName>
+                        <ipxact:description>Set this bit to 1 to reset this I2C Controller</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>repeated_start</ipxact:name>
+                        <ipxact:displayName>Repeated Start</ipxact:displayName>
+                        <ipxact:description>Causes I2C controller to omit the generation of a stop condition following the completion of a transaction. Subsequent transaction will be a repeated start.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>TGT_BYTE_CNT_REG</ipxact:name>
+                    <ipxact:displayName>Target_Byte_Count_Register</ipxact:displayName>
+                    <ipxact:description>Target Byte Count Register</ipxact:description>
+                    <ipxact:addressOffset>16</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>byte_cnt</ipxact:name>
+                        <ipxact:displayName>Byte_Count</ipxact:displayName>
+                        <ipxact:description>Number of data bytes for the current transaction</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>8</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>MODE_REG</ipxact:name>
+                    <ipxact:displayName>Mode_Register</ipxact:displayName>
+                    <ipxact:description>Mode Register</ipxact:description>
+                    <ipxact:addressOffset>20</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>clk_presc_high</ipxact:name>
+                        <ipxact:displayName>Clock Prescaler Register High Bits</ipxact:displayName>
+                        <ipxact:description>The upper three bits of the clock prescaler</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>1</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>3</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>trx_mode</ipxact:name>
+                        <ipxact:displayName>Transmit Receive Mode</ipxact:displayName>
+                        <ipxact:description>Sets the read or write operation on the I2C bus</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>addr_mode</ipxact:name>
+                        <ipxact:displayName>Adress Mode</ipxact:displayName>
+                        <ipxact:description>Selects the addressing mode either 7 or 10 bits</ipxact:description>
+                        <ipxact:bitOffset>5</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>bus_speed_mode</ipxact:name>
+                        <ipxact:displayName>Bus Speed Mode</ipxact:displayName>
+                        <ipxact:description>Selects setup time for Repeated START Condition and setup time for STOP Condition</ipxact:description>
+                        <ipxact:bitOffset>6</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>2</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>CLK_PRESCL_REG</ipxact:name>
+                    <ipxact:displayName>Clock_Prescaler_Register_Low_Bits</ipxact:displayName>
+                    <ipxact:description>Clock Prescaler Register Low Bits</ipxact:description>
+                    <ipxact:addressOffset>24</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>clk_presc_low</ipxact:name>
+                        <ipxact:displayName>Clock Prescaler Register Low Bits</ipxact:displayName>
+                        <ipxact:description>Lower 8-bit value of divisor in clock prescaler register</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>101</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>8</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>INT_STATUS1_REG</ipxact:name>
+                    <ipxact:displayName>Interrupt_Status_1st_Register</ipxact:displayName>
+                    <ipxact:description>Interrupt Status 1st Register</ipxact:description>
+                    <ipxact:addressOffset>28</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>true</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_ready_int</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Ready Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when Receive FIFO is empty and receives a data word from SPI interface.</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_afull_int</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Almost Full Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when the amount of data words in Receive FIFO changes from 'RX FIFO Almost Full Flag' - 1 to 'RX FIFO Almost Full Flag'.</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_full_int</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Full Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when RX FIFO full status changes from not full to full state.</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_empty_int</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Empty Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when the last data in Transmit FIFO is popped-out, causing the FIFO to become empty.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>1</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_aempty_int</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Almost Empty Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when the amount of data words in Transmit FIFO changes from 'TX FIFO Almost Empty Flag' + 1 to 'TX FIFO Almost Empty Flag'.</ipxact:description>
+                        <ipxact:bitOffset>4</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>1</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_full_int</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Full Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when Transmit FIFO changes from not full state to full state.</ipxact:description>
+                        <ipxact:bitOffset>5</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tr_cmp_int</ipxact:name>
+                        <ipxact:displayName>Transmit Complete Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when the number of transmitted words via SPI interface reaches the TGT_WORD_CNT_REG.target_word_cnt setting value.</ipxact:description>
+                        <ipxact:bitOffset>7</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>INT_ENABLE1_REG</ipxact:name>
+                    <ipxact:displayName>Interrupt_Enable_1st_Register</ipxact:displayName>
+                    <ipxact:description>Interrupt Enable 1st Register</ipxact:description>
+                    <ipxact:addressOffset>32</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_ready_en</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Ready Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Interrupt enabled bit corresponded to Receive FIFO Ready Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_afull_en</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Almost Full Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Interrupt enabled bit corresponded to Receive FIFO Almost Full Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_full_en</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Full Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Interrupt enabled bit corresponded to Receive FIFO Full Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_empty_en</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Empty Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Interrupt enabled bit corresponded to Transmit FIFO Empty Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_aempty_en</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Almost Empty Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Interrupt enabled bit corresponded to Transmit FIFO Almost Empty Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>4</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_full_en</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Full Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Interrupt enabled bit corresponded to Transmit FIFO Full Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>5</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tr_cmp_en</ipxact:name>
+                        <ipxact:displayName>Transmit Complete Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Interrupt enabled bit corresponded to Transfer Complete Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>7</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>INT_SET1_REG</ipxact:name>
+                    <ipxact:displayName>Interrupt_Set_1st_Register</ipxact:displayName>
+                    <ipxact:description>Interrupt Set 1st Register</ipxact:description>
+                    <ipxact:addressOffset>36</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>write-only</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_ready_set</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Ready Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Interrupt set bit corresponded to Receive FIFO Ready Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_afull_set</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Almost Full Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Interrupt set bit corresponded to Receive FIFO Almost Full Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_full_set</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Full Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Interrupt set bit corresponded to Receive FIFO Full Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_empty_set</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Empty Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Interrupt set bit corresponded to Transmit FIFO Empty Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_aempty_set</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Almost Empty Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Interrupt set bit corresponded to Transmit FIFO Almost Empty Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>4</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_full_set</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Full Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Interrupt set bit corresponded to Transmit FIFO Full Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>5</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tr_cmp_set</ipxact:name>
+                        <ipxact:displayName>Transmit Complete Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Interrupt set bit corresponded to Transfer Complete Interrupt Status.</ipxact:description>
+                        <ipxact:bitOffset>7</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>INT_STATUS2_REG</ipxact:name>
+                    <ipxact:displayName>Interrupt_Status_2nd_Register</ipxact:displayName>
+                    <ipxact:description>Interrupt Status 2nd Register</ipxact:description>
+                    <ipxact:addressOffset>40</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>true</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>timeout_int</ipxact:name>
+                        <ipxact:displayName>SCL Timeout Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status of bit asserts when scl_io is hold for SCL_TIMEOUT_REG.timeout_val times the programmed SCL low period.</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>arb_lost_int</ipxact:name>
+                        <ipxact:displayName>Arbitration Lost Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when I2C Controller IP Core loses arbitration.</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>abort_ack_int</ipxact:name>
+                        <ipxact:displayName>Transaction Abort Acknowledgement Interrupt</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when an I2C Controller IP Core aborts an ongoing transaction because the host writes 1'b1 to CONTROL_REG.abort.</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>nack_error_int</ipxact:name>
+                        <ipxact:displayName>NACK Error Interrupt Status</ipxact:displayName>
+                        <ipxact:description>This interrupt status bit asserts when NACK is received when expecting an ACK during data phase and address phase.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:modifiedWriteValue>oneToClear</ipxact:modifiedWriteValue>
+                        <ipxact:testable testConstraint="unconstrained">false</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>INT_ENABLE2_REG</ipxact:name>
+                    <ipxact:displayName>Interrupt_Enable_2nd_Register</ipxact:displayName>
+                    <ipxact:description>Interrupt Enable 2nd Register</ipxact:description>
+                    <ipxact:addressOffset>44</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>timeout_en</ipxact:name>
+                        <ipxact:displayName>SCL Timeout Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Defines the Interrupt enable of bit corresponding to SCL Timeout Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>arb_lost_en</ipxact:name>
+                        <ipxact:displayName>Arbitration Lost Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Defines the interrupt enable bit corresponding to Arbitration Lost Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>abort_ack_en</ipxact:name>
+                        <ipxact:displayName>Transaction Abort Acknowledgement Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Defines the interrupt enable bit corresponding to Transaction Abort Acknowledgement Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>nack_error_en</ipxact:name>
+                        <ipxact:displayName>NACK Error Interrupt Enable</ipxact:displayName>
+                        <ipxact:description>Defines the interrupt enable bit corresponding to NACK Error Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>INT_SET2_REG</ipxact:name>
+                    <ipxact:displayName>Interrupt_Set_2nd_Register</ipxact:displayName>
+                    <ipxact:description>Interrupt Set 2nd Register</ipxact:description>
+                    <ipxact:addressOffset>48</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>write-only</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>timeout_set</ipxact:name>
+                        <ipxact:displayName>SCL Timeout Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Defines the Interrupt set of bit corresponding to SCL Timeout Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>arb_lost_set</ipxact:name>
+                        <ipxact:displayName>Arbitration Lost Interrupt_Set</ipxact:displayName>
+                        <ipxact:description>Defines the interrupt set bit corresponding to Arbitration Lost Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>abort_ack_set</ipxact:name>
+                        <ipxact:displayName>Transaction Abort Acknowledgement Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Defines the interrupt set bit corresponding to Transaction Abort Acknowledgement Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>nack_error_set</ipxact:name>
+                        <ipxact:displayName>NACK Error Interrupt Set</ipxact:displayName>
+                        <ipxact:description>Defines the interrupt set bit corresponding to NACK Error Interrupt.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>write-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>FIFO_STATUS_REG</ipxact:name>
+                    <ipxact:displayName>FIFO_Status_Register</ipxact:displayName>
+                    <ipxact:description>FIFO Status Register</ipxact:description>
+                    <ipxact:addressOffset>52</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>true</ipxact:volatile>
+                    <ipxact:access>read-only</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_empty</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Empty</ipxact:displayName>
+                        <ipxact:description>This bit reflects the empty condition of Receive FIFO.</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>1</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_afull</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Almost Full</ipxact:displayName>
+                        <ipxact:description>This bit reflects the almost full condition of Receive FIFO.</ipxact:description>
+                        <ipxact:bitOffset>1</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>rx_fifo_full</ipxact:name>
+                        <ipxact:displayName>Receive FIFO Full</ipxact:displayName>
+                        <ipxact:description>This bit reflects the full condition of Receive FIFO.</ipxact:description>
+                        <ipxact:bitOffset>2</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_empty</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Empty</ipxact:displayName>
+                        <ipxact:description>This bit reflects the empty condition of Transmit FIFO.</ipxact:description>
+                        <ipxact:bitOffset>3</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>1</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_aempty</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Almost Empty</ipxact:displayName>
+                        <ipxact:description>This bit reflects the almost empty condition of Transmit FIFO.</ipxact:description>
+                        <ipxact:bitOffset>4</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>1</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                    <ipxact:field>
+                        <ipxact:name>tx_fifo_full</ipxact:name>
+                        <ipxact:displayName>Transmit FIFO Full</ipxact:displayName>
+                        <ipxact:description>This bit reflects the full condition of Transmit FIFO.</ipxact:description>
+                        <ipxact:bitOffset>5</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>1</ipxact:bitWidth>
+                        <ipxact:volatile>true</ipxact:volatile>
+                        <ipxact:access>read-only</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+                <ipxact:register>
+                    <ipxact:name>SCL_TIMEOUT_REG</ipxact:name>
+                    <ipxact:displayName>SCL_Timeout_Register</ipxact:displayName>
+                    <ipxact:description>SLC Timeout Register specifies the timeout value for SCL Timeout.</ipxact:description>
+                    <ipxact:addressOffset>56</ipxact:addressOffset>
+                    <ipxact:size>32</ipxact:size>
+                    <ipxact:volatile>false</ipxact:volatile>
+                    <ipxact:access>read-write</ipxact:access>
+                    <ipxact:field>
+                        <ipxact:name>timeout_val</ipxact:name>
+                        <ipxact:displayName>Timeout Value</ipxact:displayName>
+                        <ipxact:description>Specifies the timeout value for SCL timeout</ipxact:description>
+                        <ipxact:bitOffset>0</ipxact:bitOffset>
+                        <ipxact:resets>
+                            <ipxact:reset>
+                                <ipxact:value>0</ipxact:value>
+                            </ipxact:reset>
+                        </ipxact:resets>
+                        <ipxact:bitWidth>8</ipxact:bitWidth>
+                        <ipxact:volatile>false</ipxact:volatile>
+                        <ipxact:access>read-write</ipxact:access>
+                        <ipxact:testable testConstraint="unconstrained">true</ipxact:testable>
+                    </ipxact:field>
+                </ipxact:register>
+            </ipxact:addressBlock>
+        </ipxact:memoryMap>
+    </ipxact:memoryMaps>
+    <ipxact:model>
+        <ipxact:instantiations>
+            <ipxact:componentInstantiation>
+                <ipxact:name>lsc_i2cc</ipxact:name>
+            </ipxact:componentInstantiation>
+            <ipxact:designInstantiation>
+                <ipxact:name>lsc_i2cc_design</ipxact:name>
+                <ipxact:designRef library="ip" name="lsc_i2cc" vendor="latticesemi.com" version="2.4.1"/>
+            </ipxact:designInstantiation>
+        </ipxact:instantiations>
+        <ipxact:ports>
+            <ipxact:port>
+                <ipxact:name>scl_io</ipxact:name>
+                <ipxact:displayName>scl_io</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>inout</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>sda_io</ipxact:name>
+                <ipxact:displayName>sda_io</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>inout</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>clk_i</ipxact:name>
+                <ipxact:displayName>clk_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>rst_n_i</ipxact:name>
+                <ipxact:displayName>rst_n_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>int_o</ipxact:name>
+                <ipxact:displayName>int_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_penable_i</ipxact:name>
+                <ipxact:displayName>apb_penable_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_psel_i</ipxact:name>
+                <ipxact:displayName>apb_psel_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_pwrite_i</ipxact:name>
+                <ipxact:displayName>apb_pwrite_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_paddr_i</ipxact:name>
+                <ipxact:displayName>apb_paddr_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>5</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_pwdata_i</ipxact:name>
+                <ipxact:displayName>apb_pwdata_i</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>in</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_pready_o</ipxact:name>
+                <ipxact:displayName>apb_pready_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_pslverr_o</ipxact:name>
+                <ipxact:displayName>apb_pslverr_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                </ipxact:wire>
+            </ipxact:port>
+            <ipxact:port>
+                <ipxact:name>apb_prdata_o</ipxact:name>
+                <ipxact:displayName>apb_prdata_o</ipxact:displayName>
+                <ipxact:wire>
+                    <ipxact:direction>out</ipxact:direction>
+                    <ipxact:vectors>
+                        <ipxact:vector>
+                            <ipxact:left>31</ipxact:left>
+                            <ipxact:right>0</ipxact:right>
+                        </ipxact:vector>
+                    </ipxact:vectors>
+                </ipxact:wire>
+            </ipxact:port>
+        </ipxact:ports>
+    </ipxact:model>
+    <ipxact:fileSets>
+        <ipxact:fileSet>
+            <ipxact:name>ipx_file_list</ipxact:name>
+            <ipxact:file>
+                <ipxact:name>rtl/lsc_i2cc_bb.v</ipxact:name>
+                <ipxact:fileType user="black_box_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>lsc_i2cc.cfg</ipxact:name>
+                <ipxact:fileType user="cfg">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>misc/lsc_i2cc_tmpl.v</ipxact:name>
+                <ipxact:fileType user="template_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>misc/lsc_i2cc_tmpl.vhd</ipxact:name>
+                <ipxact:fileType user="template_vhdl">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>rtl/lsc_i2cc.v</ipxact:name>
+                <ipxact:fileType user="top_level_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>constraints/lsc_i2cc.ldc</ipxact:name>
+                <ipxact:fileType user="timing_constraints">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/dut_params.v</ipxact:name>
+                <ipxact:fileType user="dependency_file">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/dut_inst.v</ipxact:name>
+                <ipxact:fileType user="dependency_file">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>eval/dut_params.v</ipxact:name>
+                <ipxact:fileType user="dependency_file">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>eval/dut_inst.v</ipxact:name>
+                <ipxact:fileType user="dependency_file">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>design.xml</ipxact:name>
+                <ipxact:fileType user="IP-XACT_design">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/i2c_target_model.v</ipxact:name>
+                <ipxact:fileType user="testbench_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/lscc_lmmi2apb.v</ipxact:name>
+                <ipxact:fileType user="testbench_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/tb_lmmi_mst.v</ipxact:name>
+                <ipxact:fileType user="testbench_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>testbench/tb_top.v</ipxact:name>
+                <ipxact:fileType user="testbench_verilog">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master.xml</ipxact:name>
+                <ipxact:fileType user="driver_metadata">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master_new.xml</ipxact:name>
+                <ipxact:fileType user="driver_metadata">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master_regs.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+        </ipxact:fileSet>
+        <ipxact:fileSet>
+            <ipxact:name>driver_file_list</ipxact:name>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master.c</ipxact:name>
+                <ipxact:fileType user="driver_source">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master.xml</ipxact:name>
+                <ipxact:fileType user="driver_metadata">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master_new.xml</ipxact:name>
+                <ipxact:fileType user="driver_metadata">user</ipxact:fileType>
+            </ipxact:file>
+            <ipxact:file>
+                <ipxact:name>driver/i2c_master_regs.h</ipxact:name>
+                <ipxact:fileType user="driver_header">user</ipxact:fileType>
+            </ipxact:file>
+        </ipxact:fileSet>
+    </ipxact:fileSets>
+    <ipxact:vendorExtensions>
+        <lsccip:moduleRef lsccip:display_name="I2C Controller" lsccip:display_vendor="latticesemi.com" lsccip:library="ip" lsccip:name="i2c_controller" lsccip:vendor="latticesemi.com" lsccip:version="2.4.1"/>
+        <lsccip:deviceInfo>
+            <lsccip:device>LIFCL-33U</lsccip:device>
+            <lsccip:device_int>jd5u27a</lsccip:device_int>
+            <lsccip:package>FCCSP104</lsccip:package>
+            <lsccip:package_int>FCCSP104</lsccip:package_int>
+            <lsccip:performanceGrade>7_High-Performance_1.0V</lsccip:performanceGrade>
+            <lsccip:speed_int>10</lsccip:speed_int>
+            <lsccip:operation>Commercial</lsccip:operation>
+            <lsccip:family>LIFCL</lsccip:family>
+            <lsccip:architecture>je5d00</lsccip:architecture>
+            <lsccip:partnumber>LIFCL-33U-7CTG104C</lsccip:partnumber>
+        </lsccip:deviceInfo>
+        <lsccip:generationInfo>
+            <lsccip:fileVersion>20180929</lsccip:fileVersion>
+            <lsccip:createdTimestamp>2026 07 21 09:05:04</lsccip:createdTimestamp>
+            <lsccip:radiantBuild>&quot;Lattice Propel&quot; (64-bit) 2026.1.0.2606162255</lsccip:radiantBuild>
+        </lsccip:generationInfo>
+    </ipxact:vendorExtensions>
+</ipxact:component>

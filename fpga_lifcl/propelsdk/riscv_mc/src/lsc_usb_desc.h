@@ -425,9 +425,9 @@ LSC_USB_BOS_DESC __attribute__ ((aligned(4))) bos_desc = {{
         USB_DEVICE_CAPABILITY_TYPE, /* bDescriptorType */
         USB20_EXT_DESC, /* bDevCapabiltyType */
 #ifdef LSC_LPM_ENABLE
-        0x06, 0x0, 0x0, 0x0 /* bmAttributes */
+        0x00000006 /* bmAttributes */
 #else
-        0x0, 0x0, 0x0, 0x0 /* Disable LPM/BESL for USB 2.0*/
+        0x00000000 /* Disable LPM/BESL for USB 2.0*/
 #endif
 },
 
@@ -468,6 +468,23 @@ LSC_USB_BOS_DESC __attribute__ ((aligned(4))) bos_desc = {{
 /**
  *  @brief USB20 UVC High Speed YUY2 Bulk Configuration Descriptor Data.
  */
+/* VS Input Header wTotalLength, derived from the struct so it tracks the frame
+ * descriptors automatically. */
+#include <stddef.h>
+
+#define VS_CLASS_SPECIFIC_LEN(cfg_type)     (offsetof(cfg_type, vs_bulk_ep_in) - offsetof(cfg_type, vsihd))
+
+/* SS carries four frame descriptors, HS three. */
+_Static_assert(VS_CLASS_SPECIFIC_LEN(LSC_YUY2_BULK_CFG_DESC_SS)
+             - VS_CLASS_SPECIFIC_LEN(LSC_YUY2_BULK_CFG_DESC_HS)
+               == sizeof(USB_UVC_UVCFD),
+    "SS must carry exactly one more frame descriptor than HS");
+
+/* SS must match VSI_IHD_TOTAL_LEN. */
+_Static_assert(VS_CLASS_SPECIFIC_LEN(LSC_YUY2_BULK_CFG_DESC_SS)
+               == (VSI_IHD_TOTAL_LEN),
+    "SuperSpeed VS wTotalLength changed unexpectedly");
+
 LSC_YUY2_BULK_CFG_DESC_HS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_hs = {{
 //Standard Configuration Descriptor
         sizeof(USB_STD_CFG_DESC),
@@ -616,7 +633,7 @@ LSC_YUY2_BULK_CFG_DESC_HS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_hs = {
         CS_INTERFACE,
         VS_INPUT_HEADER,
         NO_OF_FORMATS_SUPPORTED_BY_VIDEO_STREAM_INTERFACE,
-        VSI_IHD_TOTAL_LEN,
+        VS_CLASS_SPECIFIC_LEN(LSC_YUY2_BULK_CFG_DESC_HS),
         0x81,
         0x00,
         0x02,
@@ -634,10 +651,10 @@ LSC_YUY2_BULK_CFG_DESC_HS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_hs = {
         CS_INTERFACE,
         VS_FORMAT_UNCOMPRESSED,
         0x01,
-        0x02, //adding second framed descriptor for 720p/1080p selection
+        0x03, // bNumFrameDescriptors: 1080p, 720p, 640x480
         YUY2_GUID,
         BITSPERPIXEL,
-        0x02,  // bDefaultFrameIndex: Changed from 0x01 (1080p) to 0x02 (720p)
+        0x01,  // bDefaultFrameIndex: 0x01 (1080p), 0x02 (720p), 0x03 (640x480)
         0x00,
         0x00,
         0x00
@@ -727,6 +744,24 @@ LSC_YUY2_BULK_CFG_DESC_HS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_hs = {
         (NO_OF_FRAMES_IN_STILL_IMAGE-1)
 },
 #endif
+        {
+        //Uncompressed Video Continues Frame Descriptor (640x480)
+                sizeof(USB_UVC_UVCFD),
+                CS_INTERFACE,
+                VS_FRAME_UNCOMPRESSED,
+                FRAME_INDEX_640x480,   // Frame Index 0x03
+                UVCFD_CAPABILITIES,
+                0x0280,  // 640 width
+                0x01E0,  // 480 height
+                MAXBITRATE,
+                MINBITRATE,
+                (((640*480*BITSPERPIXEL)/8)+2),
+                DEFAULTFRAMEINTERVAL,
+                UVCFD_FRAMEINTERVALTYPE,
+                MINIMUMFRAMEINTERVAL,
+                (MINIMUMFRAMEINTERVAL + FRAMEINTERVALSTEP),
+                FRAMEINTERVALSTEP
+        },
 {
 //Class-specific Color Matching Descriptor
         sizeof(USB_UVC_CMD),\
@@ -905,7 +940,7 @@ LSC_YUY2_BULK_CFG_DESC_SS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_ss = {
         CS_INTERFACE,
         VS_INPUT_HEADER,
         NO_OF_FORMATS_SUPPORTED_BY_VIDEO_STREAM_INTERFACE,
-        VSI_IHD_TOTAL_LEN,
+        VS_CLASS_SPECIFIC_LEN(LSC_YUY2_BULK_CFG_DESC_SS),
         0x81,
         0x00,
         0x02,
@@ -923,10 +958,10 @@ LSC_YUY2_BULK_CFG_DESC_SS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_ss = {
         CS_INTERFACE,
         VS_FORMAT_UNCOMPRESSED,
         0x01,
-        0x02,
+        0x04, // bNumFrameDescriptors: 1080p, 720p, 640x480, 3280x2160
         YUY2_GUID,
         BITSPERPIXEL,
-        0x02,  // bDefaultFrameIndex: Changed from 0x01 (1080p) to 0x02 (720p)
+        0x01,  // bDefaultFrameIndex: 1=1080p, 2=720p, 3=640x480, 4=3280x2160
         0x00,
         0x00,
         0x00
@@ -1016,6 +1051,42 @@ LSC_YUY2_BULK_CFG_DESC_SS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_ss = {
         (NO_OF_FRAMES_IN_STILL_IMAGE-1)
 },
 #endif
+        {
+        //Uncompressed Video Continues Frame Descriptor (640x480)
+                sizeof(USB_UVC_UVCFD),
+                CS_INTERFACE,
+                VS_FRAME_UNCOMPRESSED,
+                FRAME_INDEX_640x480,   // Frame Index 0x03
+                UVCFD_CAPABILITIES,
+                0x0280,  // 640 width
+                0x01E0,  // 480 height
+                MAXBITRATE,
+                MINBITRATE,
+                (((640*480*BITSPERPIXEL)/8)+2),
+                DEFAULTFRAMEINTERVAL,
+                UVCFD_FRAMEINTERVALTYPE,
+                MINIMUMFRAMEINTERVAL,
+                (MINIMUMFRAMEINTERVAL + FRAMEINTERVALSTEP),
+                FRAMEINTERVALSTEP
+        },
+        {
+        //Uncompressed Video Continues Frame Descriptor (3280x2160)
+                sizeof(USB_UVC_UVCFD),
+                CS_INTERFACE,
+                VS_FRAME_UNCOMPRESSED,
+                FRAME_INDEX_3280x2160,  // Frame Index 0x04
+                UVCFD_CAPABILITIES,
+                0x0CD0,  // 3280 width
+                0x0870,  // 2160 height
+                MAXBITRATE,
+                MINBITRATE,
+                (((3280*2160*BITSPERPIXEL)/8)+2),
+                DEFAULTFRAMEINTERVAL,
+                UVCFD_FRAMEINTERVALTYPE,
+                MINIMUMFRAMEINTERVAL,
+                (MINIMUMFRAMEINTERVAL + FRAMEINTERVALSTEP),
+                FRAMEINTERVALSTEP
+        },
 {
 //Class-specific Color Matching Descriptor
         sizeof(USB_UVC_CMD),\
@@ -1047,6 +1118,7 @@ LSC_YUY2_BULK_CFG_DESC_SS __attribute__ ((aligned(4))) yuy2_bulk_cfg_desc_ss = {
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif /* LSC_USB_DESC_H_ */
 
